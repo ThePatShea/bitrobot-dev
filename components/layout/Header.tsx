@@ -2,12 +2,12 @@
  * Header component with user account menu
  */
 
-'use client';
+"use client";
 
-import React, { useState } from 'react';
-import Image from 'next/image';
-import { Icon } from '@/components/ui/Icon';
-import type { UserProfile } from '@/app/types';
+import React, { useState } from "react";
+import Image from "next/image";
+import { Icon } from "@/components/ui/Icon";
+import type { UserProfile } from "@/app/types";
 
 /**
  * Header component props
@@ -19,7 +19,7 @@ interface HeaderProps {
 
 /**
  * Header component with user account dropdown menu
- * 
+ *
  * @example
  * ```tsx
  * <Header user={{ username: 'username123', avatar: '/images/avatar.png', id: '1' }} />
@@ -29,7 +29,7 @@ export const Header: React.FC<HeaderProps> = ({ user }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
-    <header className="h-16 bg-white border-b border-border flex items-center justify-end px-8 fixed top-0 right-0 left-64 z-10">
+    <header className="h-16 flex items-center justify-end px-8 fixed top-0 right-0 left-66 z-10">
       <div className="relative">
         <button
           onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -43,10 +43,12 @@ export const Header: React.FC<HeaderProps> = ({ user }) => {
             className="rounded-full"
           />
           <span className="text-sm text-muted">{user.username}</span>
-          <Icon 
-            name="chevron-down" 
-            size={16} 
-            className={`transition-transform duration-200 ${isMenuOpen ? 'rotate-180' : ''}`}
+          <Icon
+            name="chevron-down"
+            size={16}
+            className={`transition-transform duration-200 ${
+              isMenuOpen ? "rotate-180" : ""
+            }`}
           />
         </button>
 
