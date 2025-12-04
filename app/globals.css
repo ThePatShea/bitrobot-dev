@@ -29,10 +29,12 @@
   /* Warning/Yellow colors */
   --warning: #eab308;
   --warning-text: #ca8a04;
+  --warning-text-bright: #ecb900;
   --warning-bg: #fef3c7;
   --warning-bg-hover: #fde68a;
   --warning-border: #fde047;
   --warning-bg-light: #fef9c3;
+  --warning-bg-soft: #fef9e6;
 
   /* Info/Blue colors */
   --info-bg: #dbeafe;
@@ -75,10 +77,12 @@
   /* Warning colors */
   --color-warning: var(--warning);
   --color-warning-text: var(--warning-text);
+  --color-warning-text-bright: var(--warning-text-bright);
   --color-warning-bg: var(--warning-bg);
   --color-warning-bg-hover: var(--warning-bg-hover);
   --color-warning-border: var(--warning-border);
   --color-warning-bg-light: var(--warning-bg-light);
+  --color-warning-bg-soft: var(--warning-bg-soft);
 
   /* Info colors */
   --color-info-bg: var(--info-bg);
