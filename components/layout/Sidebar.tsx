@@ -37,8 +37,8 @@ const NavLink: React.FC<{ item: NavItem }> = ({ item }) => {
         flex items-center gap-3 px-4 py-3 rounded-lg transition-all duration-200
         ${
           isActive
-            ? "text-[#6366f1] bg-[#f5f3ff]"
-            : "text-[#6b7280] hover:text-[#6366f1] hover:bg-[#f9fafb]"
+            ? "text-primary bg-primary-light"
+            : "text-muted hover:text-primary hover:bg-hover-bg"
         }
         group relative
       `}
@@ -56,7 +56,7 @@ const NavLink: React.FC<{ item: NavItem }> = ({ item }) => {
         {item.label}
       </span>
       {item.badge === "online" && (
-        <span className="absolute right-4 w-2 h-2 bg-[#22c55e] rounded-full" />
+        <span className="absolute right-4 w-2 h-2 bg-success rounded-full" />
       )}
     </Link>
   );
@@ -73,7 +73,7 @@ const ResourceItem: React.FC<{ item: ResourceLink }> = ({ item }) => {
       rel={item.external ? "noopener noreferrer" : undefined}
       className="
         flex items-center gap-3 px-4 py-3 rounded-lg transition-all duration-200
-        text-[#6b7280] hover:text-[#6366f1] hover:bg-[#f9fafb]
+        text-muted hover:text-primary hover:bg-hover-bg
         group
       "
     >
@@ -119,14 +119,14 @@ export const Sidebar: React.FC<SidebarProps> = ({
   onShareLink,
 }) => {
   return (
-    <aside className="w-64 h-screen bg-white border-r border-[#e5e7eb] flex flex-col fixed left-0 top-0">
+    <aside className="w-64 h-screen bg-white border-r border-border flex flex-col fixed left-0 top-0">
       {/* Logo */}
       <div className="p-6">
         <Link href="/" className="flex items-center gap-1 group">
-          <div className="w-8.75 h-8.75 bg-white border border-[#e5e7eb] rounded-lg flex items-center justify-center group-hover:border-[#6366f1]/30 transition-all duration-200 shadow-[0_2px_8px_0_rgba(0,0,0,0.07)]">
+          <div className="w-8.75 h-8.75 bg-white border border-border rounded-lg flex items-center justify-center group-hover:border-primary/30 transition-all duration-200 shadow-[0_2px_8px_0_rgba(0,0,0,0.07)]">
             <Icon name="logo" size={20} />
           </div>
-          <div className="px-3 py-2 bg-white border border-[#e5e7eb] rounded-lg group-hover:border-[#6366f1]/30 transition-all duration-200 shadow-[0_2px_8px_0_rgba(0,0,0,0.07)]">
+          <div className="px-3 py-2 bg-white border border-border rounded-lg group-hover:border-primary/30 transition-all duration-200 shadow-[0_2px_8px_0_rgba(0,0,0,0.07)]">
             <Icon name="bitrobot" size={85} className="h-[18px]" />
           </div>
         </Link>
@@ -140,9 +140,9 @@ export const Sidebar: React.FC<SidebarProps> = ({
       </nav>
 
       {/* Resources Section */}
-      <div className="px-3 py-4 border-t border-[#e5e7eb]">
+      <div className="px-3 py-4 border-t border-border">
         <div className="px-4 py-2">
-          <span className="text-xs font-semibold text-[#6366f1] uppercase tracking-wider bg-[#f5f3ff] px-3 py-1 rounded-full">
+          <span className="text-xs font-semibold text-primary uppercase tracking-wider bg-primary-light px-3 py-1 rounded-full">
             Resources
           </span>
         </div>
@@ -154,7 +154,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
       </div>
 
       {/* Earn Points & Referrals Section */}
-      <div className="p-4 border-t border-[#e5e7eb] space-y-3">
+      <div className="p-4 border-t border-border space-y-3">
         <Button
           variant="secondary"
           fullWidth
@@ -166,12 +166,12 @@ export const Sidebar: React.FC<SidebarProps> = ({
 
         <div className="space-y-2">
           <div className="flex items-baseline gap-2">
-            <span className="text-3xl font-bold text-[#6366f1]">
+            <span className="text-3xl font-bold text-primary">
               {referralCount}
             </span>
-            <span className="text-sm text-[#6b7280]">referrals</span>
+            <span className="text-sm text-muted">referrals</span>
           </div>
-          <p className="text-xs text-[#6b7280]">Refer friends to earn more</p>
+          <p className="text-xs text-muted">Refer friends to earn more</p>
           <Button
             variant="outline"
             size="sm"

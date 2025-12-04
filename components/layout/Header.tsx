@@ -29,11 +29,11 @@ export const Header: React.FC<HeaderProps> = ({ user }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
-    <header className="h-16 bg-white border-b border-[#e5e7eb] flex items-center justify-end px-8 fixed top-0 right-0 left-64 z-10">
+    <header className="h-16 bg-white border-b border-border flex items-center justify-end px-8 fixed top-0 right-0 left-64 z-10">
       <div className="relative">
         <button
           onClick={() => setIsMenuOpen(!isMenuOpen)}
-          className="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-[#f9fafb] transition-colors duration-200"
+          className="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-hover-bg transition-colors duration-200"
         >
           <Image
             src={user.avatar}
@@ -42,7 +42,7 @@ export const Header: React.FC<HeaderProps> = ({ user }) => {
             height={32}
             className="rounded-full"
           />
-          <span className="text-sm text-[#6b7280]">{user.username}</span>
+          <span className="text-sm text-muted">{user.username}</span>
           <Icon 
             name="chevron-down" 
             size={16} 
@@ -52,14 +52,14 @@ export const Header: React.FC<HeaderProps> = ({ user }) => {
 
         {/* Dropdown Menu */}
         {isMenuOpen && (
-          <div className="absolute right-0 top-full mt-2 w-48 bg-white rounded-lg shadow-lg border border-[#e5e7eb] py-2">
-            <button className="w-full px-4 py-2 text-left text-sm text-[#6b7280] hover:bg-[#f9fafb] transition-colors duration-200">
+          <div className="absolute right-0 top-full mt-2 w-48 bg-white rounded-lg shadow-lg border border-border py-2">
+            <button className="w-full px-4 py-2 text-left text-sm text-muted hover:bg-hover-bg transition-colors duration-200">
               Profile Settings
             </button>
-            <button className="w-full px-4 py-2 text-left text-sm text-[#6b7280] hover:bg-[#f9fafb] transition-colors duration-200">
+            <button className="w-full px-4 py-2 text-left text-sm text-muted hover:bg-hover-bg transition-colors duration-200">
               Preferences
             </button>
-            <div className="border-t border-[#e5e7eb] my-2" />
+            <div className="border-t border-border my-2" />
             <button className="w-full px-4 py-2 text-left text-sm text-red-600 hover:bg-red-50 transition-colors duration-200">
               Sign Out
             </button>
@@ -69,4 +69,3 @@ export const Header: React.FC<HeaderProps> = ({ user }) => {
     </header>
   );
 };
-

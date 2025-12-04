@@ -35,8 +35,8 @@ export const Card: React.FC<CardProps> = ({
   hoverable = false,
   onClick 
 }) => {
-  const baseStyles = 'bg-white rounded-xl border border-[#e5e7eb] transition-all duration-200';
-  const hoverStyles = hoverable ? 'hover:shadow-lg hover:border-[#6366f1]/20 cursor-pointer' : '';
+  const baseStyles = 'bg-white rounded-xl border border-border transition-all duration-200';
+  const hoverStyles = hoverable ? 'hover:shadow-lg hover:border-primary/20 cursor-pointer' : '';
   
   return (
     <div 
@@ -47,4 +47,3 @@ export const Card: React.FC<CardProps> = ({
     </div>
   );
 };
-

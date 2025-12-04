@@ -35,10 +35,10 @@ export const EarningsHistory: React.FC<EarningsHistoryProps> = ({ data }) => {
     <Card className="p-6">
       {/* Header */}
       <div className="flex items-center justify-between mb-6">
-        <span className="text-xs font-semibold text-[#6366f1] uppercase tracking-wider">
+        <span className="text-xs font-semibold text-primary uppercase tracking-wider">
           Earnings History
         </span>
-        <div className="w-10 h-10 rounded-full bg-[#fef3c7] flex items-center justify-center">
+        <div className="w-10 h-10 rounded-full bg-warning-bg flex items-center justify-center">
           <Icon name="points" size={20} />
         </div>
       </div>
@@ -46,7 +46,7 @@ export const EarningsHistory: React.FC<EarningsHistoryProps> = ({ data }) => {
       {/* Chart Container */}
       <div className="relative">
         {/* Y-axis labels */}
-        <div className="absolute left-0 top-0 bottom-8 flex flex-col justify-between text-xs text-[#6b7280] pr-2">
+        <div className="absolute left-0 top-0 bottom-8 flex flex-col justify-between text-xs text-muted pr-2">
           <span>1.1K</span>
           <span>1K</span>
           <span>900</span>
@@ -70,18 +70,18 @@ export const EarningsHistory: React.FC<EarningsHistoryProps> = ({ data }) => {
                   {/* Bar */}
                   <div className="w-full flex items-end justify-center relative">
                     <div
-                      className="w-full max-w-[40px] bg-[#e9d5ff] rounded-t-lg transition-all duration-300 hover:bg-[#c084fc] group-hover:shadow-lg relative"
+                      className="w-full max-w-[40px] bg-chart-bar rounded-t-lg transition-all duration-300 hover:bg-chart-bar-hover group-hover:shadow-lg relative"
                       style={{ height: `${barHeight}px` }}
                     >
                       {/* Tooltip on hover */}
-                      <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-2 py-1 bg-[#171717] text-white text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200 whitespace-nowrap">
+                      <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-2 py-1 bg-foreground text-white text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200 whitespace-nowrap">
                         {point.value}
                       </div>
                     </div>
                   </div>
                   
                   {/* Month label */}
-                  <span className="text-xs text-[#6366f1] font-medium">
+                  <span className="text-xs text-primary font-medium">
                     {point.month}
                   </span>
                 </div>
@@ -93,4 +93,3 @@ export const EarningsHistory: React.FC<EarningsHistoryProps> = ({ data }) => {
     </Card>
   );
 };
-

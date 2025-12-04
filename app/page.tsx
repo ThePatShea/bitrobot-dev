@@ -213,7 +213,7 @@ const userProfile: UserProfile = {
  */
 export default function DashboardPage() {
   return (
-    <div className="min-h-screen bg-[#fafafa]">
+    <div className="min-h-screen bg-background">
       {/* Sidebar */}
       <Sidebar
         navItems={navItems}
@@ -243,7 +243,7 @@ export default function DashboardPage() {
           {/* Earnings Section */}
           <section className="mb-8">
             <div className="mb-4">
-              <span className="inline-block px-3 py-1 text-xs font-semibold text-[#6366f1] uppercase tracking-wider bg-[#f5f3ff] rounded-full">
+              <span className="inline-block px-3 py-1 text-xs font-semibold text-primary uppercase tracking-wider bg-primary-light rounded-full">
                 Earnings
               </span>
             </div>

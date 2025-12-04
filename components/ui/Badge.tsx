@@ -33,10 +33,10 @@ export const Badge: React.FC<BadgeProps> = ({
   const baseStyles = 'inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium';
   
   const variants = {
-    default: 'bg-[#f3f4f6] text-[#6b7280]',
-    success: 'bg-[#dcfce7] text-[#16a34a]',
-    warning: 'bg-[#fef9c3] text-[#ca8a04]',
-    info: 'bg-[#dbeafe] text-[#2563eb]'
+    default: 'bg-light-bg text-muted',
+    success: 'bg-success-bg text-success-text',
+    warning: 'bg-warning-bg-light text-warning-text',
+    info: 'bg-info-bg text-info-text'
   };
   
   return (
@@ -45,4 +45,3 @@ export const Badge: React.FC<BadgeProps> = ({
     </span>
   );
 };
-

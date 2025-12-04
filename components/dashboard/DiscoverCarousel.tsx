@@ -50,10 +50,10 @@ export const DiscoverCarousel: React.FC<DiscoverCarouselProps> = ({ items }) => 
     <section className="mb-8">
       {/* Section Header */}
       <div className="mb-4">
-        <span className="inline-block px-3 py-1 text-xs font-semibold text-[#6366f1] uppercase tracking-wider bg-[#f5f3ff] rounded-full">
+        <span className="inline-block px-3 py-1 text-xs font-semibold text-primary uppercase tracking-wider bg-primary-light rounded-full">
           Discover
         </span>
-        <h2 className="text-2xl font-semibold text-[#6366f1] mt-3">
+        <h2 className="text-2xl font-semibold text-primary mt-3">
           Explore the BitRobot Network
         </h2>
       </div>
@@ -65,7 +65,7 @@ export const DiscoverCarousel: React.FC<DiscoverCarouselProps> = ({ items }) => 
             {/* Previous Button */}
             <button
               onClick={handlePrev}
-              className="p-2 rounded-lg hover:bg-[#f9fafb] transition-colors duration-200 -ml-2"
+              className="p-2 rounded-lg hover:bg-hover-bg transition-colors duration-200 -ml-2"
               aria-label="Previous item"
             >
               <Icon name="chevron-left" size={24} />
@@ -76,17 +76,17 @@ export const DiscoverCarousel: React.FC<DiscoverCarouselProps> = ({ items }) => 
               <div className="max-w-md mx-auto text-center space-y-6">
                 {/* Icon */}
                 <div className="flex justify-center">
-                  <div className="w-16 h-16 rounded-2xl bg-[#5865f2] flex items-center justify-center">
+                  <div className="w-16 h-16 rounded-2xl bg-discord flex items-center justify-center">
                     <Icon name={currentItem.icon} size={32} />
                   </div>
                 </div>
 
                 {/* Title and Description */}
                 <div>
-                  <h3 className="text-xl font-semibold text-[#171717] mb-2">
+                  <h3 className="text-xl font-semibold text-foreground mb-2">
                     {currentItem.title}
                   </h3>
-                  <p className="text-sm text-[#6b7280]">
+                  <p className="text-sm text-muted">
                     {currentItem.description}
                   </p>
                 </div>
@@ -114,7 +114,7 @@ export const DiscoverCarousel: React.FC<DiscoverCarouselProps> = ({ items }) => 
             {/* Next Button */}
             <button
               onClick={handleNext}
-              className="p-2 rounded-lg hover:bg-[#f9fafb] transition-colors duration-200 -mr-2"
+              className="p-2 rounded-lg hover:bg-hover-bg transition-colors duration-200 -mr-2"
               aria-label="Next item"
             >
               <Icon name="chevron-right" size={24} />
@@ -130,8 +130,8 @@ export const DiscoverCarousel: React.FC<DiscoverCarouselProps> = ({ items }) => 
               onClick={() => setCurrentIndex(index)}
               className={`h-1 rounded-full transition-all duration-300 ${
                 index === currentIndex
-                  ? 'w-8 bg-[#6366f1]'
-                  : 'w-1 bg-[#e5e7eb] hover:bg-[#6366f1]/40'
+                  ? 'w-8 bg-primary'
+                  : 'w-1 bg-border hover:bg-primary/40'
               }`}
               aria-label={`Go to slide ${index + 1}`}
             />
@@ -141,4 +141,3 @@ export const DiscoverCarousel: React.FC<DiscoverCarouselProps> = ({ items }) => 
     </section>
   );
 };
-

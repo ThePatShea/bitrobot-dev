@@ -43,10 +43,10 @@ export const Button: React.FC<ButtonProps> = ({
   const baseStyles = 'inline-flex items-center justify-center font-medium rounded-lg transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed';
   
   const variants = {
-    primary: 'bg-[#6366f1] text-white hover:bg-[#4f46e5] active:bg-[#4338ca]',
-    secondary: 'bg-[#f5f3ff] text-[#6366f1] hover:bg-[#ede9fe] active:bg-[#ddd6fe]',
-    outline: 'border border-[#6366f1] text-[#6366f1] hover:bg-[#f5f3ff] active:bg-[#ede9fe]',
-    ghost: 'text-[#6b7280] hover:bg-[#f3f4f6] active:bg-[#e5e7eb]'
+    primary: 'bg-primary text-white hover:bg-primary-hover active:bg-primary-active',
+    secondary: 'bg-primary-light text-primary hover:bg-primary-light-hover active:bg-primary-light-active',
+    outline: 'border border-primary text-primary hover:bg-primary-light active:bg-primary-light-hover',
+    ghost: 'text-muted hover:bg-light-bg active:bg-border'
   };
   
   const sizes = {
@@ -68,4 +68,3 @@ export const Button: React.FC<ButtonProps> = ({
     </button>
   );
 };
-

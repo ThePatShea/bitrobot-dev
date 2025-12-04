@@ -65,10 +65,10 @@ export const EarningsCard: React.FC<EarningsCardProps> = ({
     >
       {/* Header with Icon */}
       <div className="flex items-center justify-between mb-6">
-        <span className="text-xs font-semibold text-[#6366f1] uppercase tracking-wider">
+        <span className="text-xs font-semibold text-primary uppercase tracking-wider">
           {title}
         </span>
-        <div className="w-10 h-10 rounded-full bg-[#fef3c7] flex items-center justify-center">
+        <div className="w-10 h-10 rounded-full bg-warning-bg flex items-center justify-center">
           <Icon name="points" size={20} />
         </div>
       </div>
@@ -76,10 +76,10 @@ export const EarningsCard: React.FC<EarningsCardProps> = ({
       {/* Points Display */}
       <div className="mb-4">
         <div className="flex items-baseline gap-2">
-          <span className="text-4xl font-bold text-[#6366f1]">
+          <span className="text-4xl font-bold text-primary">
             {displayPoints}
           </span>
-          <span className="text-sm text-[#6b7280]">points</span>
+          <span className="text-sm text-muted">points</span>
         </div>
       </div>
 
@@ -87,7 +87,7 @@ export const EarningsCard: React.FC<EarningsCardProps> = ({
       {onBreakdownClick && (
         <button
           onClick={onBreakdownClick}
-          className="group flex items-center gap-2 text-sm text-[#6366f1] hover:text-[#4f46e5] transition-colors duration-200"
+          className="group flex items-center gap-2 text-sm text-primary hover:text-primary-hover transition-colors duration-200"
         >
           <span className="font-medium">Breakdown</span>
           <Icon 
@@ -100,4 +100,3 @@ export const EarningsCard: React.FC<EarningsCardProps> = ({
     </Card>
   );
 };
-

@@ -32,7 +32,7 @@ export const EarnPointsBadge: React.FC<EarnPointsBadgeProps> = ({
   return (
     <button
       onClick={onClick}
-      className="inline-flex items-center gap-2 px-3 py-2 bg-[#fef3c7] text-[#ca8a04] rounded-full hover:bg-[#fde68a] transition-colors duration-200 border border-[#fde047]"
+      className="inline-flex items-center gap-2 px-3 py-2 bg-warning-bg text-warning-text rounded-full hover:bg-warning-bg-hover transition-colors duration-200 border border-warning-border"
     >
       <Icon name="points" size={16} />
       <span className="text-xs font-semibold uppercase">
@@ -41,4 +41,3 @@ export const EarnPointsBadge: React.FC<EarnPointsBadgeProps> = ({
     </button>
   );
 };
-

@@ -31,14 +31,14 @@ const LeaderboardRow: React.FC<{
   return (
     <tr
       className={`
-        border-b border-[#e5e7eb] last:border-0 transition-colors duration-200
-        ${isCurrentUser ? 'bg-[#f5f3ff]' : isHovered ? 'bg-[#f9fafb]' : ''}
+        border-b border-border last:border-0 transition-colors duration-200
+        ${isCurrentUser ? 'bg-primary-light' : isHovered ? 'bg-hover-bg' : ''}
       `}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
       {/* Rank */}
-      <td className="py-4 px-4 text-sm text-[#6b7280] font-medium">
+      <td className="py-4 px-4 text-sm text-muted font-medium">
         {entry.rank}
       </td>
       
@@ -52,24 +52,24 @@ const LeaderboardRow: React.FC<{
             height={32}
             className="rounded-full"
           />
-          <span className="text-sm text-[#171717] font-medium">
+          <span className="text-sm text-foreground font-medium">
             {entry.userId}
           </span>
         </div>
       </td>
       
       {/* Lifetime Earning */}
-      <td className="py-4 px-4 text-sm text-[#171717] font-medium text-right">
+      <td className="py-4 px-4 text-sm text-foreground font-medium text-right">
         {entry.lifetimeEarning.toLocaleString()}
       </td>
       
       {/* This Epoch */}
-      <td className="py-4 px-4 text-sm text-[#171717] font-medium text-right">
+      <td className="py-4 px-4 text-sm text-foreground font-medium text-right">
         {entry.thisEpoch.toLocaleString()}
       </td>
       
       {/* Referrals */}
-      <td className="py-4 px-4 text-sm text-[#171717] font-medium text-right">
+      <td className="py-4 px-4 text-sm text-foreground font-medium text-right">
         {entry.referrals}
       </td>
     </tr>
@@ -96,7 +96,7 @@ export const Leaderboard: React.FC<LeaderboardProps> = ({
     <section className="mt-8">
       {/* Section Header */}
       <div className="mb-4">
-        <span className="inline-block px-3 py-1 text-xs font-semibold text-[#6366f1] uppercase tracking-wider bg-[#f5f3ff] rounded-full">
+        <span className="inline-block px-3 py-1 text-xs font-semibold text-primary uppercase tracking-wider bg-primary-light rounded-full">
           Leaderboard
         </span>
       </div>
@@ -104,21 +104,21 @@ export const Leaderboard: React.FC<LeaderboardProps> = ({
       <Card className="overflow-hidden">
         <div className="overflow-x-auto">
           <table className="w-full">
-            <thead className="bg-[#f9fafb] border-b border-[#e5e7eb]">
+            <thead className="bg-hover-bg border-b border-border">
               <tr>
-                <th className="py-3 px-4 text-left text-xs font-semibold text-[#6b7280] uppercase tracking-wider">
+                <th className="py-3 px-4 text-left text-xs font-semibold text-muted uppercase tracking-wider">
                   Rank
                 </th>
-                <th className="py-3 px-4 text-left text-xs font-semibold text-[#6b7280] uppercase tracking-wider">
+                <th className="py-3 px-4 text-left text-xs font-semibold text-muted uppercase tracking-wider">
                   User
                 </th>
-                <th className="py-3 px-4 text-right text-xs font-semibold text-[#6b7280] uppercase tracking-wider">
+                <th className="py-3 px-4 text-right text-xs font-semibold text-muted uppercase tracking-wider">
                   Lifetime Earning
                 </th>
-                <th className="py-3 px-4 text-right text-xs font-semibold text-[#6b7280] uppercase tracking-wider">
+                <th className="py-3 px-4 text-right text-xs font-semibold text-muted uppercase tracking-wider">
                   This Epoch
                 </th>
-                <th className="py-3 px-4 text-right text-xs font-semibold text-[#6b7280] uppercase tracking-wider">
+                <th className="py-3 px-4 text-right text-xs font-semibold text-muted uppercase tracking-wider">
                   Referrals
                 </th>
               </tr>
@@ -138,4 +138,3 @@ export const Leaderboard: React.FC<LeaderboardProps> = ({
     </section>
   );
 };
-

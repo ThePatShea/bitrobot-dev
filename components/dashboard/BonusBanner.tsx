@@ -41,12 +41,12 @@ export const BonusBanner: React.FC<BonusBannerProps> = ({
   onCtaClick
 }) => {
   return (
-    <div className="bg-[#ede9fe] rounded-xl p-6 flex items-center justify-between">
+    <div className="bg-primary-light-hover rounded-xl p-6 flex items-center justify-between">
       <div>
-        <h3 className="text-lg font-semibold text-[#6366f1] mb-1">
+        <h3 className="text-lg font-semibold text-primary mb-1">
           {title}
         </h3>
-        <p className="text-sm text-[#6366f1]/80">
+        <p className="text-sm text-primary/80">
           {description}
         </p>
       </div>
@@ -59,4 +59,3 @@ export const BonusBanner: React.FC<BonusBannerProps> = ({
     </div>
   );
 };
-
