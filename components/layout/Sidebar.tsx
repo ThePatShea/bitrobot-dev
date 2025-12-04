@@ -41,7 +41,7 @@ const NavLink: React.FC<{ item: NavItem }> = ({ item }) => {
     <Link
       href={item.href}
       className={`
-        flex items-center gap-3 px-4 py-2.5 transition-all duration-200 border-b border-border
+        flex items-center gap-3 px-1.5 py-2.5 transition-all duration-200 border-b border-border
         ${isActive ? "text-primary" : "text-muted hover:text-primary/70"}
         group relative
       `}
@@ -80,7 +80,7 @@ const ResourceItem: React.FC<{ item: ResourceLink }> = ({ item }) => {
     <Link
       href={item.href}
       className="
-        flex items-center gap-3 px-4 py-4 transition-all duration-200
+        flex items-center gap-3 px-1.5 py-3 transition-all duration-200
         text-muted hover:text-primary/70 border-b border-border
         group
       "
@@ -88,7 +88,7 @@ const ResourceItem: React.FC<{ item: ResourceLink }> = ({ item }) => {
       <div className="w-5 h-5 flex items-center justify-center">
         <Icon
           name={item.icon}
-          size={20}
+          size={item.iconSize ?? 20}
           className="grayscale brightness-[1.14] group-hover:grayscale-0 group-hover:brightness-100 group-hover:opacity-70 transition-all duration-200"
         />
       </div>
@@ -99,7 +99,7 @@ const ResourceItem: React.FC<{ item: ResourceLink }> = ({ item }) => {
         <Icon
           name="external-link"
           size={9}
-          className="ml-auto grayscale group-hover:grayscale-0 group-hover:opacity-70 transition-all duration-200"
+          className="ml-auto grayscale group-hover:grayscale-0 transition-all duration-200"
         />
       )}
     </Link>
@@ -138,10 +138,10 @@ export const Sidebar: React.FC<SidebarProps> = ({
       {/* Logo Section */}
       <div className="px-6 pt-6 pb-3">
         <Link href="#" className="flex items-center gap-1 group">
-          <div className="w-8.75 h-8.75 bg-white border border-border rounded-lg flex items-center justify-center group-hover:border-primary/30 transition-all duration-200 shadow-[0_2px_8px_0_rgba(0,0,0,0.07)]">
+          <div className="w-8.75 h-8.75 bg-white border border-border rounded-lg flex items-center justify-center transition-all duration-200 shadow-[0_2px_8px_0_rgba(0,0,0,0.07)]">
             <Icon name="logo" size={20} />
           </div>
-          <div className="px-3 py-2 bg-white border border-border rounded-lg group-hover:border-primary/30 transition-all duration-200 shadow-[0_2px_8px_0_rgba(0,0,0,0.07)]">
+          <div className="px-3 py-2 bg-white border border-border rounded-lg transition-all duration-200 shadow-[0_2px_8px_0_rgba(0,0,0,0.07)]">
             <Icon name="bitrobot" size={85} className="h-[18px]" />
           </div>
         </Link>

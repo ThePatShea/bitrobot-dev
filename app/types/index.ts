@@ -37,6 +37,8 @@ export interface ResourceLink {
   label: string;
   /** Icon name (without .svg extension) */
   icon: string;
+  /** Icon size in pixels */
+  iconSize?: number;
   /** URL for the resource */
   href: string;
   /** Whether the link is external (shows arrow icon) */
