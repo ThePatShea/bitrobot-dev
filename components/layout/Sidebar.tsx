@@ -121,20 +121,14 @@ export const Sidebar: React.FC<SidebarProps> = ({
   return (
     <aside className="w-64 h-screen bg-white border-r border-[#e5e7eb] flex flex-col fixed left-0 top-0">
       {/* Logo */}
-      <div className="p-6 border-b border-[#e5e7eb]">
-        <Link href="/" className="flex items-center gap-3 group">
-          <div className="w-12 h-12 bg-white rounded-xl flex items-center justify-center shadow-sm group-hover:shadow-md transition-all duration-200">
-            <Icon
-              name="logo"
-              size={28}
-              className="group-hover:scale-105 transition-transform duration-200"
-            />
+      <div className="p-6">
+        <Link href="/" className="flex items-center gap-1 group">
+          <div className="w-8.75 h-8.75 bg-white border border-[#e5e7eb] rounded-lg flex items-center justify-center group-hover:border-[#6366f1]/30 transition-all duration-200 shadow-[0_2px_8px_0_rgba(0,0,0,0.07)]">
+            <Icon name="logo" size={20} />
           </div>
-          <Icon
-            name="bitrobot"
-            size={140}
-            className="group-hover:scale-105 transition-transform duration-200"
-          />
+          <div className="px-3 py-2 bg-white border border-[#e5e7eb] rounded-lg group-hover:border-[#6366f1]/30 transition-all duration-200 shadow-[0_2px_8px_0_rgba(0,0,0,0.07)]">
+            <Icon name="bitrobot" size={85} className="h-[18px]" />
+          </div>
         </Link>
       </div>
 
