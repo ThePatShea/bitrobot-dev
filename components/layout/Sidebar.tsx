@@ -34,12 +34,8 @@ const NavLink: React.FC<{ item: NavItem }> = ({ item }) => {
     <Link
       href={item.href}
       className={`
-        flex items-center gap-3 px-4 py-3 rounded-lg transition-all duration-200
-        ${
-          isActive
-            ? "text-primary bg-primary-light"
-            : "text-muted hover:text-primary hover:bg-hover-bg"
-        }
+        flex items-center gap-3 px-4 py-3 transition-all duration-200 border-b border-border
+        ${isActive ? "text-primary" : "text-muted hover:text-primary/70"}
         group relative
       `}
     >
@@ -49,7 +45,7 @@ const NavLink: React.FC<{ item: NavItem }> = ({ item }) => {
         className={
           isActive
             ? ""
-            : "group-hover:scale-110 transition-transform duration-200"
+            : "grayscale group-hover:grayscale-0 group-hover:opacity-70 transition-all duration-200"
         }
       />
       <span className="font-medium text-sm uppercase tracking-wide">
@@ -132,13 +128,16 @@ export const Sidebar: React.FC<SidebarProps> = ({
         </Link>
       </div>
 
-      <div className="border-r border-border h-full">
+      <div className="border-r border-border flex-1 flex flex-col">
         {/* Navigation */}
-        <nav className="flex-1 px-3 py-6 space-y-1 overflow-y-auto">
+        <nav className="px-6 py-6 space-y-1">
           {navItems.map((item) => (
             <NavLink key={item.id} item={item} />
           ))}
         </nav>
+
+        {/* Spacer to push bottom sections down */}
+        <div className="flex-1" />
 
         {/* Resources Section */}
         <div className="px-3 py-4">
