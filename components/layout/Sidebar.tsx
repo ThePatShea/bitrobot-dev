@@ -96,11 +96,13 @@ const ResourceItem: React.FC<{ item: ResourceLink }> = ({ item }) => {
         {item.label}
       </span>
       {item.external && (
-        <Icon
-          name="external-link"
-          size={9}
-          className="ml-auto grayscale group-hover:grayscale-0 transition-all duration-200"
-        />
+        <div className="ml-auto w-4 h-4 relative">
+          <Icon
+            name="external-link"
+            size={9}
+            className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 group-hover:left-full group-hover:top-0 group-hover:-translate-x-full group-hover:translate-y-0 grayscale brightness-[1.14] group-hover:grayscale-0 group-hover:brightness-100 transition-all duration-200"
+          />
+        </div>
       )}
     </Link>
   );
