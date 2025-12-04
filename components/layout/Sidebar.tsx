@@ -70,18 +70,17 @@ const ResourceItem: React.FC<{ item: ResourceLink }> = ({ item }) => {
       target={item.external ? "_blank" : undefined}
       rel={item.external ? "noopener noreferrer" : undefined}
       className="
-        flex items-center gap-3 px-4 py-3 rounded-lg transition-all duration-200
-        text-muted hover:text-primary hover:bg-hover-bg
+        flex items-center gap-3 px-4 py-4 transition-all duration-200
+        text-muted hover:text-primary/70 border-b border-border
         group
       "
     >
-      <div className="relative">
+      <div className="w-5 h-5 flex items-center justify-center">
         <Icon
           name={item.icon}
           size={20}
-          className="group-hover:scale-110 transition-all duration-200"
+          className="grayscale group-hover:grayscale-0 group-hover:opacity-70 transition-all duration-200"
         />
-        {/* Icon shifts to top-right on hover as shown in the design */}
       </div>
       <span className="font-medium text-sm uppercase tracking-wide">
         {item.label}
@@ -89,8 +88,8 @@ const ResourceItem: React.FC<{ item: ResourceLink }> = ({ item }) => {
       {item.external && (
         <Icon
           name="external-link"
-          size={16}
-          className="ml-auto opacity-0 group-hover:opacity-100 transition-opacity duration-200"
+          size={9}
+          className="ml-auto grayscale group-hover:grayscale-0 group-hover:opacity-70 transition-all duration-200"
         />
       )}
     </Link>
@@ -142,13 +141,13 @@ export const Sidebar: React.FC<SidebarProps> = ({
         <div className="flex-1" />
 
         {/* Resources Section */}
-        <div className="px-3 py-4">
-          <div className="px-4 py-2">
+        <div className="px-6 py-4">
+          <div className="px-4 py-3">
             <span className="text-xs font-semibold text-primary uppercase tracking-wider bg-primary-light px-3 py-1 rounded-full">
               Resources
             </span>
           </div>
-          <div className="mt-2 space-y-1">
+          <div>
             {resourceLinks.map((item) => (
               <ResourceItem key={item.id} item={item} />
             ))}

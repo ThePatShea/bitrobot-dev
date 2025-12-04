@@ -80,6 +80,13 @@ const resourceLinks: ResourceLink[] = [
     href: "#",
     external: true,
   },
+  {
+    id: "about",
+    label: "About",
+    icon: "info-circle",
+    href: "#",
+    external: true,
+  },
 ];
 
 // Carousel items
