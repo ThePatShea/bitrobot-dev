@@ -175,19 +175,19 @@ export const Sidebar: React.FC<SidebarProps> = ({
         </div>
 
         {/* Earn Points & Referrals Section */}
-        <div className="p-4 space-y-6 bg-light-bg rounded-2xl p-3 mx-6 mb-[40px] shadow-[0_1px_8px_0_rgba(0,0,0,0.1)]">
+        <div className="p-4 space-y-9 bg-light-bg rounded-2xl p-3 mx-6 mb-[40px] shadow-[0_1px_8px_0_rgba(0,0,0,0.1)]">
           {/* Earn Pts Button and Info Icon Row */}
           <div className="flex items-center justify-between">
-            <button className="inline-flex items-center gap-2 px-4 py-2.5 bg-warning-bg text-warning-text rounded-lg font-semibold text-xs uppercase shadow-[0_1px_8px_0_rgba(0,0,0,0.08)]">
-              <Icon name="points" size={18} />
+            <button className="inline-flex items-center gap-2 px-4 py-2.5 bg-warning-bg text-warning-text rounded-lg text-[10px] uppercase shadow-[0_1px_8px_0_rgba(0,0,0,0.08)]">
+              <Icon name="points" size={15} />
               Earn Pts
             </button>
             <Icon name="info-circle" size={22} className="opacity-25" />
           </div>
 
           {/* Referrals Section */}
-          <div className="space-y-3">
-            <div className="flex items-baseline gap-2">
+          <div>
+            <div className="flex items-baseline gap-2 mb-1.5">
               <span className="text-2xl font-medium text-primary">
                 {referralCount}
               </span>
@@ -195,9 +195,11 @@ export const Sidebar: React.FC<SidebarProps> = ({
                 referrals
               </span>
             </div>
-            <p className="text-[10px] text-muted">Refer friends to earn more</p>
+            <p className="text-[10px] text-muted mb-2.5">
+              Refer friends to earn more
+            </p>
             <button
-              className="inline-flex items-center gap-2 px-2 py-2.25 border-1 border-primary text-primary rounded-lg text-[9px] uppercase hover:bg-primary-light transition-colors duration-200"
+              className="inline-flex cursor-pointer items-center gap-2 px-2 py-2.25 border-1 border-primary text-primary rounded-lg text-[9px] uppercase hover:bg-primary-light transition-colors duration-200"
               onClick={onShareLink}
             >
               <span>Share Link</span>
