@@ -1,65 +1,285 @@
-import Image from "next/image";
+/**
+ * Main Dashboard Page
+ * Displays the BitRobot dashboard with all components
+ */
 
-export default function Home() {
+'use client';
+
+import React from 'react';
+import { Sidebar } from '@/components/layout/Sidebar';
+import { Header } from '@/components/layout/Header';
+import { DiscoverCarousel } from '@/components/dashboard/DiscoverCarousel';
+import { EarningsCard } from '@/components/dashboard/EarningsCard';
+import { EarningsHistory } from '@/components/dashboard/EarningsHistory';
+import { Leaderboard } from '@/components/dashboard/Leaderboard';
+import { BonusBanner } from '@/components/dashboard/BonusBanner';
+import { EarnPointsBadge } from '@/components/dashboard/EarnPointsBadge';
+import type { NavItem, ResourceLink, CarouselItem, EarningsDataPoint, LeaderboardEntry, UserProfile } from '@/app/types';
+
+/**
+ * Mock data for the dashboard
+ * In a real application, this would come from an API
+ */
+
+// Navigation items
+const navItems: NavItem[] = [
+  {
+    id: 'dashboard',
+    label: 'Dashboard',
+    icon: 'dashboard',
+    href: '/',
+    active: true,
+    badge: 'online'
+  },
+  {
+    id: 'contribute',
+    label: 'Contribute',
+    icon: 'contribute',
+    href: '/contribute',
+    active: false
+  },
+  {
+    id: 'profile',
+    label: 'Profile',
+    icon: 'profile',
+    href: '/profile',
+    active: false
+  }
+];
+
+// Resource links
+const resourceLinks: ResourceLink[] = [
+  {
+    id: 'help',
+    label: 'Help',
+    icon: 'help',
+    href: 'https://help.bitrobot.ai',
+    external: true
+  },
+  {
+    id: 'docs',
+    label: 'Docs',
+    icon: 'docs',
+    href: 'https://docs.bitrobot.ai',
+    external: true
+  },
+  {
+    id: 'shop',
+    label: 'Shop',
+    icon: 'shop',
+    href: 'https://shop.bitrobot.ai',
+    external: true
+  }
+];
+
+// Carousel items
+const carouselItems: CarouselItem[] = [
+  {
+    id: 'discord',
+    title: 'Discord',
+    description: "Stay involved, don't miss an update. Join the community.",
+    icon: 'discord',
+    primaryAction: {
+      label: 'GET INVOLVED',
+      onClick: () => console.log('Get involved clicked')
+    },
+    secondaryAction: {
+      label: 'LEARN MORE',
+      onClick: () => console.log('Learn more clicked')
+    }
+  }
+];
+
+// Earnings history data
+const earningsData: EarningsDataPoint[] = [
+  { month: 'OCT', value: 800 },
+  { month: 'NOV', value: 800 },
+  { month: 'DEC', value: 800 },
+  { month: 'JAN', value: 1000 },
+  { month: 'FEB', value: 800 },
+  { month: 'MAR', value: 800 },
+  { month: 'APR', value: 800 }
+];
+
+// Leaderboard data
+const leaderboardData: LeaderboardEntry[] = [
+  {
+    rank: 230,
+    userId: '0xDec42_75de5',
+    avatar: '/images/avatar.png',
+    lifetimeEarning: 20023,
+    thisEpoch: 3150,
+    referrals: 5
+  },
+  {
+    rank: 1,
+    userId: '0xd78ct_2e83',
+    avatar: '/images/avatar.png',
+    lifetimeEarning: 20023,
+    thisEpoch: 3150,
+    referrals: 66
+  },
+  {
+    rank: 2,
+    userId: '0x38a22_te701',
+    avatar: '/images/avatar.png',
+    lifetimeEarning: 20023,
+    thisEpoch: 3150,
+    referrals: 43
+  },
+  {
+    rank: 3,
+    userId: '0xb58e4_k53e3',
+    avatar: '/images/avatar.png',
+    lifetimeEarning: 20023,
+    thisEpoch: 3150,
+    referrals: 41
+  },
+  {
+    rank: 4,
+    userId: '0x32e7_c3d8d',
+    avatar: '/images/avatar.png',
+    lifetimeEarning: 20023,
+    thisEpoch: 3150,
+    referrals: 32
+  },
+  {
+    rank: 5,
+    userId: '0xD32dt_t34015',
+    avatar: '/images/avatar.png',
+    lifetimeEarning: 20023,
+    thisEpoch: 3150,
+    referrals: 30
+  },
+  {
+    rank: 6,
+    userId: '0x6542e_2e407',
+    avatar: '/images/avatar.png',
+    lifetimeEarning: 20023,
+    thisEpoch: 3150,
+    referrals: 30
+  },
+  {
+    rank: 7,
+    userId: '0x34fc8_7a06a',
+    avatar: '/images/avatar.png',
+    lifetimeEarning: 20023,
+    thisEpoch: 3150,
+    referrals: 30
+  },
+  {
+    rank: 8,
+    userId: '0x8a48a_bece6',
+    avatar: '/images/avatar.png',
+    lifetimeEarning: 20023,
+    thisEpoch: 3150,
+    referrals: 28
+  },
+  {
+    rank: 9,
+    userId: '0xD364f_4526b7',
+    avatar: '/images/avatar.png',
+    lifetimeEarning: 20023,
+    thisEpoch: 3150,
+    referrals: 12
+  },
+  {
+    rank: 10,
+    userId: '0xdaf6d_516f2',
+    avatar: '/images/avatar.png',
+    lifetimeEarning: 20023,
+    thisEpoch: 3150,
+    referrals: 12
+  }
+];
+
+// User profile
+const userProfile: UserProfile = {
+  username: 'username123',
+  avatar: '/images/avatar.png',
+  id: '0xDec42_75de5'
+};
+
+/**
+ * Main Dashboard Page Component
+ * 
+ * Renders the complete BitRobot dashboard with:
+ * - Sidebar navigation
+ * - Header with user menu
+ * - Discover carousel
+ * - Earnings cards
+ * - Earnings history chart
+ * - Leaderboard
+ */
+export default function DashboardPage() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
+    <div className="min-h-screen bg-[#fafafa]">
+      {/* Sidebar */}
+      <Sidebar
+        navItems={navItems}
+        resourceLinks={resourceLinks}
+        referralCount={12}
+        onShareLink={() => console.log('Share link clicked')}
+      />
+
+      {/* Main Content Area */}
+      <div className="ml-64">
+        {/* Header */}
+        <Header user={userProfile} />
+
+        {/* Main Content */}
+        <main className="pt-16 px-8 py-8">
+          {/* Discover Section with Earn Points Badge */}
+          <div className="relative">
+            <div className="absolute top-4 right-4 z-10">
+              <EarnPointsBadge 
+                points={20} 
+                onClick={() => console.log('Earn points clicked')}
+              />
+            </div>
+            <DiscoverCarousel items={carouselItems} />
+          </div>
+
+          {/* Earnings Section */}
+          <section className="mb-8">
+            <div className="mb-4">
+              <span className="inline-block px-3 py-1 text-xs font-semibold text-[#6366f1] uppercase tracking-wider bg-[#f5f3ff] rounded-full">
+                Earnings
+              </span>
+            </div>
+
+            {/* Earnings Cards Grid */}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-6">
+              <EarningsCard
+                title="Last Epoch"
+                points={234}
+                onBreakdownClick={() => console.log('Last epoch breakdown')}
+              />
+              <EarningsCard
+                title="Lifetime"
+                points={1300}
+                formatPoints={true}
+                onBreakdownClick={() => console.log('Lifetime breakdown')}
+              />
+              <EarningsHistory data={earningsData} />
+            </div>
+
+            {/* Bonus Banner */}
+            <BonusBanner
+              title="Bonuses available!"
+              description="The more you participate, the more you earn."
+              ctaText="SEE OPPORTUNITIES"
+              onCtaClick={() => console.log('See opportunities clicked')}
             />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
+          </section>
+
+          {/* Leaderboard Section */}
+          <Leaderboard
+            entries={leaderboardData}
+            currentUserId={userProfile.id}
+          />
+        </main>
+      </div>
     </div>
   );
 }
