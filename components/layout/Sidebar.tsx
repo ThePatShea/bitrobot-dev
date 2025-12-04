@@ -182,7 +182,17 @@ export const Sidebar: React.FC<SidebarProps> = ({
               <Icon name="points" size={16} />
               Earn Pts
             </div>
-            <Icon name="info-circle" size={20} className="opacity-50" />
+            <div className="relative group/tooltip">
+              <Icon
+                name="info-circle"
+                size={20}
+                className="opacity-50 group-hover/tooltip:opacity-100 transition-opacity duration-200"
+              />
+              <div className="absolute right-0 top-full mt-2 w-48 p-2 bg-foreground text-white text-xs rounded-lg opacity-0 invisible group-hover/tooltip:opacity-100 group-hover/tooltip:visible transition-all duration-200 z-50 shadow-lg">
+                Share your unique link with your friends to earn points when
+                they sign up.
+              </div>
+            </div>
           </div>
 
           {/* Referrals Section */}
