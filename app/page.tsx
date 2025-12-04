@@ -27,6 +27,7 @@ const navItems: NavItem[] = [
     id: 'dashboard',
     label: 'Dashboard',
     icon: 'dashboard',
+    iconSize: 20,
     href: '/',
     active: true,
     badge: 'online'
@@ -35,6 +36,7 @@ const navItems: NavItem[] = [
     id: 'contribute',
     label: 'Contribute',
     icon: 'contribute',
+    iconSize: 15,
     href: '/contribute',
     active: false
   },
@@ -42,6 +44,7 @@ const navItems: NavItem[] = [
     id: 'profile',
     label: 'Profile',
     icon: 'profile',
+    iconSize: 15,
     href: '/profile',
     active: false
   }

@@ -12,6 +12,8 @@ export interface NavItem {
   label: string;
   /** Icon path or identifier */
   icon: string;
+  /** Icon size in pixels */
+  iconSize?: number;
   /** URL path for navigation */
   href: string;
   /** Whether this item is currently active */
