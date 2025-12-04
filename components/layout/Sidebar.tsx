@@ -161,9 +161,9 @@ export const Sidebar: React.FC<SidebarProps> = ({
         <div className="flex-1" />
 
         {/* Resources Section */}
-        <div className="px-6 py-4">
-          <div className="px-4 py-3">
-            <span className="text-xs font-semibold text-primary uppercase tracking-wider bg-primary-light px-3 py-1 rounded-full">
+        <div className="flex flex-col gap-1 px-6 py-4">
+          <div className="py-3">
+            <span className="text-[11px] text-primary uppercase tracking-wider bg-primary-light px-3 py-2 rounded-lg shadow-[0_1px_8px_0_rgba(0,0,0,0.1)]">
               Resources
             </span>
           </div>
