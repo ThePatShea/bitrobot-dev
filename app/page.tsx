@@ -138,7 +138,7 @@ const leaderboardData: LeaderboardEntry[] = [
     avatar: "/images/avatar.png",
     lifetimeEarning: 20023,
     thisEpoch: 3150,
-    referrals: 66,
+    referrals: 56,
   },
   {
     rank: 2,
