@@ -175,7 +175,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
         </div>
 
         {/* Earn Points & Referrals Section */}
-        <div className="p-4 space-y-6 bg-light-bg rounded-2xl p-3 mx-6 mb-[40px]">
+        <div className="p-4 space-y-6 bg-light-bg rounded-2xl p-3 mx-6 mb-[40px] shadow-[0_1px_8px_0_rgba(0,0,0,0.1)]">
           {/* Earn Pts Button and Info Icon Row */}
           <div className="flex items-center justify-between">
             <button className="inline-flex items-center gap-2 px-4 py-2.5 bg-warning-bg text-warning-text rounded-lg font-semibold text-xs uppercase shadow-[0_1px_8px_0_rgba(0,0,0,0.08)]">
