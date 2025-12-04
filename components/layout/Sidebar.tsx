@@ -1,5 +1,6 @@
 /**
- * Sidebar component containing navigation, resources, and referral information
+ * @fileoverview Sidebar component containing navigation, resources, and referral information
+ * @module components/layout/Sidebar
  */
 
 "use client";
@@ -11,21 +12,27 @@ import { Button } from "@/components/ui/Button";
 import type { NavItem, ResourceLink } from "@/app/types";
 
 /**
- * Sidebar component props
+ * Props for the Sidebar component
+ * @interface SidebarProps
  */
 interface SidebarProps {
-  /** Array of navigation items */
+  /** Array of navigation menu items to display */
   navItems: NavItem[];
-  /** Array of resource links */
+  /** Array of resource links to display in the resources section */
   resourceLinks: ResourceLink[];
-  /** Number of referrals */
+  /** Number of referrals to display */
   referralCount: number;
-  /** Referral share link handler */
+  /** Callback function triggered when the share link button is clicked */
   onShareLink: () => void;
 }
 
 /**
- * Navigation link component with hover effects and active state
+ * Navigation link component with hover effects and active state indicator
+ * Renders a single navigation item with icon, label, and optional online badge
+ *
+ * @param {Object} props - Component props
+ * @param {NavItem} props.item - The navigation item data to render
+ * @returns {JSX.Element} A styled navigation link
  */
 const NavLink: React.FC<{ item: NavItem }> = ({ item }) => {
   const isActive = item.active;
@@ -62,13 +69,16 @@ const NavLink: React.FC<{ item: NavItem }> = ({ item }) => {
 
 /**
  * Resource link component with external link indicator
+ * Renders a single resource item with icon, label, and external link arrow
+ *
+ * @param {Object} props - Component props
+ * @param {ResourceLink} props.item - The resource link data to render
+ * @returns {JSX.Element} A styled resource link
  */
 const ResourceItem: React.FC<{ item: ResourceLink }> = ({ item }) => {
   return (
     <Link
       href={item.href}
-      target={item.external ? "_blank" : undefined}
-      rel={item.external ? "noopener noreferrer" : undefined}
       className="
         flex items-center gap-3 px-4 py-4 transition-all duration-200
         text-muted hover:text-primary/70 border-b border-border
@@ -97,7 +107,15 @@ const ResourceItem: React.FC<{ item: ResourceLink }> = ({ item }) => {
 };
 
 /**
- * Main Sidebar component
+ * Main Sidebar component for the dashboard layout
+ * Contains the logo, navigation menu, resources section, and referral information
+ *
+ * @param {SidebarProps} props - Component props
+ * @param {NavItem[]} props.navItems - Array of navigation items
+ * @param {ResourceLink[]} props.resourceLinks - Array of resource links
+ * @param {number} props.referralCount - Number of referrals to display
+ * @param {Function} props.onShareLink - Callback for share link button click
+ * @returns {JSX.Element} The complete sidebar component
  *
  * @example
  * ```tsx
@@ -117,7 +135,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
 }) => {
   return (
     <aside className="w-66 h-screen bg-white flex flex-col fixed left-0 top-0">
-      {/* Logo */}
+      {/* Logo Section */}
       <div className="px-6 pt-6 pb-3">
         <Link href="#" className="flex items-center gap-1 group">
           <div className="w-8.75 h-8.75 bg-white border border-border rounded-lg flex items-center justify-center group-hover:border-primary/30 transition-all duration-200 shadow-[0_2px_8px_0_rgba(0,0,0,0.07)]">
@@ -130,14 +148,14 @@ export const Sidebar: React.FC<SidebarProps> = ({
       </div>
 
       <div className="border-r border-border flex-1 flex flex-col">
-        {/* Navigation */}
+        {/* Navigation Menu */}
         <nav className="px-6 py-3 space-y-1">
           {navItems.map((item) => (
             <NavLink key={item.id} item={item} />
           ))}
         </nav>
 
-        {/* Spacer to push bottom sections down */}
+        {/* Spacer - pushes bottom sections to the bottom */}
         <div className="flex-1" />
 
         {/* Resources Section */}
