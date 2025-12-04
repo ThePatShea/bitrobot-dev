@@ -120,7 +120,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
     <aside className="w-66 h-screen bg-white flex flex-col fixed left-0 top-0">
       {/* Logo */}
       <div className="px-6 pt-6 pb-3">
-        <Link href="/" className="flex items-center gap-1 group">
+        <Link href="#" className="flex items-center gap-1 group">
           <div className="w-8.75 h-8.75 bg-white border border-border rounded-lg flex items-center justify-center group-hover:border-primary/30 transition-all duration-200 shadow-[0_2px_8px_0_rgba(0,0,0,0.07)]">
             <Icon name="logo" size={20} />
           </div>
