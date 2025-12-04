@@ -175,35 +175,34 @@ export const Sidebar: React.FC<SidebarProps> = ({
         </div>
 
         {/* Earn Points & Referrals Section */}
-        <div className="p-4 border-t border-border space-y-3">
-          <Button
-            variant="secondary"
-            fullWidth
-            icon={<Icon name="points" size={16} />}
-          >
-            <span className="uppercase text-xs font-semibold">Earn Pts</span>
-            <Icon name="info-circle" size={14} className="ml-auto opacity-60" />
-          </Button>
+        <div className="p-4 space-y-6 bg-light-bg rounded-2xl p-3 mx-6 mb-[40px]">
+          {/* Earn Pts Button and Info Icon Row */}
+          <div className="flex items-center justify-between">
+            <button className="inline-flex items-center gap-2 px-4 py-2.5 bg-warning-bg text-warning-text rounded-lg font-semibold text-xs uppercase shadow-[0_1px_8px_0_rgba(0,0,0,0.08)]">
+              <Icon name="points" size={18} />
+              Earn Pts
+            </button>
+            <Icon name="info-circle" size={22} className="opacity-25" />
+          </div>
 
-          <div className="space-y-2">
+          {/* Referrals Section */}
+          <div className="space-y-3">
             <div className="flex items-baseline gap-2">
-              <span className="text-3xl font-bold text-primary">
+              <span className="text-2xl font-medium text-primary">
                 {referralCount}
               </span>
-              <span className="text-sm text-muted">referrals</span>
+              <span className="text-xs text-primary font-medium">
+                referrals
+              </span>
             </div>
-            <p className="text-xs text-muted">Refer friends to earn more</p>
-            <Button
-              variant="outline"
-              size="sm"
-              fullWidth
-              icon={<Icon name="share" size={14} />}
+            <p className="text-[10px] text-muted">Refer friends to earn more</p>
+            <button
+              className="inline-flex items-center gap-2 px-2 py-2.25 border-1 border-primary text-primary rounded-lg text-[9px] uppercase hover:bg-primary-light transition-colors duration-200"
               onClick={onShareLink}
             >
-              <span className="uppercase text-xs font-semibold">
-                Share Link
-              </span>
-            </Button>
+              <span>Share Link</span>
+              <Icon name="share" size={9} />
+            </button>
           </div>
         </div>
       </div>
