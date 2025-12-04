@@ -53,7 +53,7 @@ const NavLink: React.FC<{ item: NavItem }> = ({ item }) => {
           className={
             isActive
               ? ""
-              : "grayscale group-hover:grayscale-0 group-hover:opacity-70 transition-all duration-200"
+              : "grayscale brightness-[1.14] group-hover:grayscale-0 group-hover:brightness-100 group-hover:opacity-70 transition-all duration-200"
           }
         />
       </div>
@@ -61,7 +61,7 @@ const NavLink: React.FC<{ item: NavItem }> = ({ item }) => {
         {item.label}
       </span>
       {item.badge === "online" && (
-        <span className="absolute right-4 w-2 h-2 bg-success rounded-full" />
+        <span className="absolute right-4 w-2.5 h-2.5 bg-success rounded-full shadow-[0_0_5px_4px_rgba(0,195,58,0.2)]" />
       )}
     </Link>
   );
@@ -89,7 +89,7 @@ const ResourceItem: React.FC<{ item: ResourceLink }> = ({ item }) => {
         <Icon
           name={item.icon}
           size={20}
-          className="grayscale group-hover:grayscale-0 group-hover:opacity-70 transition-all duration-200"
+          className="grayscale brightness-[1.14] group-hover:grayscale-0 group-hover:brightness-100 group-hover:opacity-70 transition-all duration-200"
         />
       </div>
       <span className="font-medium text-sm uppercase tracking-wide">
