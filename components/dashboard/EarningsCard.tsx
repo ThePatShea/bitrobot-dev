@@ -1,5 +1,6 @@
 /**
- * Earnings card component for displaying points and earnings data
+ * @fileoverview Earnings card component for displaying points and earnings data
+ * @module components/dashboard/EarningsCard
  */
 
 'use client';
@@ -9,21 +10,25 @@ import { Card } from '@/components/ui/Card';
 import { Icon } from '@/components/ui/Icon';
 
 /**
- * EarningsCard component props
+ * Props for the EarningsCard component
+ * @interface EarningsCardProps
  */
 interface EarningsCardProps {
-  /** Card title */
+  /** Card title displayed at the top */
   title: string;
   /** Points value to display */
   points: number;
-  /** Whether to show points suffix (k, M, etc.) */
+  /** Whether to format points with k/M suffix */
   formatPoints?: boolean;
-  /** Click handler for breakdown link */
+  /** Click handler for the breakdown link */
   onBreakdownClick?: () => void;
 }
 
 /**
- * Format large numbers with k/M suffix
+ * Format large numbers with k/M suffix for display
+ *
+ * @param {number} num - The number to format
+ * @returns {string} Formatted string with suffix
  */
 const formatNumber = (num: number): string => {
   if (num >= 1000000) {
@@ -37,8 +42,15 @@ const formatNumber = (num: number): string => {
 
 /**
  * Earnings card component with hover effects
- * Shows earnings data with animated hover state
- * 
+ * Displays earnings data with an animated breakdown link
+ *
+ * @param {EarningsCardProps} props - Component props
+ * @param {string} props.title - Card title
+ * @param {number} props.points - Points value to display
+ * @param {boolean} [props.formatPoints=false] - Whether to format with k/M suffix
+ * @param {Function} [props.onBreakdownClick] - Breakdown link click handler
+ * @returns {JSX.Element} An earnings card with points display
+ *
  * @example
  * ```tsx
  * <EarningsCard 

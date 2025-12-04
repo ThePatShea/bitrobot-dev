@@ -1,5 +1,6 @@
 /**
- * Bonus banner component for promotional messages
+ * @fileoverview Bonus banner component for promotional messages
+ * @module components/dashboard/BonusBanner
  */
 
 'use client';
@@ -8,22 +9,31 @@ import React from 'react';
 import { Button } from '@/components/ui/Button';
 
 /**
- * BonusBanner component props
+ * Props for the BonusBanner component
+ * @interface BonusBannerProps
  */
 interface BonusBannerProps {
-  /** Banner title */
+  /** Banner title text */
   title: string;
-  /** Banner description */
+  /** Banner description text */
   description: string;
   /** Call-to-action button text */
   ctaText: string;
-  /** CTA click handler */
+  /** Callback function when CTA button is clicked */
   onCtaClick: () => void;
 }
 
 /**
- * Promotional banner component for bonuses and opportunities
- * 
+ * Promotional banner component for displaying bonus opportunities
+ * Features a title, description, and call-to-action button
+ *
+ * @param {BonusBannerProps} props - Component props
+ * @param {string} props.title - Banner title
+ * @param {string} props.description - Banner description
+ * @param {string} props.ctaText - CTA button text
+ * @param {Function} props.onCtaClick - CTA click handler
+ * @returns {JSX.Element} A promotional banner with CTA
+ *
  * @example
  * ```tsx
  * <BonusBanner

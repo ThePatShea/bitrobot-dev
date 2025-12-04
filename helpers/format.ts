@@ -1,15 +1,15 @@
 /**
- * Formatting utility functions
- * Shared helpers for formatting numbers, dates, and other data
+ * @fileoverview Formatting utility functions for numbers, text, and addresses
+ * @module helpers/format
  */
 
 /**
- * Format large numbers with k/M/B suffix
- * 
- * @param num - The number to format
- * @param decimals - Number of decimal places (default: 1)
- * @returns Formatted string with suffix
- * 
+ * Format large numbers with k/M/B suffix for compact display
+ *
+ * @param {number} num - The number to format
+ * @param {number} [decimals=1] - Number of decimal places to show
+ * @returns {string} Formatted string with appropriate suffix
+ *
  * @example
  * ```ts
  * formatNumber(1234) // "1.2k"
@@ -31,11 +31,11 @@ export function formatNumber(num: number, decimals: number = 1): string {
 }
 
 /**
- * Format a number with thousands separators
- * 
- * @param num - The number to format
- * @returns Formatted string with commas
- * 
+ * Format a number with thousands separators (commas)
+ *
+ * @param {number} num - The number to format
+ * @returns {string} Formatted string with comma separators
+ *
  * @example
  * ```ts
  * formatWithCommas(1234567) // "1,234,567"
@@ -46,15 +46,16 @@ export function formatWithCommas(num: number): string {
 }
 
 /**
- * Truncate text with ellipsis
- * 
- * @param text - The text to truncate
- * @param maxLength - Maximum length before truncation
- * @returns Truncated text with ellipsis if needed
- * 
+ * Truncate text with ellipsis if it exceeds maximum length
+ *
+ * @param {string} text - The text to truncate
+ * @param {number} maxLength - Maximum length before truncation
+ * @returns {string} Truncated text with ellipsis if needed
+ *
  * @example
  * ```ts
  * truncateText("Hello World", 8) // "Hello..."
+ * truncateText("Hi", 8) // "Hi"
  * ```
  */
 export function truncateText(text: string, maxLength: number): string {
@@ -63,17 +64,18 @@ export function truncateText(text: string, maxLength: number): string {
 }
 
 /**
- * Format a wallet address for display
- * Shows first and last few characters with ellipsis in the middle
- * 
- * @param address - The wallet address
- * @param startChars - Number of characters to show at start (default: 6)
- * @param endChars - Number of characters to show at end (default: 4)
- * @returns Formatted address
- * 
+ * Format a wallet address for display with ellipsis in the middle
+ * Shows the first and last few characters for identification
+ *
+ * @param {string} address - The wallet address to format
+ * @param {number} [startChars=6] - Number of characters to show at start
+ * @param {number} [endChars=4] - Number of characters to show at end
+ * @returns {string} Formatted address with ellipsis
+ *
  * @example
  * ```ts
- * formatAddress("0x1234567890abcdef") // "0x1234...cdef"
+ * formatAddress("0x1234567890abcdef1234567890abcdef12345678") // "0x1234...5678"
+ * formatAddress("0x1234567890abcdef", 4, 4) // "0x12...cdef"
  * ```
  */
 export function formatAddress(
@@ -84,4 +86,3 @@ export function formatAddress(
   if (address.length <= startChars + endChars) return address;
   return `${address.slice(0, startChars)}...${address.slice(-endChars)}`;
 }
-

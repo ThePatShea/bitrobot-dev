@@ -1,16 +1,19 @@
 /**
- * Type definitions for the BitRobot Dashboard application
+ * @fileoverview Type definitions for the BitRobot Dashboard application
+ * @module app/types
  */
 
 /**
  * Navigation menu item structure
+ * Represents a single item in the sidebar navigation
+ * @interface NavItem
  */
 export interface NavItem {
   /** Unique identifier for the nav item */
   id: string;
   /** Display label for the nav item */
   label: string;
-  /** Icon path or identifier */
+  /** Icon name (without .svg extension) */
   icon: string;
   /** Icon size in pixels */
   iconSize?: number;
@@ -24,40 +27,46 @@ export interface NavItem {
 
 /**
  * Resource link item structure
+ * Represents an external resource link in the sidebar
+ * @interface ResourceLink
  */
 export interface ResourceLink {
   /** Unique identifier for the resource */
   id: string;
   /** Display label for the resource */
   label: string;
-  /** Icon path or identifier */
+  /** Icon name (without .svg extension) */
   icon: string;
-  /** URL for the resource (can be external) */
+  /** URL for the resource */
   href: string;
-  /** Whether the link opens in a new tab */
+  /** Whether the link is external (shows arrow icon) */
   external?: boolean;
 }
 
 /**
  * Leaderboard entry structure
+ * Represents a single user's data in the leaderboard table
+ * @interface LeaderboardEntry
  */
 export interface LeaderboardEntry {
-  /** Rank position */
+  /** Rank position in the leaderboard */
   rank: number;
-  /** User identifier */
+  /** User identifier (wallet address or username) */
   userId: string;
-  /** User avatar URL */
+  /** User avatar image URL */
   avatar: string;
-  /** Lifetime earnings */
+  /** Total lifetime earnings */
   lifetimeEarning: number;
-  /** Current epoch earnings */
+  /** Earnings for the current epoch */
   thisEpoch: number;
-  /** Number of referrals */
+  /** Number of successful referrals */
   referrals: number;
 }
 
 /**
  * Earnings data point for charts
+ * Represents a single month's earnings value
+ * @interface EarningsDataPoint
  */
 export interface EarningsDataPoint {
   /** Month abbreviation (e.g., "JAN", "FEB") */
@@ -68,36 +77,44 @@ export interface EarningsDataPoint {
 
 /**
  * Carousel item structure
+ * Represents a single slide in the discover carousel
+ * @interface CarouselItem
  */
 export interface CarouselItem {
-  /** Unique identifier */
+  /** Unique identifier for the carousel item */
   id: string;
   /** Title of the carousel item */
   title: string;
   /** Description text */
   description: string;
-  /** Icon identifier or path */
+  /** Icon name (without .svg extension) */
   icon: string;
-  /** Primary action button config */
+  /** Primary action button configuration */
   primaryAction: {
+    /** Button label text */
     label: string;
+    /** Click handler callback */
     onClick: () => void;
   };
-  /** Secondary action button config */
+  /** Optional secondary action button configuration */
   secondaryAction?: {
+    /** Button label text */
     label: string;
+    /** Click handler callback */
     onClick: () => void;
   };
 }
 
 /**
- * User profile data
+ * User profile data structure
+ * Represents the current logged-in user
+ * @interface UserProfile
  */
 export interface UserProfile {
-  /** Username */
+  /** Display username */
   username: string;
   /** Avatar image URL */
   avatar: string;
-  /** User ID */
+  /** Unique user identifier */
   id: string;
 }

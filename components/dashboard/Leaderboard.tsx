@@ -1,5 +1,6 @@
 /**
- * Leaderboard component displaying top users
+ * @fileoverview Leaderboard component displaying top users in a table format
+ * @module components/dashboard/Leaderboard
  */
 
 'use client';
@@ -10,22 +11,37 @@ import { Card } from '@/components/ui/Card';
 import type { LeaderboardEntry } from '@/app/types';
 
 /**
- * Leaderboard component props
+ * Props for the Leaderboard component
+ * @interface LeaderboardProps
  */
 interface LeaderboardProps {
-  /** Array of leaderboard entries */
+  /** Array of leaderboard entries to display */
   entries: LeaderboardEntry[];
   /** Current user's ID to highlight their row */
   currentUserId?: string;
 }
 
 /**
- * Leaderboard table row component with hover effects
+ * Props for the LeaderboardRow component
+ * @interface LeaderboardRowProps
  */
-const LeaderboardRow: React.FC<{ 
-  entry: LeaderboardEntry; 
+interface LeaderboardRowProps {
+  /** The leaderboard entry data */
+  entry: LeaderboardEntry;
+  /** Whether this row belongs to the current user */
   isCurrentUser: boolean;
-}> = ({ entry, isCurrentUser }) => {
+}
+
+/**
+ * Leaderboard table row component with hover effects
+ * Displays a single user's rank, avatar, earnings, and referrals
+ *
+ * @param {LeaderboardRowProps} props - Component props
+ * @param {LeaderboardEntry} props.entry - The leaderboard entry data
+ * @param {boolean} props.isCurrentUser - Whether this row belongs to the current user
+ * @returns {JSX.Element} A table row with user data
+ */
+const LeaderboardRow: React.FC<LeaderboardRowProps> = ({ entry, isCurrentUser }) => {
   const [isHovered, setIsHovered] = useState(false);
   
   return (
@@ -77,9 +93,15 @@ const LeaderboardRow: React.FC<{
 };
 
 /**
- * Leaderboard component with sortable columns
- * Displays top users and highlights the current user
- * 
+ * Leaderboard component displaying top users in a table
+ * Shows rankings with user avatars, earnings, and referral counts
+ * Highlights the current user's row
+ *
+ * @param {LeaderboardProps} props - Component props
+ * @param {LeaderboardEntry[]} props.entries - Array of leaderboard entries
+ * @param {string} [props.currentUserId] - Current user's ID for highlighting
+ * @returns {JSX.Element} A leaderboard table section
+ *
  * @example
  * ```tsx
  * <Leaderboard 

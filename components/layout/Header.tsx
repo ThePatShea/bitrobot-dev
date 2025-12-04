@@ -1,5 +1,6 @@
 /**
- * Header component with user account menu
+ * @fileoverview Header component with user account menu
+ * @module components/layout/Header
  */
 
 "use client";
@@ -10,7 +11,8 @@ import { Icon } from "@/components/ui/Icon";
 import type { UserProfile } from "@/app/types";
 
 /**
- * Header component props
+ * Props for the Header component
+ * @interface HeaderProps
  */
 interface HeaderProps {
   /** Current user profile data */
@@ -19,6 +21,11 @@ interface HeaderProps {
 
 /**
  * Header component with user account dropdown menu
+ * Displays user avatar, username, and provides access to account settings
+ *
+ * @param {HeaderProps} props - Component props
+ * @param {UserProfile} props.user - Current user profile data
+ * @returns {JSX.Element} A header with user account dropdown
  *
  * @example
  * ```tsx

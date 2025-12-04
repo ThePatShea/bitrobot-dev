@@ -1,12 +1,14 @@
 /**
- * Icon component for rendering SVG icons from the public/icons directory
+ * @fileoverview Icon component for rendering SVG icons from the public/icons directory
+ * @module components/ui/Icon
  */
 
 import React from 'react';
 import Image from 'next/image';
 
 /**
- * Icon component props
+ * Props for the Icon component
+ * @interface IconProps
  */
 interface IconProps {
   /** Name of the icon file (without .svg extension) */
@@ -20,12 +22,20 @@ interface IconProps {
 }
 
 /**
- * Icon component for rendering SVG icons
- * 
+ * Icon component for rendering SVG icons from the public/icons directory
+ * Uses Next.js Image component for optimized loading
+ *
+ * @param {IconProps} props - Component props
+ * @param {string} props.name - Name of the icon file (without .svg extension)
+ * @param {number} [props.size=20] - Size of the icon in pixels
+ * @param {string} [props.className=''] - Additional CSS classes
+ * @param {string} [props.alt=''] - Alt text for accessibility
+ * @returns {JSX.Element} An optimized image element displaying the icon
+ *
  * @example
  * ```tsx
  * <Icon name="dashboard" size={20} />
- * <Icon name="profile" size={24} className="text-blue-500" />
+ * <Icon name="profile" size={24} className="opacity-50" />
  * ```
  */
 export const Icon: React.FC<IconProps> = ({ 
@@ -44,4 +54,3 @@ export const Icon: React.FC<IconProps> = ({
     />
   );
 };
-

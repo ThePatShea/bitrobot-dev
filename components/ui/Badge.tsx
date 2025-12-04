@@ -1,11 +1,13 @@
 /**
- * Badge component for displaying status indicators and labels
+ * @fileoverview Badge component for displaying status indicators and labels
+ * @module components/ui/Badge
  */
 
 import React from 'react';
 
 /**
- * Badge component props
+ * Props for the Badge component
+ * @interface BadgeProps
  */
 interface BadgeProps {
   /** Content to display in the badge */
@@ -17,8 +19,15 @@ interface BadgeProps {
 }
 
 /**
- * Reusable Badge component for status indicators
- * 
+ * Reusable Badge component for status indicators and labels
+ * Provides colored pill-style badges for various states
+ *
+ * @param {BadgeProps} props - Component props
+ * @param {React.ReactNode} props.children - Content to display in the badge
+ * @param {string} [props.variant='default'] - Visual variant of the badge
+ * @param {string} [props.className=''] - Additional CSS classes
+ * @returns {JSX.Element} A styled badge element
+ *
  * @example
  * ```tsx
  * <Badge variant="success">Online</Badge>

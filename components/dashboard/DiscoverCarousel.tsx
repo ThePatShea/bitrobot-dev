@@ -1,5 +1,6 @@
 /**
- * Discover carousel component for showcasing integrations and features
+ * @fileoverview Discover carousel component for showcasing integrations and features
+ * @module components/dashboard/DiscoverCarousel
  */
 
 'use client';
@@ -11,7 +12,8 @@ import { Icon } from '@/components/ui/Icon';
 import type { CarouselItem } from '@/app/types';
 
 /**
- * DiscoverCarousel component props
+ * Props for the DiscoverCarousel component
+ * @interface DiscoverCarouselProps
  */
 interface DiscoverCarouselProps {
   /** Array of carousel items to display */
@@ -20,8 +22,12 @@ interface DiscoverCarouselProps {
 
 /**
  * Carousel component for the Discover section
- * Displays integration cards with navigation
- * 
+ * Displays integration cards with navigation arrows and indicator dots
+ *
+ * @param {DiscoverCarouselProps} props - Component props
+ * @param {CarouselItem[]} props.items - Array of carousel items to display
+ * @returns {JSX.Element} A carousel section with navigation
+ *
  * @example
  * ```tsx
  * <DiscoverCarousel items={carouselItems} />
@@ -32,15 +38,19 @@ export const DiscoverCarousel: React.FC<DiscoverCarouselProps> = ({ items }) => 
 
   /**
    * Navigate to the next carousel item
+   * Wraps around to the first item when at the end
+   * @returns {void}
    */
-  const handleNext = () => {
+  const handleNext = (): void => {
     setCurrentIndex((prev) => (prev + 1) % items.length);
   };
 
   /**
    * Navigate to the previous carousel item
+   * Wraps around to the last item when at the beginning
+   * @returns {void}
    */
-  const handlePrev = () => {
+  const handlePrev = (): void => {
     setCurrentIndex((prev) => (prev - 1 + items.length) % items.length);
   };
 

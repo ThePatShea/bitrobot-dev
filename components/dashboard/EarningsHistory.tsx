@@ -1,6 +1,6 @@
 /**
- * Earnings History chart component
- * Displays a bar chart of monthly earnings
+ * @fileoverview Earnings History chart component displaying monthly earnings
+ * @module components/dashboard/EarningsHistory
  */
 
 'use client';
@@ -11,7 +11,8 @@ import { Icon } from '@/components/ui/Icon';
 import type { EarningsDataPoint } from '@/app/types';
 
 /**
- * EarningsHistory component props
+ * Props for the EarningsHistory component
+ * @interface EarningsHistoryProps
  */
 interface EarningsHistoryProps {
   /** Array of earnings data points by month */
@@ -19,17 +20,23 @@ interface EarningsHistoryProps {
 }
 
 /**
- * Simple bar chart component for earnings history
- * 
+ * Simple bar chart component for displaying earnings history
+ * Shows monthly earnings with hover tooltips
+ *
+ * @param {EarningsHistoryProps} props - Component props
+ * @param {EarningsDataPoint[]} props.data - Array of monthly earnings data
+ * @returns {JSX.Element} A bar chart displaying earnings history
+ *
  * @example
  * ```tsx
  * <EarningsHistory data={earningsData} />
  * ```
  */
 export const EarningsHistory: React.FC<EarningsHistoryProps> = ({ data }) => {
-  // Calculate the maximum value for scaling
+  /** Maximum value in the dataset for scaling bars */
   const maxValue = Math.max(...data.map(d => d.value));
-  const chartHeight = 200; // pixels
+  /** Fixed chart height in pixels */
+  const chartHeight = 200;
   
   return (
     <Card className="p-6">
@@ -45,7 +52,7 @@ export const EarningsHistory: React.FC<EarningsHistoryProps> = ({ data }) => {
 
       {/* Chart Container */}
       <div className="relative">
-        {/* Y-axis labels */}
+        {/* Y-axis Labels */}
         <div className="absolute left-0 top-0 bottom-8 flex flex-col justify-between text-xs text-muted pr-2">
           <span>1.1K</span>
           <span>1K</span>
@@ -54,11 +61,11 @@ export const EarningsHistory: React.FC<EarningsHistoryProps> = ({ data }) => {
           <span>700</span>
         </div>
 
-        {/* Chart area */}
+        {/* Chart Area */}
         <div className="ml-10">
           <div className="flex items-end justify-between gap-2 h-[200px] pb-8">
             {data.map((point, index) => {
-              // Calculate bar height as percentage of max value
+              /** Calculate bar height as percentage of max value */
               const heightPercentage = (point.value / maxValue) * 100;
               const barHeight = (chartHeight * heightPercentage) / 100;
               
@@ -73,14 +80,14 @@ export const EarningsHistory: React.FC<EarningsHistoryProps> = ({ data }) => {
                       className="w-full max-w-[40px] bg-chart-bar rounded-t-lg transition-all duration-300 hover:bg-chart-bar-hover group-hover:shadow-lg relative"
                       style={{ height: `${barHeight}px` }}
                     >
-                      {/* Tooltip on hover */}
+                      {/* Tooltip on Hover */}
                       <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-2 py-1 bg-foreground text-white text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200 whitespace-nowrap">
                         {point.value}
                       </div>
                     </div>
                   </div>
                   
-                  {/* Month label */}
+                  {/* Month Label */}
                   <span className="text-xs text-primary font-medium">
                     {point.month}
                   </span>

@@ -1,18 +1,20 @@
 /**
- * Card component for containing content with consistent styling
+ * @fileoverview Card component for containing content with consistent styling
+ * @module components/ui/Card
  */
 
 import React from 'react';
 
 /**
- * Card component props
+ * Props for the Card component
+ * @interface CardProps
  */
 interface CardProps {
   /** Content to be rendered inside the card */
   children: React.ReactNode;
   /** Optional additional CSS classes */
   className?: string;
-  /** Optional hover effect */
+  /** Whether to show hover effects */
   hoverable?: boolean;
   /** Optional click handler */
   onClick?: () => void;
@@ -20,7 +22,15 @@ interface CardProps {
 
 /**
  * Reusable Card component with optional hover effects
- * 
+ * Provides a consistent container style for content blocks
+ *
+ * @param {CardProps} props - Component props
+ * @param {React.ReactNode} props.children - Content to render inside the card
+ * @param {string} [props.className=''] - Additional CSS classes
+ * @param {boolean} [props.hoverable=false] - Whether to show hover effects
+ * @param {Function} [props.onClick] - Click handler callback
+ * @returns {JSX.Element} A styled card container
+ *
  * @example
  * ```tsx
  * <Card hoverable onClick={handleClick}>

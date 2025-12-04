@@ -1,5 +1,6 @@
 /**
- * Earn Points badge component for promotional badges
+ * @fileoverview Earn Points badge component for promotional badges
+ * @module components/dashboard/EarnPointsBadge
  */
 
 'use client';
@@ -8,18 +9,25 @@ import React from 'react';
 import { Icon } from '@/components/ui/Icon';
 
 /**
- * EarnPointsBadge component props
+ * Props for the EarnPointsBadge component
+ * @interface EarnPointsBadgeProps
  */
 interface EarnPointsBadgeProps {
-  /** Number of points to earn */
+  /** Number of points available to earn */
   points: number;
-  /** Optional click handler */
+  /** Optional click handler for the badge */
   onClick?: () => void;
 }
 
 /**
  * Floating badge component showing available points to earn
- * 
+ * Displays a clickable pill with points icon and text
+ *
+ * @param {EarnPointsBadgeProps} props - Component props
+ * @param {number} props.points - Number of points to display
+ * @param {Function} [props.onClick] - Optional click handler
+ * @returns {JSX.Element} A floating points badge button
+ *
  * @example
  * ```tsx
  * <EarnPointsBadge points={20} onClick={() => console.log('Badge clicked')} />
