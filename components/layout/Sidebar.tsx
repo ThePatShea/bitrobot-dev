@@ -188,7 +188,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
                 size={20}
                 className="opacity-50 group-hover/tooltip:opacity-100 transition-opacity duration-200"
               />
-              <div className="absolute right-0 top-full mt-2 w-48 p-2 bg-foreground text-white text-xs rounded-lg opacity-0 invisible group-hover/tooltip:opacity-100 group-hover/tooltip:visible transition-all duration-200 z-50 shadow-lg">
+              <div className="absolute right-0 top-full mt-2 w-48 p-3 bg-card-bg text-muted text-xs rounded-xl border border-border opacity-0 invisible group-hover/tooltip:opacity-100 group-hover/tooltip:visible transition-all duration-200 z-50 shadow-[0_1px_8px_0_rgba(0,0,0,0.1)]">
                 Share your unique link with your friends to earn points when
                 they sign up.
               </div>
