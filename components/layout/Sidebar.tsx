@@ -39,15 +39,17 @@ const NavLink: React.FC<{ item: NavItem }> = ({ item }) => {
         group relative
       `}
     >
-      <Icon
-        name={item.icon}
-        size={item.iconSize ?? 20}
-        className={
-          isActive
-            ? ""
-            : "grayscale group-hover:grayscale-0 group-hover:opacity-70 transition-all duration-200"
-        }
-      />
+      <div className="w-5 h-5 flex items-center justify-center">
+        <Icon
+          name={item.icon}
+          size={item.iconSize ?? 20}
+          className={
+            isActive
+              ? ""
+              : "grayscale group-hover:grayscale-0 group-hover:opacity-70 transition-all duration-200"
+          }
+        />
+      </div>
       <span className="font-medium text-sm uppercase tracking-wide">
         {item.label}
       </span>
