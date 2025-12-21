@@ -5,7 +5,7 @@
 
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import Image from "next/image";
 import { Icon } from "@/components/ui/Icon";
 import type { UserProfile } from "@/app/types";
@@ -34,10 +34,30 @@ interface HeaderProps {
  */
 export const Header: React.FC<HeaderProps> = ({ user }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const menuRef = useRef<HTMLDivElement>(null);
+
+  /**
+   * Close menu when clicking outside
+   */
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
+        setIsMenuOpen(false);
+      }
+    };
+
+    if (isMenuOpen) {
+      document.addEventListener("mousedown", handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [isMenuOpen]);
 
   return (
     <header className="h-16 flex items-center justify-end px-8 fixed top-0 right-0 left-66 z-50">
-      <div className="relative">
+      <div className="relative" ref={menuRef}>
         <button
           onClick={() => setIsMenuOpen(!isMenuOpen)}
           className="flex items-center px-3 py-[7px] bg-white border border-border rounded-lg shadow-[0_2px_8px_0_rgba(0,0,0,0.07)] hover:shadow-[0_2px_12px_0_rgba(0,0,0,0.1)] transition-shadow duration-200 cursor-pointer"
