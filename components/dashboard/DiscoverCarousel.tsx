@@ -3,13 +3,14 @@
  * @module components/dashboard/DiscoverCarousel
  */
 
-'use client';
+"use client";
 
-import React, { useState } from 'react';
-import { Card } from '@/components/ui/Card';
-import { Button } from '@/components/ui/Button';
-import { Icon } from '@/components/ui/Icon';
-import type { CarouselItem } from '@/app/types';
+import React, { useState } from "react";
+import { Card } from "@/components/ui/Card";
+import { Button } from "@/components/ui/Button";
+import { Icon } from "@/components/ui/Icon";
+import { SectionHeader } from "@/components/ui/SectionHeader";
+import type { CarouselItem } from "@/app/types";
 
 /**
  * Props for the DiscoverCarousel component
@@ -33,7 +34,9 @@ interface DiscoverCarouselProps {
  * <DiscoverCarousel items={carouselItems} />
  * ```
  */
-export const DiscoverCarousel: React.FC<DiscoverCarouselProps> = ({ items }) => {
+export const DiscoverCarousel: React.FC<DiscoverCarouselProps> = ({
+  items,
+}) => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   /**
@@ -60,9 +63,7 @@ export const DiscoverCarousel: React.FC<DiscoverCarouselProps> = ({ items }) => 
     <section className="mb-8">
       {/* Section Header */}
       <div className="mb-4">
-        <span className="inline-block px-3 py-1 text-xs font-semibold text-primary uppercase tracking-wider bg-primary-light rounded-full">
-          Discover
-        </span>
+        <SectionHeader title="Discover" />
         <h2 className="text-2xl font-semibold text-primary mt-3">
           Explore the BitRobot Network
         </h2>
@@ -140,8 +141,8 @@ export const DiscoverCarousel: React.FC<DiscoverCarouselProps> = ({ items }) => 
               onClick={() => setCurrentIndex(index)}
               className={`h-1 rounded-full transition-all duration-300 ${
                 index === currentIndex
-                  ? 'w-8 bg-primary'
-                  : 'w-1 bg-border hover:bg-primary/40'
+                  ? "w-8 bg-primary"
+                  : "w-1 bg-border hover:bg-primary/40"
               }`}
               aria-label={`Go to slide ${index + 1}`}
             />

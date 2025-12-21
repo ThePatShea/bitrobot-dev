@@ -3,12 +3,13 @@
  * @module components/dashboard/Leaderboard
  */
 
-'use client';
+"use client";
 
-import React, { useState } from 'react';
-import Image from 'next/image';
-import { Card } from '@/components/ui/Card';
-import type { LeaderboardEntry } from '@/app/types';
+import React, { useState } from "react";
+import Image from "next/image";
+import { Card } from "@/components/ui/Card";
+import { SectionHeader } from "@/components/ui/SectionHeader";
+import type { LeaderboardEntry } from "@/app/types";
 
 /**
  * Props for the Leaderboard component
@@ -41,23 +42,24 @@ interface LeaderboardRowProps {
  * @param {boolean} props.isCurrentUser - Whether this row belongs to the current user
  * @returns {JSX.Element} A table row with user data
  */
-const LeaderboardRow: React.FC<LeaderboardRowProps> = ({ entry, isCurrentUser }) => {
+const LeaderboardRow: React.FC<LeaderboardRowProps> = ({
+  entry,
+  isCurrentUser,
+}) => {
   const [isHovered, setIsHovered] = useState(false);
-  
+
   return (
     <tr
       className={`
         border-b border-border last:border-0 transition-colors duration-200
-        ${isCurrentUser ? 'bg-primary-light' : isHovered ? 'bg-hover-bg' : ''}
+        ${isCurrentUser ? "bg-primary-light" : isHovered ? "bg-hover-bg" : ""}
       `}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
       {/* Rank */}
-      <td className="py-4 px-4 text-sm text-muted font-medium">
-        {entry.rank}
-      </td>
-      
+      <td className="py-4 px-4 text-sm text-muted font-medium">{entry.rank}</td>
+
       {/* User */}
       <td className="py-4 px-4">
         <div className="flex items-center gap-3">
@@ -73,17 +75,17 @@ const LeaderboardRow: React.FC<LeaderboardRowProps> = ({ entry, isCurrentUser })
           </span>
         </div>
       </td>
-      
+
       {/* Lifetime Earning */}
       <td className="py-4 px-4 text-sm text-foreground font-medium text-right">
         {entry.lifetimeEarning.toLocaleString()}
       </td>
-      
+
       {/* This Epoch */}
       <td className="py-4 px-4 text-sm text-foreground font-medium text-right">
         {entry.thisEpoch.toLocaleString()}
       </td>
-      
+
       {/* Referrals */}
       <td className="py-4 px-4 text-sm text-foreground font-medium text-right">
         {entry.referrals}
@@ -104,23 +106,21 @@ const LeaderboardRow: React.FC<LeaderboardRowProps> = ({ entry, isCurrentUser })
  *
  * @example
  * ```tsx
- * <Leaderboard 
- *   entries={leaderboardData} 
+ * <Leaderboard
+ *   entries={leaderboardData}
  *   currentUserId="username123"
  * />
  * ```
  */
-export const Leaderboard: React.FC<LeaderboardProps> = ({ 
+export const Leaderboard: React.FC<LeaderboardProps> = ({
   entries,
-  currentUserId
+  currentUserId,
 }) => {
   return (
     <section className="mt-8">
       {/* Section Header */}
       <div className="mb-4">
-        <span className="inline-block px-3 py-1 text-xs font-semibold text-primary uppercase tracking-wider bg-primary-light rounded-full">
-          Leaderboard
-        </span>
+        <SectionHeader title="Leaderboard" />
       </div>
 
       <Card className="overflow-hidden">

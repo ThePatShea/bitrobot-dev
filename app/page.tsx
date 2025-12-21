@@ -14,6 +14,7 @@ import { EarningsHistory } from "@/components/dashboard/EarningsHistory";
 import { Leaderboard } from "@/components/dashboard/Leaderboard";
 import { BonusBanner } from "@/components/dashboard/BonusBanner";
 import { EarnPointsBadge } from "@/components/dashboard/EarnPointsBadge";
+import { SectionHeader } from "@/components/ui/SectionHeader";
 import type {
   NavItem,
   ResourceLink,
@@ -264,9 +265,7 @@ export default function DashboardPage() {
           {/* Earnings Section */}
           <section className="mb-8">
             <div className="mb-4">
-              <span className="inline-block px-3 py-1 text-xs font-semibold text-primary uppercase tracking-wider bg-primary-light rounded-full">
-                Earnings
-              </span>
+              <SectionHeader title="Earnings" />
             </div>
 
             {/* Earnings Cards Grid */}
