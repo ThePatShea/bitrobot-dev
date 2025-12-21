@@ -250,7 +250,7 @@ export default function DashboardPage() {
         <Header user={userProfile} />
 
         {/* Main Content */}
-        <main className="pt-16 px-8 py-8">
+        <main className="pt-13 px-8 py-8">
           {/* Discover Section with Earn Points Badge */}
           <div className="relative">
             <div className="absolute top-4 right-4 z-10">
