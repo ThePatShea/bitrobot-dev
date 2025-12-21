@@ -188,15 +188,15 @@ export const DiscoverCarousel: React.FC<DiscoverCarouselProps> = ({
       </div>
 
       {/* Carousel Indicators */}
-      <div className="flex justify-center gap-2 mt-4">
+      <div className="flex justify-center gap-1 mt-4">
         {items.map((_, index) => (
           <button
             key={index}
             onClick={() => setCurrentIndex(index)}
-            className={`h-1 rounded-full transition-all duration-300 ${
+            className={`w-3 h-1 rounded-full transition-colors duration-300 ${
               index === currentIndex
-                ? "w-8 bg-primary"
-                : "w-1 bg-border hover:bg-primary/40"
+                ? "bg-primary"
+                : "bg-border hover:bg-primary/40"
             }`}
             aria-label={`Go to slide ${index + 1}`}
           />
