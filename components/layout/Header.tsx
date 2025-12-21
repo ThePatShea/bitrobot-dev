@@ -40,7 +40,7 @@ export const Header: React.FC<HeaderProps> = ({ user }) => {
       <div className="relative">
         <button
           onClick={() => setIsMenuOpen(!isMenuOpen)}
-          className="flex items-center gap-3 px-3 py-[7px] bg-white border border-border rounded-lg shadow-[0_2px_8px_0_rgba(0,0,0,0.07)] hover:shadow-[0_2px_12px_0_rgba(0,0,0,0.1)] transition-shadow duration-200 cursor-pointer"
+          className="flex items-center px-3 py-[7px] bg-white border border-border rounded-lg shadow-[0_2px_8px_0_rgba(0,0,0,0.07)] hover:shadow-[0_2px_12px_0_rgba(0,0,0,0.1)] transition-shadow duration-200 cursor-pointer"
         >
           <Image
             src={user.avatar}
@@ -49,11 +49,11 @@ export const Header: React.FC<HeaderProps> = ({ user }) => {
             height={20}
             className="rounded-full"
           />
-          <span className="text-xs text-muted">{user.username}</span>
+          <span className="ml-2 text-xs text-gray-2">{user.username}</span>
           <Icon
             name="chevron-down"
-            size={10}
-            className={`text-primary transition-transform duration-200 ${
+            size={12}
+            className={`ml-3 text-primary transition-transform duration-200 ${
               isMenuOpen ? "rotate-180" : ""
             }`}
           />

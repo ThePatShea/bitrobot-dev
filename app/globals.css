@@ -18,6 +18,7 @@
   /* Neutral/Gray colors */
   --border: #eeecfe;
   --muted: #6b7280;
+  --gray-2: #7a7a7a;
   --hover-bg: #f9fafb;
   --light-bg: #f6f6f6;
 
@@ -66,6 +67,7 @@
   /* Neutral/Gray colors */
   --color-border: var(--border);
   --color-muted: var(--muted);
+  --color-gray-2: var(--gray-2);
   --color-hover-bg: var(--hover-bg);
   --color-light-bg: var(--light-bg);
 
