@@ -64,7 +64,7 @@ export const DiscoverCarousel: React.FC<DiscoverCarouselProps> = ({
       {/* Section Header */}
       <div className="mb-4">
         <SectionHeader title="Discover" />
-        <h2 className="text-2xl font-semibold text-primary mt-3">
+        <h2 className="text-2xl font-medium text-primary mt-3">
           Explore the BitRobot Network
         </h2>
       </div>
