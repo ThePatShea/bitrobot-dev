@@ -43,7 +43,7 @@ export const EarnPointsBadge: React.FC<EarnPointsBadgeProps> = ({
 
   return (
     <div
-      className={`inline-flex items-center gap-2 px-4 py-2.5 bg-warning-bg-soft text-warning-text-bright rounded-lg text-[10px] uppercase shadow-[0_1px_8px_0_rgba(0,0,0,0.08)] ${className}`}
+      className={`inline-flex items-center gap-2 px-4 py-2 bg-warning-bg-soft text-warning-text-bright rounded-lg text-[10px] uppercase shadow-[0_1px_8px_0_rgba(0,0,0,0.08)] ${className}`}
     >
       <Icon name="points" size={16} />
       <span>{label}</span>
