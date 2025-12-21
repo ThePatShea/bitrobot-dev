@@ -81,7 +81,7 @@ export const DiscoverCarousel: React.FC<DiscoverCarouselProps> = ({
         </button>
 
         {/* Carousel Card */}
-        <div className="flex-1 rounded-2xl border border-border overflow-hidden relative">
+        <div className="flex-1 h-[246px] rounded-2xl border border-border overflow-hidden relative">
           {/* Background Image Layer */}
           <div
             className="absolute inset-0 opacity-40"
