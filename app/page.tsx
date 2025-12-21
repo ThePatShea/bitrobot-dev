@@ -244,7 +244,7 @@ export default function DashboardPage() {
       />
 
       {/* Main Content Area */}
-      <div className="ml-64">
+      <div className="ml-63.5">
         {/* Header */}
         <Header user={userProfile} />
 

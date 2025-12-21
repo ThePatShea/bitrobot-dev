@@ -37,7 +37,7 @@ export const SectionHeader: React.FC<SectionHeaderProps> = ({
 }) => {
   return (
     <span
-      className={`inline-block px-3 py-2 text-[11px] text-primary uppercase tracking-wider bg-primary-light rounded-lg shadow-[0_1px_8px_0_rgba(0,0,0,0.1)] ${className}`}
+      className={`inline-block px-3 py-1.5 text-[11px] text-primary uppercase tracking-wider bg-primary-light rounded-lg shadow-[0_1px_8px_0_rgba(0,0,0,0.1)] ${className}`}
     >
       {title}
     </span>
