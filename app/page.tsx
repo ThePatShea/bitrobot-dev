@@ -13,7 +13,7 @@ import { EarningsCard } from "@/components/dashboard/EarningsCard";
 import { EarningsHistory } from "@/components/dashboard/EarningsHistory";
 import { Leaderboard } from "@/components/dashboard/Leaderboard";
 import { BonusBanner } from "@/components/dashboard/BonusBanner";
-import { EarnPointsBadge } from "@/components/dashboard/EarnPointsBadge";
+import { EarnPointsBadge } from "@/components/ui/EarnPointsBadge";
 import { SectionHeader } from "@/components/ui/SectionHeader";
 import type {
   NavItem,

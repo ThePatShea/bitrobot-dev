@@ -9,6 +9,7 @@ import React from "react";
 import Link from "next/link";
 import { Icon } from "@/components/ui/Icon";
 import { SectionHeader } from "@/components/ui/SectionHeader";
+import { EarnPointsBadge } from "@/components/ui/EarnPointsBadge";
 import type { NavItem, ResourceLink } from "@/app/types";
 
 /**
@@ -176,10 +177,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
         <div className="p-4 space-y-9.25 bg-light-bg rounded-2xl p-3 mx-6 mb-[40px] shadow-[0_1px_8px_0_rgba(0,0,0,0.1)]">
           {/* Earn Pts Button and Info Icon Row */}
           <div className="flex items-center justify-between">
-            <div className="inline-flex items-center gap-2 px-4 py-2.5 bg-warning-bg-soft text-warning-text-bright rounded-lg text-[10px] uppercase shadow-[0_1px_8px_0_rgba(0,0,0,0.08)]">
-              <Icon name="points" size={16} />
-              Earn Pts
-            </div>
+            <EarnPointsBadge />
             <div className="relative group/tooltip">
               <Icon
                 name="info-circle"
