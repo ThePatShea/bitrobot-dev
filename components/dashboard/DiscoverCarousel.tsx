@@ -6,10 +6,10 @@
 "use client";
 
 import React, { useState } from "react";
-import { Card } from "@/components/ui/Card";
 import { Button } from "@/components/ui/Button";
 import { Icon } from "@/components/ui/Icon";
 import { SectionHeader } from "@/components/ui/SectionHeader";
+import { EarnPointsBadge } from "@/components/ui/EarnPointsBadge";
 import type { CarouselItem } from "@/app/types";
 
 /**
@@ -69,85 +69,100 @@ export const DiscoverCarousel: React.FC<DiscoverCarouselProps> = ({
         </h2>
       </div>
 
-      {/* Carousel Container */}
-      <div className="relative">
-        <Card className="p-8 min-h-[280px]">
-          <div className="flex items-center justify-between">
-            {/* Previous Button */}
-            <button
-              onClick={handlePrev}
-              className="p-2 rounded-lg hover:bg-hover-bg transition-colors duration-200 -ml-2"
-              aria-label="Previous item"
-            >
-              <Icon name="chevron-left" size={24} />
-            </button>
+      {/* Carousel Container with Arrows */}
+      <div className="flex items-center gap-4">
+        {/* Previous Button */}
+        <button
+          onClick={handlePrev}
+          className="p-2 text-primary hover:opacity-70 transition-opacity duration-200 flex-shrink-0"
+          aria-label="Previous item"
+        >
+          <Icon name="chevron-left" size={24} />
+        </button>
 
-            {/* Carousel Content */}
-            <div className="flex-1 px-8">
-              <div className="max-w-md mx-auto text-center space-y-6">
-                {/* Icon */}
-                <div className="flex justify-center">
-                  <div className="w-16 h-16 rounded-2xl bg-discord flex items-center justify-center">
-                    <Icon name={currentItem.icon} size={32} />
-                  </div>
-                </div>
+        {/* Carousel Card */}
+        <div className="flex-1 rounded-2xl border border-border overflow-hidden relative">
+          {/* Background Image Layer */}
+          <div
+            className="absolute inset-0 opacity-40"
+            style={{
+              backgroundImage: "url('/images/carousel.png')",
+              backgroundSize: "160%",
+              backgroundPosition: "45% 36%",
+            }}
+          />
 
-                {/* Title and Description */}
-                <div>
-                  <h3 className="text-xl font-semibold text-foreground mb-2">
-                    {currentItem.title}
-                  </h3>
-                  <p className="text-sm text-muted">
-                    {currentItem.description}
-                  </p>
-                </div>
+          {/* Gradient Overlay */}
+          <div className="absolute inset-0 bg-gradient-to-r from-white/60 via-transparent to-white/30" />
 
-                {/* Action Buttons */}
-                <div className="flex gap-3 justify-center">
-                  <Button
-                    variant="primary"
-                    onClick={currentItem.primaryAction.onClick}
-                  >
-                    {currentItem.primaryAction.label}
-                  </Button>
-                  {currentItem.secondaryAction && (
-                    <Button
-                      variant="outline"
-                      onClick={currentItem.secondaryAction.onClick}
-                    >
-                      {currentItem.secondaryAction.label}
-                    </Button>
-                  )}
-                </div>
-              </div>
+          {/* Earn Points Badge */}
+          <div className="absolute top-4 right-4 z-10">
+            <EarnPointsBadge points={20} />
+          </div>
+
+          {/* Carousel Content */}
+          <div className="relative p-8 pt-16 pb-10">
+            {/* Icon */}
+            <div className="mb-4">
+              <Icon
+                name={currentItem.icon}
+                size={48}
+                className="text-primary"
+              />
             </div>
 
-            {/* Next Button */}
-            <button
-              onClick={handleNext}
-              className="p-2 rounded-lg hover:bg-hover-bg transition-colors duration-200 -mr-2"
-              aria-label="Next item"
-            >
-              <Icon name="chevron-right" size={24} />
-            </button>
-          </div>
-        </Card>
+            {/* Title */}
+            <h3 className="text-xl font-medium text-primary mb-2">
+              {currentItem.title}
+            </h3>
 
-        {/* Carousel Indicators */}
-        <div className="flex justify-center gap-2 mt-4">
-          {items.map((_, index) => (
-            <button
-              key={index}
-              onClick={() => setCurrentIndex(index)}
-              className={`h-1 rounded-full transition-all duration-300 ${
-                index === currentIndex
-                  ? "w-8 bg-primary"
-                  : "w-1 bg-border hover:bg-primary/40"
-              }`}
-              aria-label={`Go to slide ${index + 1}`}
-            />
-          ))}
+            {/* Description */}
+            <p className="text-sm text-muted mb-6">{currentItem.description}</p>
+
+            {/* Action Buttons */}
+            <div className="flex gap-3">
+              <Button
+                variant="primary"
+                onClick={currentItem.primaryAction.onClick}
+              >
+                {currentItem.primaryAction.label}
+              </Button>
+              {currentItem.secondaryAction && (
+                <Button
+                  variant="outline"
+                  onClick={currentItem.secondaryAction.onClick}
+                >
+                  {currentItem.secondaryAction.label}
+                </Button>
+              )}
+            </div>
+          </div>
         </div>
+
+        {/* Next Button */}
+        <button
+          onClick={handleNext}
+          className="p-2 text-primary hover:opacity-70 transition-opacity duration-200 flex-shrink-0"
+          aria-label="Next item"
+        >
+          <Icon name="chevron-right" size={24} />
+        </button>
+      </div>
+
+      {/* Carousel Indicators */}
+      <div className="flex justify-center gap-2 mt-4">
+        {items.map((_, index) => (
+          <button
+            key={index}
+            onClick={() => setCurrentIndex(index)}
+            className={`h-1 rounded-full transition-all duration-300 ${
+              index === currentIndex
+                ? "w-8 bg-primary"
+                : "w-1 bg-border hover:bg-primary/40"
+            }`}
+            aria-label={`Go to slide ${index + 1}`}
+          />
+        ))}
       </div>
     </section>
   );

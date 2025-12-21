@@ -13,7 +13,6 @@ import { EarningsCard } from "@/components/dashboard/EarningsCard";
 import { EarningsHistory } from "@/components/dashboard/EarningsHistory";
 import { Leaderboard } from "@/components/dashboard/Leaderboard";
 import { BonusBanner } from "@/components/dashboard/BonusBanner";
-import { EarnPointsBadge } from "@/components/ui/EarnPointsBadge";
 import { SectionHeader } from "@/components/ui/SectionHeader";
 import type {
   NavItem,
@@ -251,16 +250,8 @@ export default function DashboardPage() {
 
         {/* Main Content */}
         <main className="pt-13 px-8 py-8">
-          {/* Discover Section with Earn Points Badge */}
-          <div className="relative">
-            <div className="absolute top-4 right-4 z-10">
-              <EarnPointsBadge
-                points={20}
-                onClick={() => console.log("Earn points clicked")}
-              />
-            </div>
-            <DiscoverCarousel items={carouselItems} />
-          </div>
+          {/* Discover Section */}
+          <DiscoverCarousel items={carouselItems} />
 
           {/* Earnings Section */}
           <section className="mb-8">
