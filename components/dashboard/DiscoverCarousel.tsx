@@ -70,14 +70,14 @@ export const DiscoverCarousel: React.FC<DiscoverCarouselProps> = ({
       </div>
 
       {/* Carousel Container with Arrows */}
-      <div className="flex items-center gap-4">
+      <div className="flex items-center gap-[25px]">
         {/* Previous Button */}
         <button
           onClick={handlePrev}
           className="p-2 text-primary hover:opacity-70 transition-opacity duration-200 flex-shrink-0"
           aria-label="Previous item"
         >
-          <Icon name="chevron-left" size={24} />
+          <Icon name="chevron-left" size={8} />
         </button>
 
         {/* Carousel Card */}
@@ -107,23 +107,25 @@ export const DiscoverCarousel: React.FC<DiscoverCarouselProps> = ({
           </div>
 
           {/* Carousel Content */}
-          <div className="relative p-8 pt-16 pb-10">
+          <div className="absolute p-4 bottom-0 left-0">
             {/* Icon */}
             <div className="mb-4">
               <Icon
                 name={currentItem.icon}
-                size={48}
+                size={30}
                 className="text-primary"
               />
             </div>
 
             {/* Title */}
-            <h3 className="text-xl font-medium text-primary mb-2">
+            <h3 className="font-medium text-primary mb-1">
               {currentItem.title}
             </h3>
 
             {/* Description */}
-            <p className="text-sm text-muted mb-6">{currentItem.description}</p>
+            <p className="text-xs text-gray-2 mb-2.5">
+              {currentItem.description}
+            </p>
 
             {/* Action Buttons */}
             <div className="flex gap-3">
@@ -151,7 +153,7 @@ export const DiscoverCarousel: React.FC<DiscoverCarouselProps> = ({
           className="p-2 text-primary hover:opacity-70 transition-opacity duration-200 flex-shrink-0"
           aria-label="Next item"
         >
-          <Icon name="chevron-right" size={24} />
+          <Icon name="chevron-right" size={8} />
         </button>
       </div>
 
