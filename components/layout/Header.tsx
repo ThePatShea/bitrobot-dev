@@ -36,7 +36,7 @@ export const Header: React.FC<HeaderProps> = ({ user }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
-    <header className="h-16 flex items-center justify-end px-8 fixed top-0 right-0 left-66 z-10">
+    <header className="h-16 flex items-center justify-end px-8 fixed top-0 right-0 left-66 z-50">
       <div className="relative">
         <button
           onClick={() => setIsMenuOpen(!isMenuOpen)}
