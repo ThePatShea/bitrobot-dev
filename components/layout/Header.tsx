@@ -40,20 +40,20 @@ export const Header: React.FC<HeaderProps> = ({ user }) => {
       <div className="relative">
         <button
           onClick={() => setIsMenuOpen(!isMenuOpen)}
-          className="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-hover-bg transition-colors duration-200"
+          className="flex items-center gap-3 px-3 py-[7px] bg-white border border-border rounded-lg shadow-[0_2px_8px_0_rgba(0,0,0,0.07)] hover:shadow-[0_2px_12px_0_rgba(0,0,0,0.1)] transition-shadow duration-200 cursor-pointer"
         >
           <Image
             src={user.avatar}
             alt={user.username}
-            width={32}
-            height={32}
+            width={20}
+            height={20}
             className="rounded-full"
           />
-          <span className="text-sm text-muted">{user.username}</span>
+          <span className="text-xs text-muted">{user.username}</span>
           <Icon
             name="chevron-down"
-            size={16}
-            className={`transition-transform duration-200 ${
+            size={10}
+            className={`text-primary transition-transform duration-200 ${
               isMenuOpen ? "rotate-180" : ""
             }`}
           />
