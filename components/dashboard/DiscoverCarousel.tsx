@@ -128,7 +128,7 @@ export const DiscoverCarousel: React.FC<DiscoverCarouselProps> = ({
             </p>
 
             {/* Action Buttons */}
-            <div className="flex gap-3">
+            <div className="flex gap-2">
               <Button
                 variant="primary"
                 onClick={currentItem.primaryAction.onClick}

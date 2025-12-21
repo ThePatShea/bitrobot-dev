@@ -8,6 +8,7 @@
 import React from "react";
 import Link from "next/link";
 import { Icon } from "@/components/ui/Icon";
+import { Button } from "@/components/ui/Button";
 import { SectionHeader } from "@/components/ui/SectionHeader";
 import { EarnPointsBadge } from "@/components/ui/EarnPointsBadge";
 import type { NavItem, ResourceLink } from "@/app/types";
@@ -204,13 +205,14 @@ export const Sidebar: React.FC<SidebarProps> = ({
             <p className="text-[10px] text-muted mb-2.5">
               Refer friends to earn more
             </p>
-            <button
-              className="inline-flex cursor-pointer items-center gap-2 px-2 py-2.25 border-1 border-primary text-primary rounded-lg text-[9px] uppercase hover:bg-primary-light transition-colors duration-200"
+            <Button
+              variant="outline"
+              size="md"
+              iconAfter={<Icon name="share" size={9} />}
               onClick={onShareLink}
             >
-              <span>Share Link</span>
-              <Icon name="share" size={9} />
-            </button>
+              Share Link
+            </Button>
           </div>
         </div>
       </div>

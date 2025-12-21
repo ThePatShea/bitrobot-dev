@@ -54,7 +54,7 @@ export const Button: React.FC<ButtonProps> = ({
   ...props
 }) => {
   const baseStyles =
-    "inline-flex items-center justify-center font-medium rounded-lg transition-all duration-200 cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed";
+    "inline-flex items-center justify-center font-medium uppercase rounded-lg transition-all duration-200 cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed";
 
   const variants = {
     primary:
@@ -67,8 +67,8 @@ export const Button: React.FC<ButtonProps> = ({
   };
 
   const sizes = {
-    sm: "px-3 py-1.5 text-[10px] gap-1.5",
-    md: "px-4 py-2.25 text-[10px] gap-2",
+    sm: "px-1 py-1.5 text-[8px] gap-1.5",
+    md: "px-2 py-2.25 text-[9px] gap-1.25",
     lg: "px-6 py-3 text-base gap-2",
   };
 
