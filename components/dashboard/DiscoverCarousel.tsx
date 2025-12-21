@@ -5,7 +5,7 @@
 
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import { Button } from "@/components/ui/Button";
 import { Icon } from "@/components/ui/Icon";
 import { SectionHeader } from "@/components/ui/SectionHeader";
@@ -34,19 +34,23 @@ interface DiscoverCarouselProps {
  * <DiscoverCarousel items={carouselItems} />
  * ```
  */
+/** Auto-scroll interval in milliseconds */
+const AUTO_SCROLL_INTERVAL = 5000;
+
 export const DiscoverCarousel: React.FC<DiscoverCarouselProps> = ({
   items,
 }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
 
   /**
    * Navigate to the next carousel item
    * Wraps around to the first item when at the end
    * @returns {void}
    */
-  const handleNext = (): void => {
+  const handleNext = useCallback((): void => {
     setCurrentIndex((prev) => (prev + 1) % items.length);
-  };
+  }, [items.length]);
 
   /**
    * Navigate to the previous carousel item
@@ -57,7 +61,20 @@ export const DiscoverCarousel: React.FC<DiscoverCarouselProps> = ({
     setCurrentIndex((prev) => (prev - 1 + items.length) % items.length);
   };
 
-  const currentItem = items[currentIndex];
+  /**
+   * Auto-scroll effect
+   * Automatically advances to the next slide every AUTO_SCROLL_INTERVAL ms
+   * Pauses when user hovers over the carousel
+   */
+  useEffect(() => {
+    if (isPaused || items.length <= 1) return;
+
+    const interval = setInterval(() => {
+      handleNext();
+    }, AUTO_SCROLL_INTERVAL);
+
+    return () => clearInterval(interval);
+  }, [isPaused, items.length, handleNext]);
 
   return (
     <section className="mb-8">
@@ -81,69 +98,82 @@ export const DiscoverCarousel: React.FC<DiscoverCarouselProps> = ({
         </button>
 
         {/* Carousel Card */}
-        <div className="flex-1 h-[246px] rounded-2xl border border-border overflow-hidden relative">
-          {/* Background Image Layer */}
+        <div
+          className="flex-1 h-[246px] rounded-2xl border border-border overflow-hidden relative"
+          onMouseEnter={() => setIsPaused(true)}
+          onMouseLeave={() => setIsPaused(false)}
+        >
+          {/* Slides Container */}
           <div
-            className="absolute inset-0 opacity-40"
-            style={{
-              backgroundImage: "url('/images/carousel.png')",
-              backgroundSize: "160%",
-              backgroundPosition: "45% 36%",
-            }}
-          />
-
-          {/* Vertical Gradient Overlay */}
-          <div
-            className="absolute inset-0"
-            style={{
-              background:
-                "linear-gradient(to bottom, rgba(255,255,255,0.8) 0%, rgba(255,255,255,0.8) 25%, rgba(255,255,255,0.98) 75%, rgba(255,255,255,0.98) 100%)",
-            }}
-          />
-
-          {/* Earn Points Badge */}
-          <div className="absolute top-4 right-4 z-10">
-            <EarnPointsBadge points={20} />
-          </div>
-
-          {/* Carousel Content */}
-          <div className="absolute p-4 bottom-0 left-0">
-            {/* Icon */}
-            <div className="mb-4">
-              <Icon
-                name={currentItem.icon}
-                size={30}
-                className="text-primary"
-              />
-            </div>
-
-            {/* Title */}
-            <h3 className="font-medium text-primary mb-1">
-              {currentItem.title}
-            </h3>
-
-            {/* Description */}
-            <p className="text-xs text-gray-2 mb-2.5">
-              {currentItem.description}
-            </p>
-
-            {/* Action Buttons */}
-            <div className="flex gap-2">
-              <Button
-                variant="primary"
-                onClick={currentItem.primaryAction.onClick}
+            className="flex h-full transition-transform duration-500 ease-out"
+            style={{ transform: `translateX(-${currentIndex * 100}%)` }}
+          >
+            {items.map((item, index) => (
+              <div
+                key={item.id}
+                className="w-full h-full flex-shrink-0 relative"
               >
-                {currentItem.primaryAction.label}
-              </Button>
-              {currentItem.secondaryAction && (
-                <Button
-                  variant="outline"
-                  onClick={currentItem.secondaryAction.onClick}
-                >
-                  {currentItem.secondaryAction.label}
-                </Button>
-              )}
-            </div>
+                {/* Background Image Layer */}
+                <div
+                  className="absolute inset-0 opacity-40"
+                  style={{
+                    backgroundImage: "url('/images/carousel.png')",
+                    backgroundSize: "160%",
+                    backgroundPosition: "45% 36%",
+                  }}
+                />
+
+                {/* Vertical Gradient Overlay */}
+                <div
+                  className="absolute inset-0"
+                  style={{
+                    background:
+                      "linear-gradient(to bottom, rgba(255,255,255,0.8) 0%, rgba(255,255,255,0.8) 25%, rgba(255,255,255,0.98) 75%, rgba(255,255,255,0.98) 100%)",
+                  }}
+                />
+
+                {/* Earn Points Badge */}
+                <div className="absolute top-4 right-4 z-10">
+                  <EarnPointsBadge points={20} />
+                </div>
+
+                {/* Carousel Content */}
+                <div className="absolute p-4 bottom-0 left-0">
+                  {/* Icon */}
+                  <div className="mb-4">
+                    <Icon name={item.icon} size={30} className="text-primary" />
+                  </div>
+
+                  {/* Title */}
+                  <h3 className="font-medium text-primary mb-1">
+                    {item.title}
+                  </h3>
+
+                  {/* Description */}
+                  <p className="text-xs text-gray-2 mb-2.5">
+                    {item.description}
+                  </p>
+
+                  {/* Action Buttons */}
+                  <div className="flex gap-2">
+                    <Button
+                      variant="primary"
+                      onClick={item.primaryAction.onClick}
+                    >
+                      {item.primaryAction.label}
+                    </Button>
+                    {item.secondaryAction && (
+                      <Button
+                        variant="outline"
+                        onClick={item.secondaryAction.onClick}
+                      >
+                        {item.secondaryAction.label}
+                      </Button>
+                    )}
+                  </div>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
 

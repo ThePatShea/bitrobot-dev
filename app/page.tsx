@@ -109,6 +109,48 @@ const carouselItems: CarouselItem[] = [
       onClick: () => console.log("Learn more clicked"),
     },
   },
+  {
+    id: "discord-2",
+    title: "Discord",
+    description: "Stay involved, don't miss an update. Join the community.",
+    icon: "discord",
+    primaryAction: {
+      label: "GET INVOLVED",
+      onClick: () => console.log("Get involved clicked"),
+    },
+    secondaryAction: {
+      label: "LEARN MORE",
+      onClick: () => console.log("Learn more clicked"),
+    },
+  },
+  {
+    id: "discord-3",
+    title: "Discord",
+    description: "Stay involved, don't miss an update. Join the community.",
+    icon: "discord",
+    primaryAction: {
+      label: "GET INVOLVED",
+      onClick: () => console.log("Get involved clicked"),
+    },
+    secondaryAction: {
+      label: "LEARN MORE",
+      onClick: () => console.log("Learn more clicked"),
+    },
+  },
+  {
+    id: "discord-4",
+    title: "Discord",
+    description: "Stay involved, don't miss an update. Join the community.",
+    icon: "discord",
+    primaryAction: {
+      label: "GET INVOLVED",
+      onClick: () => console.log("Get involved clicked"),
+    },
+    secondaryAction: {
+      label: "LEARN MORE",
+      onClick: () => console.log("Learn more clicked"),
+    },
+  },
 ];
 
 // Earnings history data
