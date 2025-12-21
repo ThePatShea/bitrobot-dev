@@ -61,16 +61,9 @@ export const Header: React.FC<HeaderProps> = ({ user }) => {
 
         {/* Dropdown Menu */}
         {isMenuOpen && (
-          <div className="absolute right-0 top-full mt-2 w-48 bg-white rounded-lg shadow-lg border border-border py-2">
-            <button className="w-full px-4 py-2 text-left text-sm text-muted hover:bg-hover-bg transition-colors duration-200">
-              Profile Settings
-            </button>
-            <button className="w-full px-4 py-2 text-left text-sm text-muted hover:bg-hover-bg transition-colors duration-200">
-              Preferences
-            </button>
-            <div className="border-t border-border my-2" />
-            <button className="w-full px-4 py-2 text-left text-sm text-red-600 hover:bg-red-50 transition-colors duration-200">
-              Sign Out
+          <div className="absolute right-0 top-full mt-2 w-48 bg-white rounded-lg shadow-lg border border-border">
+            <button className="w-full px-4 py-2 text-left text-sm text-red-600 hover:bg-red-50 hover:cursor-pointer transition-colors duration-200">
+              Sign out
             </button>
           </div>
         )}
