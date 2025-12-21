@@ -92,8 +92,14 @@ export const DiscoverCarousel: React.FC<DiscoverCarouselProps> = ({
             }}
           />
 
-          {/* Gradient Overlay */}
-          <div className="absolute inset-0 bg-gradient-to-r from-white/60 via-transparent to-white/30" />
+          {/* Vertical Gradient Overlay */}
+          <div
+            className="absolute inset-0"
+            style={{
+              background:
+                "linear-gradient(to bottom, rgba(255,255,255,0.8) 0%, rgba(255,255,255,0.8) 25%, rgba(255,255,255,0.98) 75%, rgba(255,255,255,0.98) 100%)",
+            }}
+          />
 
           {/* Earn Points Badge */}
           <div className="absolute top-4 right-4 z-10">
