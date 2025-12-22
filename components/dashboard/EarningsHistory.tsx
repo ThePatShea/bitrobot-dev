@@ -83,9 +83,7 @@ export const EarningsHistory: React.FC<EarningsHistoryProps> = ({ data }) => {
             <span
               key={label}
               className={`leading-none text-primary text-[10px] tracking-tighter ${
-                index === 0 || index === yAxisLabels.length - 1
-                  ? "opacity-0"
-                  : ""
+                index === yAxisLabels.length - 1 ? "opacity-0" : ""
               }`}
             >
               {label}
@@ -100,10 +98,12 @@ export const EarningsHistory: React.FC<EarningsHistoryProps> = ({ data }) => {
             className="absolute inset-0 flex flex-col justify-between pointer-events-none"
             style={{ height: `${chartHeight}px` }}
           >
-            {yAxisValues.map((value) => (
+            {yAxisValues.map((value, index) => (
               <div
                 key={value}
-                className="w-full border-t border-primary-light/60 relative top-1"
+                className={`w-full border-t border-primary-light/60 relative top-1 ${
+                  index === 0 ? "opacity-0" : ""
+                }`}
               />
             ))}
           </div>
@@ -146,7 +146,7 @@ export const EarningsHistory: React.FC<EarningsHistoryProps> = ({ data }) => {
           </div>
 
           {/* X-axis Labels */}
-          <div className="flex justify-between mt-2">
+          <div className="flex justify-between mt-0.25">
             {data.map((point) => (
               <div key={point.month} className="flex-1 text-center">
                 <span className="text-xs text-primary font-medium">
