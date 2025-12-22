@@ -71,7 +71,7 @@ export const EarningsCard: React.FC<EarningsCardProps> = ({
 
   return (
     <Card
-      className="p-4 flex flex-col justify-between h-48.5"
+      className="p-4 flex flex-col justify-between h-48.5 shadow-[0_1px_8px_0_rgba(0,0,0,0.1)]"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
