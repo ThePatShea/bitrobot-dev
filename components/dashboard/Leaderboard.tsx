@@ -135,19 +135,19 @@ export const Leaderboard: React.FC<LeaderboardProps> = ({
         <table className="w-full">
           <thead>
             <tr>
-              <th className="py-2.5 px-4 text-left text-sm font-normal text-muted">
+              <th className="py-2.5 px-4 text-left text-sm font-normal text-gray-light">
                 Rank
               </th>
-              <th className="py-2.5 px-4 text-left text-sm font-normal text-muted">
+              <th className="py-2.5 px-4 text-left text-sm font-normal text-gray-light">
                 User
               </th>
-              <th className="py-2.5 px-4 text-right text-sm font-normal text-muted">
+              <th className="py-2.5 px-4 text-right text-sm font-normal text-gray-light">
                 Lifetime Earning
               </th>
-              <th className="py-2.5 px-4 text-right text-sm font-normal text-muted">
+              <th className="py-2.5 px-4 text-right text-sm font-normal text-gray-light">
                 This Epoch
               </th>
-              <th className="py-2.5 px-4 text-right text-sm font-normal text-muted">
+              <th className="py-2.5 px-4 text-right text-sm font-normal text-gray-light">
                 Referrals
               </th>
             </tr>
