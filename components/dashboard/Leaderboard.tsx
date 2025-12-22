@@ -7,7 +7,6 @@
 
 import React, { useState } from "react";
 import Image from "next/image";
-import { Card } from "@/components/ui/Card";
 import { SectionHeader } from "@/components/ui/SectionHeader";
 import type { LeaderboardEntry } from "@/app/types";
 
@@ -48,20 +47,27 @@ const LeaderboardRow: React.FC<LeaderboardRowProps> = ({
 }) => {
   const [isHovered, setIsHovered] = useState(false);
 
+  const textColor = isCurrentUser ? "text-primary" : "text-muted";
+  const cellBg = isCurrentUser ? "bg-primary-light" : "";
+  const hoverBg = isHovered && !isCurrentUser ? "bg-hover-bg" : "";
+
   return (
     <tr
-      className={`
-        border-b border-border last:border-0 transition-colors duration-200
-        ${isCurrentUser ? "bg-primary-light" : isHovered ? "bg-hover-bg" : ""}
-      `}
+      className="transition-colors duration-200"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
       {/* Rank */}
-      <td className="py-4 px-4 text-sm text-muted font-medium">{entry.rank}</td>
+      <td
+        className={`py-4 px-6 ${cellBg} ${hoverBg} ${
+          isCurrentUser ? "rounded-l-xl" : ""
+        }`}
+      >
+        <span className={`text-sm font-medium ${textColor}`}>{entry.rank}</span>
+      </td>
 
       {/* User */}
-      <td className="py-4 px-4">
+      <td className={`py-4 px-4 ${cellBg} ${hoverBg}`}>
         <div className="flex items-center gap-3">
           <Image
             src={entry.avatar}
@@ -70,25 +76,35 @@ const LeaderboardRow: React.FC<LeaderboardRowProps> = ({
             height={32}
             className="rounded-full"
           />
-          <span className="text-sm text-foreground font-medium">
+          <span className={`text-sm font-medium ${textColor}`}>
             {entry.userId}
           </span>
         </div>
       </td>
 
       {/* Lifetime Earning */}
-      <td className="py-4 px-4 text-sm text-foreground font-medium text-right">
-        {entry.lifetimeEarning.toLocaleString()}
+      <td className={`py-4 px-4 text-right ${cellBg} ${hoverBg}`}>
+        <span className={`text-sm font-medium ${textColor}`}>
+          {entry.lifetimeEarning.toLocaleString()}
+        </span>
       </td>
 
       {/* This Epoch */}
-      <td className="py-4 px-4 text-sm text-foreground font-medium text-right">
-        {entry.thisEpoch.toLocaleString()}
+      <td className={`py-4 px-4 text-right ${cellBg} ${hoverBg}`}>
+        <span className={`text-sm font-medium ${textColor}`}>
+          {entry.thisEpoch.toLocaleString()}
+        </span>
       </td>
 
       {/* Referrals */}
-      <td className="py-4 px-4 text-sm text-foreground font-medium text-right">
-        {entry.referrals}
+      <td
+        className={`py-4 px-6 text-right ${cellBg} ${hoverBg} ${
+          isCurrentUser ? "rounded-r-xl" : ""
+        }`}
+      >
+        <span className={`text-sm font-medium ${textColor}`}>
+          {entry.referrals}
+        </span>
       </td>
     </tr>
   );
@@ -123,40 +139,38 @@ export const Leaderboard: React.FC<LeaderboardProps> = ({
         <SectionHeader title="Leaderboard" />
       </div>
 
-      <Card className="overflow-hidden">
-        <div className="overflow-x-auto">
-          <table className="w-full">
-            <thead className="bg-hover-bg border-b border-border">
-              <tr>
-                <th className="py-3 px-4 text-left text-xs font-semibold text-muted uppercase tracking-wider">
-                  Rank
-                </th>
-                <th className="py-3 px-4 text-left text-xs font-semibold text-muted uppercase tracking-wider">
-                  User
-                </th>
-                <th className="py-3 px-4 text-right text-xs font-semibold text-muted uppercase tracking-wider">
-                  Lifetime Earning
-                </th>
-                <th className="py-3 px-4 text-right text-xs font-semibold text-muted uppercase tracking-wider">
-                  This Epoch
-                </th>
-                <th className="py-3 px-4 text-right text-xs font-semibold text-muted uppercase tracking-wider">
-                  Referrals
-                </th>
-              </tr>
-            </thead>
-            <tbody>
-              {entries.map((entry) => (
-                <LeaderboardRow
-                  key={entry.userId}
-                  entry={entry}
-                  isCurrentUser={entry.userId === currentUserId}
-                />
-              ))}
-            </tbody>
-          </table>
-        </div>
-      </Card>
+      <div className="overflow-x-auto">
+        <table className="w-full">
+          <thead>
+            <tr>
+              <th className="py-3 px-4 text-left text-sm font-normal text-muted">
+                Rank
+              </th>
+              <th className="py-3 px-4 text-left text-sm font-normal text-muted">
+                User
+              </th>
+              <th className="py-3 px-4 text-right text-sm font-normal text-muted">
+                Lifetime Earning
+              </th>
+              <th className="py-3 px-4 text-right text-sm font-normal text-muted">
+                This Epoch
+              </th>
+              <th className="py-3 px-4 text-right text-sm font-normal text-muted">
+                Referrals
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            {entries.map((entry) => (
+              <LeaderboardRow
+                key={entry.userId}
+                entry={entry}
+                isCurrentUser={entry.userId === currentUserId}
+              />
+            ))}
+          </tbody>
+        </table>
+      </div>
     </section>
   );
 };
