@@ -87,7 +87,7 @@ export const EarningsCard: React.FC<EarningsCardProps> = ({
       {/* Points Display and Breakdown */}
       <div className="mb-0.75">
         {/* Points Display */}
-        <div className="mb-0.75">
+        <div className="mb-0.25">
           <div className="flex items-baseline gap-1.5">
             <span className="text-[32px] font-medium text-primary">
               {displayPoints}

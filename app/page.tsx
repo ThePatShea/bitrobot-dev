@@ -297,7 +297,7 @@ export default function DashboardPage() {
 
           {/* Earnings Section */}
           <section className="mb-8">
-            <div className="mb-4">
+            <div className="mb-6">
               <SectionHeader title="Earnings" />
             </div>
 
