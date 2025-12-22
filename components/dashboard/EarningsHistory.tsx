@@ -79,10 +79,14 @@ export const EarningsHistory: React.FC<EarningsHistoryProps> = ({ data }) => {
           className="flex flex-col justify-between text-xs text-muted pr-2 shrink-0"
           style={{ height: `${chartHeight}px` }}
         >
-          {yAxisLabels.map((label) => (
+          {yAxisLabels.map((label, index) => (
             <span
               key={label}
-              className="leading-none text-primary text-[10px] tracking-tighter"
+              className={`leading-none text-primary text-[10px] tracking-tighter ${
+                index === 0 || index === yAxisLabels.length - 1
+                  ? "opacity-0"
+                  : ""
+              }`}
             >
               {label}
             </span>
