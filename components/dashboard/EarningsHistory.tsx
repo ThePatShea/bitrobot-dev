@@ -43,7 +43,7 @@ export const EarningsHistory: React.FC<EarningsHistoryProps> = ({ data }) => {
   const yAxisValues = [1100, 1000, 900, 800, 700];
   const minValue = 700;
   const maxValue = 1100;
-  const chartHeight = 240;
+  const chartHeight = 180;
 
   /**
    * Calculate the height of a bar based on its value
@@ -64,10 +64,10 @@ export const EarningsHistory: React.FC<EarningsHistoryProps> = ({ data }) => {
   };
 
   return (
-    <div className="bg-white rounded-2xl border border-border p-6 h-full">
+    <div className="bg-white rounded-2xl border border-border p-4 h-75">
       {/* Header */}
-      <div className="mb-6">
-        <span className="text-[10px] font-medium text-primary uppercase tracking-wide">
+      <div className="mb-3">
+        <span className="text-[11px] font-medium text-primary uppercase">
           Earnings History
         </span>
       </div>
@@ -76,11 +76,14 @@ export const EarningsHistory: React.FC<EarningsHistoryProps> = ({ data }) => {
       <div className="flex">
         {/* Y-axis Labels */}
         <div
-          className="flex flex-col justify-between text-xs text-muted pr-3 shrink-0"
+          className="flex flex-col justify-between text-xs text-muted pr-2 shrink-0"
           style={{ height: `${chartHeight}px` }}
         >
           {yAxisLabels.map((label) => (
-            <span key={label} className="leading-none">
+            <span
+              key={label}
+              className="leading-none text-primary text-[10px] tracking-tighter"
+            >
               {label}
             </span>
           ))}
@@ -123,8 +126,8 @@ export const EarningsHistory: React.FC<EarningsHistoryProps> = ({ data }) => {
                   className="flex-1 flex flex-col items-center"
                 >
                   {/* Value Label */}
-                  <div className="mb-1">
-                    <span className="text-xs text-primary bg-primary-light px-2 py-0.5 rounded-md">
+                  <div className="mb-3">
+                    <span className="text-[11px] text-primary bg-primary-light px-2 py-1.75 rounded-md">
                       {formatValue(point.value)}
                     </span>
                   </div>
@@ -140,7 +143,7 @@ export const EarningsHistory: React.FC<EarningsHistoryProps> = ({ data }) => {
           </div>
 
           {/* X-axis Labels */}
-          <div className="flex justify-between mt-3">
+          <div className="flex justify-between mt-2">
             {data.map((point) => (
               <div key={point.month} className="flex-1 text-center">
                 <span className="text-xs text-primary font-medium">
