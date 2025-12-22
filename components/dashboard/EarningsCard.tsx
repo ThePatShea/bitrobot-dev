@@ -82,14 +82,14 @@ export const EarningsCard: React.FC<EarningsCardProps> = ({
       </div>
 
       {/* Points Display and Breakdown */}
-      <div>
+      <div className="mb-0.75">
         {/* Points Display */}
-        <div className="mb-2">
-          <div className="flex items-baseline gap-2">
-            <span className="text-5xl font-light text-primary">
+        <div className="mb-0.75">
+          <div className="flex items-baseline gap-1.5">
+            <span className="text-[32px] font-medium text-primary">
               {displayPoints}
             </span>
-            <span className="text-xl text-primary">points</span>
+            <span className="text-primary tracking-tight">points</span>
           </div>
         </div>
 
@@ -97,12 +97,12 @@ export const EarningsCard: React.FC<EarningsCardProps> = ({
         {onBreakdownClick && (
           <button
             onClick={onBreakdownClick}
-            className="group flex items-center gap-1 text-base text-primary font-semibold hover:text-primary-hover transition-colors duration-200 cursor-pointer"
+            className="group flex items-center gap-1 text-sm text-primary font-medium hover:text-primary-hover transition-colors duration-200 cursor-pointer tracking-tight"
           >
             <span>Breakdown</span>
             <Icon
               name="chevron-right"
-              size={16}
+              size={5}
               className={`transition-transform duration-200 ${
                 isHovered ? "translate-x-1" : ""
               }`}
