@@ -49,7 +49,7 @@ const LeaderboardRow: React.FC<LeaderboardRowProps> = ({
 
   const textColor = isCurrentUser ? "text-primary" : "text-muted";
   const cellBg = isCurrentUser ? "bg-primary-light" : "";
-  const hoverBg = isHovered && !isCurrentUser ? "bg-hover-bg" : "";
+  const hoverBg = isHovered && !isCurrentUser ? "bg-primary-light/40" : "";
 
   return (
     <tr
@@ -58,22 +58,18 @@ const LeaderboardRow: React.FC<LeaderboardRowProps> = ({
       onMouseLeave={() => setIsHovered(false)}
     >
       {/* Rank */}
-      <td
-        className={`py-4 px-6 ${cellBg} ${hoverBg} ${
-          isCurrentUser ? "rounded-l-xl" : ""
-        }`}
-      >
+      <td className={`py-2.5 px-4 ${cellBg} ${hoverBg}`}>
         <span className={`text-sm font-medium ${textColor}`}>{entry.rank}</span>
       </td>
 
       {/* User */}
-      <td className={`py-4 px-4 ${cellBg} ${hoverBg}`}>
+      <td className={`py-2.5 px-4 ${cellBg} ${hoverBg}`}>
         <div className="flex items-center gap-3">
           <Image
             src={entry.avatar}
             alt={entry.userId}
-            width={32}
-            height={32}
+            width={20}
+            height={20}
             className="rounded-full"
           />
           <span className={`text-sm font-medium ${textColor}`}>
@@ -83,25 +79,21 @@ const LeaderboardRow: React.FC<LeaderboardRowProps> = ({
       </td>
 
       {/* Lifetime Earning */}
-      <td className={`py-4 px-4 text-right ${cellBg} ${hoverBg}`}>
+      <td className={`py-2.5 px-4 text-right ${cellBg} ${hoverBg}`}>
         <span className={`text-sm font-medium ${textColor}`}>
           {entry.lifetimeEarning.toLocaleString()}
         </span>
       </td>
 
       {/* This Epoch */}
-      <td className={`py-4 px-4 text-right ${cellBg} ${hoverBg}`}>
+      <td className={`py-2.5 px-4 text-right ${cellBg} ${hoverBg}`}>
         <span className={`text-sm font-medium ${textColor}`}>
           {entry.thisEpoch.toLocaleString()}
         </span>
       </td>
 
       {/* Referrals */}
-      <td
-        className={`py-4 px-6 text-right ${cellBg} ${hoverBg} ${
-          isCurrentUser ? "rounded-r-xl" : ""
-        }`}
-      >
+      <td className={`py-2.5 px-4 text-right ${cellBg} ${hoverBg}`}>
         <span className={`text-sm font-medium ${textColor}`}>
           {entry.referrals}
         </span>
@@ -143,19 +135,19 @@ export const Leaderboard: React.FC<LeaderboardProps> = ({
         <table className="w-full">
           <thead>
             <tr>
-              <th className="py-3 px-4 text-left text-sm font-normal text-muted">
+              <th className="py-2.5 px-4 text-left text-sm font-normal text-muted">
                 Rank
               </th>
-              <th className="py-3 px-4 text-left text-sm font-normal text-muted">
+              <th className="py-2.5 px-4 text-left text-sm font-normal text-muted">
                 User
               </th>
-              <th className="py-3 px-4 text-right text-sm font-normal text-muted">
+              <th className="py-2.5 px-4 text-right text-sm font-normal text-muted">
                 Lifetime Earning
               </th>
-              <th className="py-3 px-4 text-right text-sm font-normal text-muted">
+              <th className="py-2.5 px-4 text-right text-sm font-normal text-muted">
                 This Epoch
               </th>
-              <th className="py-3 px-4 text-right text-sm font-normal text-muted">
+              <th className="py-2.5 px-4 text-right text-sm font-normal text-muted">
                 Referrals
               </th>
             </tr>
