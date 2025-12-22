@@ -3,12 +3,10 @@
  * @module components/dashboard/EarningsHistory
  */
 
-'use client';
+"use client";
 
-import React from 'react';
-import { Card } from '@/components/ui/Card';
-import { Icon } from '@/components/ui/Icon';
-import type { EarningsDataPoint } from '@/app/types';
+import React from "react";
+import type { EarningsDataPoint } from "@/app/types";
 
 /**
  * Props for the EarningsHistory component
@@ -20,8 +18,15 @@ interface EarningsHistoryProps {
 }
 
 /**
+ * Format number with comma separators
+ */
+const formatValue = (value: number): string => {
+  return value.toLocaleString();
+};
+
+/**
  * Simple bar chart component for displaying earnings history
- * Shows monthly earnings with hover tooltips
+ * Shows monthly earnings with value labels above each bar
  *
  * @param {EarningsHistoryProps} props - Component props
  * @param {EarningsDataPoint[]} props.data - Array of monthly earnings data
@@ -33,70 +38,112 @@ interface EarningsHistoryProps {
  * ```
  */
 export const EarningsHistory: React.FC<EarningsHistoryProps> = ({ data }) => {
-  /** Maximum value in the dataset for scaling bars */
-  const maxValue = Math.max(...data.map(d => d.value));
-  /** Fixed chart height in pixels */
-  const chartHeight = 200;
-  
+  // Y-axis configuration
+  const yAxisLabels = ["1.1K", "1K", "900", "800", "700"];
+  const yAxisValues = [1100, 1000, 900, 800, 700];
+  const minValue = 700;
+  const maxValue = 1100;
+  const chartHeight = 240;
+
+  /**
+   * Calculate the height of a bar based on its value
+   */
+  const getBarHeight = (value: number): number => {
+    const range = maxValue - minValue;
+    const normalizedValue = Math.max(value - minValue, 0);
+    return (normalizedValue / range) * chartHeight;
+  };
+
+  /**
+   * Calculate the Y position for grid lines
+   */
+  const getGridLinePosition = (value: number): number => {
+    const range = maxValue - minValue;
+    const normalizedValue = maxValue - value;
+    return (normalizedValue / range) * chartHeight;
+  };
+
   return (
-    <Card className="p-6">
+    <div className="bg-white rounded-2xl border border-border p-6 h-full">
       {/* Header */}
-      <div className="flex items-center justify-between mb-6">
-        <span className="text-xs font-semibold text-primary uppercase tracking-wider">
+      <div className="mb-6">
+        <span className="text-[10px] font-medium text-primary uppercase tracking-wide">
           Earnings History
         </span>
-        <div className="w-10 h-10 rounded-full bg-warning-bg flex items-center justify-center">
-          <Icon name="points" size={20} />
-        </div>
       </div>
 
       {/* Chart Container */}
-      <div className="relative">
+      <div className="flex">
         {/* Y-axis Labels */}
-        <div className="absolute left-0 top-0 bottom-8 flex flex-col justify-between text-xs text-muted pr-2">
-          <span>1.1K</span>
-          <span>1K</span>
-          <span>900</span>
-          <span>800</span>
-          <span>700</span>
+        <div
+          className="flex flex-col justify-between text-xs text-muted pr-3 shrink-0"
+          style={{ height: `${chartHeight}px` }}
+        >
+          {yAxisLabels.map((label) => (
+            <span key={label} className="leading-none">
+              {label}
+            </span>
+          ))}
         </div>
 
         {/* Chart Area */}
-        <div className="ml-10">
-          <div className="flex items-end justify-between gap-2 h-[200px] pb-8">
-            {data.map((point, index) => {
-              /** Calculate bar height as percentage of max value */
-              const heightPercentage = (point.value / maxValue) * 100;
-              const barHeight = (chartHeight * heightPercentage) / 100;
-              
+        <div className="flex-1 relative">
+          {/* Grid Lines */}
+          <div
+            className="absolute inset-0 flex flex-col justify-between pointer-events-none"
+            style={{ height: `${chartHeight}px` }}
+          >
+            {yAxisValues.map((value) => (
+              <div
+                key={value}
+                className="w-full border-t border-border"
+                style={{ top: `${getGridLinePosition(value)}px` }}
+              />
+            ))}
+          </div>
+
+          {/* Bars Container */}
+          <div
+            className="flex items-end justify-between gap-2 relative"
+            style={{ height: `${chartHeight}px` }}
+          >
+            {data.map((point) => {
+              const barHeight = getBarHeight(point.value);
+
               return (
                 <div
                   key={point.month}
-                  className="flex-1 flex flex-col items-center gap-2 group"
+                  className="flex-1 flex flex-col items-center"
                 >
-                  {/* Bar */}
-                  <div className="w-full flex items-end justify-center relative">
-                    <div
-                      className="w-full max-w-[40px] bg-chart-bar rounded-t-lg transition-all duration-300 hover:bg-chart-bar-hover group-hover:shadow-lg relative"
-                      style={{ height: `${barHeight}px` }}
-                    >
-                      {/* Tooltip on Hover */}
-                      <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-2 py-1 bg-foreground text-white text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200 whitespace-nowrap">
-                        {point.value}
-                      </div>
-                    </div>
+                  {/* Value Label */}
+                  <div className="mb-1">
+                    <span className="text-xs text-primary bg-primary-light px-2 py-0.5 rounded-md">
+                      {formatValue(point.value)}
+                    </span>
                   </div>
-                  
-                  {/* Month Label */}
-                  <span className="text-xs text-primary font-medium">
-                    {point.month}
-                  </span>
+
+                  {/* Bar */}
+                  <div
+                    className="w-full max-w-[48px] bg-primary-light rounded-lg"
+                    style={{ height: `${barHeight}px` }}
+                  />
                 </div>
               );
             })}
           </div>
+
+          {/* X-axis Labels */}
+          <div className="flex justify-between mt-3">
+            {data.map((point) => (
+              <div key={point.month} className="flex-1 text-center">
+                <span className="text-xs text-primary font-medium">
+                  {point.month}
+                </span>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
-    </Card>
+    </div>
   );
 };

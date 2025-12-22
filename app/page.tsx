@@ -302,9 +302,9 @@ export default function DashboardPage() {
             </div>
 
             {/* Earnings Cards Grid */}
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
+            <div className="flex flex-col lg:flex-row gap-4">
               {/* Left side: Earnings Cards + Bonus Banner */}
-              <div className="lg:col-span-2 flex flex-col gap-4">
+              <div className="lg:basis-[48%] flex flex-col gap-4">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <EarningsCard
                     title="Last Epoch"
@@ -327,7 +327,9 @@ export default function DashboardPage() {
                 />
               </div>
               {/* Right side: Earnings History */}
-              <EarningsHistory data={earningsData} />
+              <div className="lg:basis-[52%]">
+                <EarningsHistory data={earningsData} />
+              </div>
             </div>
           </section>
 
