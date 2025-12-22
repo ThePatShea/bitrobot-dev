@@ -71,7 +71,10 @@ export const EarningsCard: React.FC<EarningsCardProps> = ({
 
   return (
     <Card
-      className="p-4 flex flex-col justify-between h-48.5 shadow-[0_1px_8px_0_rgba(0,0,0,0.1)] border-0"
+      className={`p-4 flex flex-col justify-between h-48.5 shadow-[0_1px_8px_0_rgba(0,0,0,0.1)] border-0 ${
+        onBreakdownClick ? "cursor-pointer" : ""
+      }`}
+      onClick={onBreakdownClick}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
@@ -95,11 +98,12 @@ export const EarningsCard: React.FC<EarningsCardProps> = ({
 
         {/* Breakdown Link with Hover Animation */}
         {onBreakdownClick && (
-          <button
-            onClick={onBreakdownClick}
-            className="group flex items-center gap-1.5 text-sm text-primary font-medium hover:text-primary-hover transition-colors duration-200 cursor-pointer tracking-tight"
-          >
-            <span className="group-hover:opacity-70 transition-opacity duration-200">
+          <div className="flex items-center gap-1.5 text-sm text-primary font-medium tracking-tight">
+            <span
+              className={`transition-opacity duration-200 ${
+                isHovered ? "opacity-70" : ""
+              }`}
+            >
               Breakdown
             </span>
             <Icon
@@ -109,7 +113,7 @@ export const EarningsCard: React.FC<EarningsCardProps> = ({
                 isHovered ? "translate-x-1.5" : ""
               }`}
             />
-          </button>
+          </div>
         )}
       </div>
     </Card>
