@@ -127,14 +127,14 @@ export const EarningsHistory: React.FC<EarningsHistoryProps> = ({ data }) => {
                 >
                   {/* Value Label */}
                   <div className="mb-3">
-                    <span className="text-[11px] text-primary bg-primary-light px-2 py-1.75 rounded-md">
+                    <span className="text-[11px] text-primary bg-primary-light px-2 py-1.75 rounded-lg">
                       {formatValue(point.value)}
                     </span>
                   </div>
 
                   {/* Bar */}
                   <div
-                    className="w-full max-w-[48px] bg-primary-light rounded-lg"
+                    className="w-full max-w-[48px] bg-primary-light rounded-sm"
                     style={{ height: `${barHeight}px` }}
                   />
                 </div>
