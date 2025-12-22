@@ -53,7 +53,7 @@ const LeaderboardRow: React.FC<LeaderboardRowProps> = ({
 
   return (
     <tr
-      className="transition-colors duration-200"
+      className="transition-colors duration-200 border-b border-border"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
