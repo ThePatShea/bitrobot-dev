@@ -3,11 +3,11 @@
  * @module components/dashboard/EarningsCard
  */
 
-'use client';
+"use client";
 
-import React, { useState } from 'react';
-import { Card } from '@/components/ui/Card';
-import { Icon } from '@/components/ui/Icon';
+import React, { useState } from "react";
+import { Card } from "@/components/ui/Card";
+import { Icon } from "@/components/ui/Icon";
 
 /**
  * Props for the EarningsCard component
@@ -53,9 +53,9 @@ const formatNumber = (num: number): string => {
  *
  * @example
  * ```tsx
- * <EarningsCard 
- *   title="Last Epoch" 
- *   points={234} 
+ * <EarningsCard
+ *   title="Last Epoch"
+ *   points={234}
  *   onBreakdownClick={() => console.log('Breakdown clicked')}
  * />
  * ```
@@ -64,51 +64,52 @@ export const EarningsCard: React.FC<EarningsCardProps> = ({
   title,
   points,
   formatPoints = false,
-  onBreakdownClick
+  onBreakdownClick,
 }) => {
   const [isHovered, setIsHovered] = useState(false);
   const displayPoints = formatPoints ? formatNumber(points) : points;
 
   return (
-    <Card 
-      className="p-6 hover:shadow-lg transition-all duration-200"
+    <Card
+      className="p-4 flex flex-col justify-between h-48.5"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
       {/* Header with Icon */}
-      <div className="flex items-center justify-between mb-6">
-        <span className="text-xs font-semibold text-primary uppercase tracking-wider">
-          {title}
-        </span>
-        <div className="w-10 h-10 rounded-full bg-warning-bg flex items-center justify-center">
-          <Icon name="points" size={20} />
-        </div>
+      <div className="flex items-start justify-between">
+        <span className="text-[10px] text-primary uppercase">{title}</span>
+        <Icon name="points" size={24} className="text-warning" />
       </div>
 
-      {/* Points Display */}
-      <div className="mb-4">
-        <div className="flex items-baseline gap-2">
-          <span className="text-4xl font-bold text-primary">
-            {displayPoints}
-          </span>
-          <span className="text-sm text-muted">points</span>
+      {/* Points Display and Breakdown */}
+      <div>
+        {/* Points Display */}
+        <div className="mb-2">
+          <div className="flex items-baseline gap-2">
+            <span className="text-5xl font-light text-primary">
+              {displayPoints}
+            </span>
+            <span className="text-xl text-primary">points</span>
+          </div>
         </div>
-      </div>
 
-      {/* Breakdown Link with Hover Animation */}
-      {onBreakdownClick && (
-        <button
-          onClick={onBreakdownClick}
-          className="group flex items-center gap-2 text-sm text-primary hover:text-primary-hover transition-colors duration-200"
-        >
-          <span className="font-medium">Breakdown</span>
-          <Icon 
-            name="chevron-right" 
-            size={16} 
-            className={`transition-transform duration-200 ${isHovered ? 'translate-x-1' : ''}`}
-          />
-        </button>
-      )}
+        {/* Breakdown Link with Hover Animation */}
+        {onBreakdownClick && (
+          <button
+            onClick={onBreakdownClick}
+            className="group flex items-center gap-1 text-base text-primary font-semibold hover:text-primary-hover transition-colors duration-200 cursor-pointer"
+          >
+            <span>Breakdown</span>
+            <Icon
+              name="chevron-right"
+              size={16}
+              className={`transition-transform duration-200 ${
+                isHovered ? "translate-x-1" : ""
+              }`}
+            />
+          </button>
+        )}
+      </div>
     </Card>
   );
 };

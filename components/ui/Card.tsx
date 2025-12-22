@@ -18,6 +18,10 @@ interface CardProps {
   hoverable?: boolean;
   /** Optional click handler */
   onClick?: () => void;
+  /** Optional mouse enter handler */
+  onMouseEnter?: () => void;
+  /** Optional mouse leave handler */
+  onMouseLeave?: () => void;
 }
 
 /**
@@ -43,15 +47,19 @@ export const Card: React.FC<CardProps> = ({
   children, 
   className = '', 
   hoverable = false,
-  onClick 
+  onClick,
+  onMouseEnter,
+  onMouseLeave
 }) => {
-  const baseStyles = 'bg-white rounded-xl border border-border transition-all duration-200';
+  const baseStyles = 'bg-light-bg rounded-2xl border border-border transition-all duration-200';
   const hoverStyles = hoverable ? 'hover:shadow-lg hover:border-primary/20 cursor-pointer' : '';
   
   return (
     <div 
       className={`${baseStyles} ${hoverStyles} ${className}`}
       onClick={onClick}
+      onMouseEnter={onMouseEnter}
+      onMouseLeave={onMouseLeave}
     >
       {children}
     </div>
