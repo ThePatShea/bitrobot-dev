@@ -302,28 +302,33 @@ export default function DashboardPage() {
             </div>
 
             {/* Earnings Cards Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-6">
-              <EarningsCard
-                title="Last Epoch"
-                points={234}
-                onBreakdownClick={() => console.log("Last epoch breakdown")}
-              />
-              <EarningsCard
-                title="Lifetime"
-                points={1300}
-                formatPoints={true}
-                onBreakdownClick={() => console.log("Lifetime breakdown")}
-              />
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
+              {/* Left side: Earnings Cards + Bonus Banner */}
+              <div className="lg:col-span-2 flex flex-col gap-4">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <EarningsCard
+                    title="Last Epoch"
+                    points={234}
+                    onBreakdownClick={() => console.log("Last epoch breakdown")}
+                  />
+                  <EarningsCard
+                    title="Lifetime"
+                    points={1300}
+                    formatPoints={true}
+                    onBreakdownClick={() => console.log("Lifetime breakdown")}
+                  />
+                </div>
+                {/* Bonus Banner */}
+                <BonusBanner
+                  title="Bonuses available!"
+                  description="The more you participate, the more you earn."
+                  ctaText="SEE OPPORTUNITIES"
+                  onCtaClick={() => console.log("See opportunities clicked")}
+                />
+              </div>
+              {/* Right side: Earnings History */}
               <EarningsHistory data={earningsData} />
             </div>
-
-            {/* Bonus Banner */}
-            <BonusBanner
-              title="Bonuses available!"
-              description="The more you participate, the more you earn."
-              ctaText="SEE OPPORTUNITIES"
-              onCtaClick={() => console.log("See opportunities clicked")}
-            />
           </section>
 
           {/* Leaderboard Section */}
