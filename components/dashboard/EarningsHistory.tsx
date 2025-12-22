@@ -99,8 +99,7 @@ export const EarningsHistory: React.FC<EarningsHistoryProps> = ({ data }) => {
             {yAxisValues.map((value) => (
               <div
                 key={value}
-                className="w-full border-t border-border"
-                style={{ top: `${getGridLinePosition(value)}px` }}
+                className="w-full border-t border-primary-light/60 relative top-1"
               />
             ))}
           </div>
