@@ -39,11 +39,11 @@ const formatValue = (value: number): string => {
  */
 export const EarningsHistory: React.FC<EarningsHistoryProps> = ({ data }) => {
   // Y-axis configuration
-  const yAxisLabels = ["1.1K", "1K", "900", "800", "700"];
-  const yAxisValues = [1100, 1000, 900, 800, 700];
-  const minValue = 700;
-  const maxValue = 1100;
-  const chartHeight = 180;
+  const yAxisLabels = ["1.2K", "1.1K", "1K", "900", "800", "700", "600"];
+  const yAxisValues = [1200, 1100, 1000, 900, 800, 700, 600];
+  const minValue = 600;
+  const maxValue = 1200;
+  const chartHeight = 210;
 
   /**
    * Calculate the height of a bar based on its value
