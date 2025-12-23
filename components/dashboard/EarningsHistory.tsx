@@ -64,7 +64,7 @@ export const EarningsHistory: React.FC<EarningsHistoryProps> = ({ data }) => {
   };
 
   return (
-    <div className="bg-white rounded-2xl border border-border p-3 sm:p-4 h-auto sm:h-75 overflow-x-auto">
+    <div className="bg-white rounded-2xl border border-border p-3 sm:p-4 h-75 overflow-hidden">
       {/* Header */}
       <div className="mb-3">
         <span className="text-[11px] font-medium text-primary uppercase">
