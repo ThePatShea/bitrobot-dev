@@ -3,10 +3,10 @@
  * @module components/ui/ErrorBoundary
  */
 
-"use client";
+'use client';
 
-import React, { Component, ErrorInfo, ReactNode } from "react";
-import { Button } from "./Button";
+import React, { Component, ErrorInfo, ReactNode } from 'react';
+import { Button } from './Button';
 
 /**
  * Props for the ErrorBoundary component
@@ -44,10 +44,7 @@ interface ErrorBoundaryState {
  * </ErrorBoundary>
  * ```
  */
-export class ErrorBoundary extends Component<
-  ErrorBoundaryProps,
-  ErrorBoundaryState
-> {
+export class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundaryState> {
   constructor(props: ErrorBoundaryProps) {
     super(props);
     this.state = { hasError: false, error: null };
@@ -59,7 +56,7 @@ export class ErrorBoundary extends Component<
 
   componentDidCatch(error: Error, errorInfo: ErrorInfo): void {
     // Log error to console in development
-    console.error("ErrorBoundary caught an error:", error, errorInfo);
+    console.error('ErrorBoundary caught an error:', error, errorInfo);
 
     // Call optional error callback
     this.props.onError?.(error, errorInfo);
@@ -77,9 +74,7 @@ export class ErrorBoundary extends Component<
       }
 
       // Default fallback UI
-      return (
-        <ErrorFallback error={this.state.error} onRetry={this.handleRetry} />
-      );
+      return <ErrorFallback error={this.state.error} onRetry={this.handleRetry} />;
     }
 
     return this.props.children;
@@ -107,11 +102,11 @@ interface ErrorFallbackProps {
 export const ErrorFallback: React.FC<ErrorFallbackProps> = ({
   error,
   onRetry,
-  title = "Something went wrong",
-  description = "An unexpected error occurred. Please try again.",
+  title = 'Something went wrong',
+  description = 'An unexpected error occurred. Please try again.',
 }) => {
   return (
-    <div className="flex flex-col items-center justify-center py-12 px-4 text-center">
+    <div className="flex flex-col items-center justify-center px-4 py-12 text-center">
       {/* Error Illustration */}
       <div className="mb-6">
         <svg
@@ -143,18 +138,18 @@ export const ErrorFallback: React.FC<ErrorFallbackProps> = ({
       </div>
 
       {/* Error Title */}
-      <h3 className="text-lg font-medium text-red-600 mb-2">{title}</h3>
+      <h3 className="mb-2 text-lg font-medium text-red-600">{title}</h3>
 
       {/* Error Description */}
-      <p className="text-sm text-muted max-w-sm mb-2">{description}</p>
+      <p className="text-muted mb-2 max-w-sm text-sm">{description}</p>
 
       {/* Error Details (development only) */}
-      {error && process.env.NODE_ENV === "development" && (
+      {error && process.env.NODE_ENV === 'development' && (
         <details className="mb-6 max-w-md">
-          <summary className="text-xs text-muted cursor-pointer hover:text-primary active:text-primary/70 transition-colors duration-200 rounded outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2">
+          <summary className="text-muted hover:text-primary active:text-primary/70 focus-visible:ring-primary cursor-pointer rounded text-xs transition-colors duration-200 outline-none focus-visible:ring-2 focus-visible:ring-offset-2">
             View error details
           </summary>
-          <pre className="mt-2 p-3 bg-gray-100 rounded-lg text-xs text-left overflow-auto max-h-32">
+          <pre className="mt-2 max-h-32 overflow-auto rounded-lg bg-gray-100 p-3 text-left text-xs">
             {error.message}
             {error.stack && `\n\n${error.stack}`}
           </pre>
@@ -178,14 +173,12 @@ export const ErrorFallback: React.FC<ErrorFallbackProps> = ({
 export const SectionErrorBoundary: React.FC<{
   children: ReactNode;
   sectionName?: string;
-}> = ({ children, sectionName = "section" }) => {
+}> = ({ children, sectionName = 'section' }) => {
   return (
     <ErrorBoundary
       fallback={
-        <div className="bg-red-50 border border-red-200 rounded-2xl p-6 text-center">
-          <p className="text-sm text-red-600 mb-3">
-            Failed to load {sectionName}
-          </p>
+        <div className="rounded-2xl border border-red-200 bg-red-50 p-6 text-center">
+          <p className="mb-3 text-sm text-red-600">Failed to load {sectionName}</p>
           <Button
             variant="outline"
             className="border-red-300 text-red-600 hover:bg-red-100"

@@ -3,19 +3,19 @@
  * Displays the BitRobot dashboard with all components
  */
 
-"use client";
+'use client';
 
-import React, { useState, useEffect } from "react";
-import { Sidebar } from "@/components/layout/Sidebar";
-import { Header } from "@/components/layout/Header";
-import { MobileMenu } from "@/components/layout/MobileMenu";
-import { DiscoverCarousel } from "@/components/dashboard/DiscoverCarousel";
-import { EarningsCard } from "@/components/dashboard/EarningsCard";
-import { EarningsHistory } from "@/components/dashboard/EarningsHistory";
-import { Leaderboard } from "@/components/dashboard/Leaderboard";
-import { BonusBanner } from "@/components/dashboard/BonusBanner";
-import { SectionHeader } from "@/components/ui/SectionHeader";
-import { SectionErrorBoundary } from "@/components/ui/ErrorBoundary";
+import React, { useState, useEffect } from 'react';
+import { Sidebar } from '@/components/layout/Sidebar';
+import { Header } from '@/components/layout/Header';
+import { MobileMenu } from '@/components/layout/MobileMenu';
+import { DiscoverCarousel } from '@/components/dashboard/DiscoverCarousel';
+import { EarningsCard } from '@/components/dashboard/EarningsCard';
+import { EarningsHistory } from '@/components/dashboard/EarningsHistory';
+import { Leaderboard } from '@/components/dashboard/Leaderboard';
+import { BonusBanner } from '@/components/dashboard/BonusBanner';
+import { SectionHeader } from '@/components/ui/SectionHeader';
+import { SectionErrorBoundary } from '@/components/ui/ErrorBoundary';
 import {
   CarouselSkeleton,
   SectionHeaderSkeleton,
@@ -23,7 +23,7 @@ import {
   BonusBannerSkeleton,
   EarningsHistorySkeleton,
   LeaderboardSkeleton,
-} from "@/components/ui/Skeleton";
+} from '@/components/ui/Skeleton';
 import {
   navItems,
   resourceLinks,
@@ -31,7 +31,7 @@ import {
   earningsData,
   leaderboardData,
   userProfile,
-} from "@/lib/mock-data";
+} from '@/lib/mock-data';
 
 /**
  * Main Dashboard Page Component
@@ -59,7 +59,7 @@ export default function DashboardPage() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-background min-w-[350px] overflow-x-auto">
+    <div className="bg-background min-h-screen min-w-[350px] overflow-x-auto">
       {/* Mobile Menu */}
       <MobileMenu
         isOpen={isMobileMenuOpen}
@@ -73,7 +73,7 @@ export default function DashboardPage() {
       />
 
       {/* Centered Layout Wrapper */}
-      <div className="max-w-[1258px] mx-auto flex">
+      <div className="mx-auto flex max-w-[1258px]">
         {/* Sidebar (hidden on mobile) */}
         <Sidebar
           navItems={navItems}
@@ -85,38 +85,25 @@ export default function DashboardPage() {
         />
 
         {/* Main Content Area */}
-        <div className="flex-1 min-w-0 lg:max-w-[994px]">
+        <div className="min-w-0 flex-1 lg:max-w-[994px]">
           {/* Header */}
-          <Header
-            user={userProfile}
-            onMenuOpen={() => setIsMobileMenuOpen(true)}
-          />
+          <Header user={userProfile} onMenuOpen={() => setIsMobileMenuOpen(true)} />
 
           {/* Main Content */}
           <main
-            className="pt-15 lg:pt-13 px-4 lg:pl-5.75 lg:pr-2.75 pb-8"
+            className="px-4 pt-15 pb-8 lg:pt-13 lg:pr-2.75 lg:pl-5.75"
             aria-live="polite"
             aria-busy={isLoading}
           >
             {/* Discover Section */}
-            <div
-              className={isLoading ? "" : "animate-section animate-section-1"}
-            >
+            <div className={isLoading ? '' : 'animate-section animate-section-1'}>
               <SectionErrorBoundary sectionName="carousel">
-                {isLoading ? (
-                  <CarouselSkeleton />
-                ) : (
-                  <DiscoverCarousel items={carouselItems} />
-                )}
+                {isLoading ? <CarouselSkeleton /> : <DiscoverCarousel items={carouselItems} />}
               </SectionErrorBoundary>
             </div>
 
             {/* Earnings Section */}
-            <section
-              className={`mb-8 ${
-                isLoading ? "" : "animate-section animate-section-2"
-              }`}
-            >
+            <section className={`mb-8 ${isLoading ? '' : 'animate-section animate-section-2'}`}>
               <div className="mb-6">
                 {isLoading ? (
                   <SectionHeaderSkeleton width="80px" />
@@ -126,11 +113,11 @@ export default function DashboardPage() {
               </div>
 
               {/* Earnings Cards Grid */}
-              <div className="flex flex-col lg:flex-row gap-4">
+              <div className="flex flex-col gap-4 lg:flex-row">
                 {/* Left side: Earnings Cards + Bonus Banner */}
-                <div className="lg:basis-[48%] flex flex-col gap-4">
+                <div className="flex flex-col gap-4 lg:basis-[48%]">
                   <SectionErrorBoundary sectionName="earnings cards">
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
                       {isLoading ? (
                         <>
                           <EarningsCardSkeleton />
@@ -187,9 +174,7 @@ export default function DashboardPage() {
             </section>
 
             {/* Leaderboard Section */}
-            <div
-              className={isLoading ? "" : "animate-section animate-section-3"}
-            >
+            <div className={isLoading ? '' : 'animate-section animate-section-3'}>
               <SectionErrorBoundary sectionName="leaderboard">
                 {isLoading ? (
                   <LeaderboardSkeleton />

@@ -3,14 +3,14 @@
  * @module components/dashboard/Leaderboard
  */
 
-"use client";
+'use client';
 
-import React from "react";
-import Image from "next/image";
-import { SectionHeader } from "@/components/ui/SectionHeader";
-import { LeaderboardEmptyState } from "@/components/ui/EmptyState";
-import { formatAddress } from "@/lib/format";
-import type { LeaderboardEntry } from "@/types";
+import React from 'react';
+import Image from 'next/image';
+import { SectionHeader } from '@/components/ui/SectionHeader';
+import { LeaderboardEmptyState } from '@/components/ui/EmptyState';
+import { formatAddress } from '@/lib/format';
+import type { LeaderboardEntry } from '@/types';
 
 /**
  * Props for the Leaderboard component
@@ -43,56 +43,53 @@ interface LeaderboardRowProps {
  * @param {boolean} props.isCurrentUser - Whether this row belongs to the current user
  * @returns {JSX.Element} A table row with user data
  */
-const LeaderboardRow: React.FC<LeaderboardRowProps> = ({
-  entry,
-  isCurrentUser,
-}) => {
-  const textColor = isCurrentUser ? "text-primary" : "text-muted";
-  const cellBg = isCurrentUser ? "bg-primary-light" : "";
-  const hoverBg = !isCurrentUser ? "group-hover:bg-primary-light/40" : "";
+const LeaderboardRow: React.FC<LeaderboardRowProps> = ({ entry, isCurrentUser }) => {
+  const textColor = isCurrentUser ? 'text-primary' : 'text-muted';
+  const cellBg = isCurrentUser ? 'bg-primary-light' : '';
+  const hoverBg = !isCurrentUser ? 'group-hover:bg-primary-light/40' : '';
 
   return (
-    <tr className="transition-colors duration-200 border-b border-border group">
+    <tr className="border-border group border-b transition-colors duration-200">
       {/* Rank */}
-      <td className={`py-2.5 px-2 sm:px-4 ${cellBg} ${hoverBg}`}>
-        <span className={`text-xs sm:text-sm font-medium tracking-tighter ${textColor}`}>
+      <td className={`px-2 py-2.5 sm:px-4 ${cellBg} ${hoverBg}`}>
+        <span className={`text-xs font-medium tracking-tighter sm:text-sm ${textColor}`}>
           {entry.rank}
         </span>
       </td>
 
       {/* User */}
-      <td className={`py-2.5 px-2 sm:px-4 ${cellBg} ${hoverBg}`}>
+      <td className={`px-2 py-2.5 sm:px-4 ${cellBg} ${hoverBg}`}>
         <div className="flex items-center gap-2 sm:gap-3">
           <Image
             src={entry.avatar}
             alt={entry.userId}
             width={20}
             height={20}
-            className="rounded-full flex-shrink-0"
+            className="flex-shrink-0 rounded-full"
           />
-          <span className={`text-xs sm:text-sm font-medium tracking-tighter ${textColor}`}>
+          <span className={`text-xs font-medium tracking-tighter sm:text-sm ${textColor}`}>
             {formatAddress(entry.userId, 5, 4)}
           </span>
         </div>
       </td>
 
       {/* Lifetime Earning */}
-      <td className={`py-2.5 px-2 sm:px-4 ${cellBg} ${hoverBg}`}>
-        <span className={`text-xs sm:text-sm font-medium tracking-tighter ${textColor}`}>
+      <td className={`px-2 py-2.5 sm:px-4 ${cellBg} ${hoverBg}`}>
+        <span className={`text-xs font-medium tracking-tighter sm:text-sm ${textColor}`}>
           {entry.lifetimeEarning.toLocaleString()}
         </span>
       </td>
 
       {/* This Epoch */}
-      <td className={`py-2.5 px-2 sm:px-4 ${cellBg} ${hoverBg}`}>
-        <span className={`text-xs sm:text-sm font-medium tracking-tighter ${textColor}`}>
+      <td className={`px-2 py-2.5 sm:px-4 ${cellBg} ${hoverBg}`}>
+        <span className={`text-xs font-medium tracking-tighter sm:text-sm ${textColor}`}>
           {entry.lastEpoch.toLocaleString()}
         </span>
       </td>
 
       {/* Referrals */}
-      <td className={`py-2.5 px-2 sm:px-4 ${cellBg} ${hoverBg}`}>
-        <span className={`text-xs sm:text-sm font-medium tracking-tighter ${textColor}`}>
+      <td className={`px-2 py-2.5 sm:px-4 ${cellBg} ${hoverBg}`}>
+        <span className={`text-xs font-medium tracking-tighter sm:text-sm ${textColor}`}>
           {entry.referrals}
         </span>
       </td>
@@ -118,10 +115,7 @@ const LeaderboardRow: React.FC<LeaderboardRowProps> = ({
  * />
  * ```
  */
-export const Leaderboard: React.FC<LeaderboardProps> = ({
-  entries,
-  currentUserId,
-}) => {
+export const Leaderboard: React.FC<LeaderboardProps> = ({ entries, currentUserId }) => {
   const isEmpty = entries.length === 0;
 
   return (
@@ -134,38 +128,38 @@ export const Leaderboard: React.FC<LeaderboardProps> = ({
       {isEmpty ? (
         <LeaderboardEmptyState />
       ) : (
-      <div className="overflow-x-auto">
-        <table className="w-full">
-          <thead>
-            <tr>
-              <th className="py-2.25 px-2 sm:px-4 text-left text-xs sm:text-sm font-normal text-gray-light tracking-tighter w-16 sm:w-34">
-                Rank
-              </th>
-              <th className="py-2.25 px-2 sm:px-4 text-left text-xs sm:text-sm font-normal text-gray-light tracking-tighter min-w-[140px] sm:w-56">
-                User
-              </th>
-              <th className="py-2.25 px-2 sm:px-4 text-left text-xs sm:text-sm font-normal text-gray-light tracking-tighter min-w-[100px] sm:w-56">
-                Lifetime
-              </th>
-              <th className="py-2.25 px-2 sm:px-4 text-left text-xs sm:text-sm font-normal text-gray-light tracking-tighter min-w-[80px] sm:w-56">
-                Epoch
-              </th>
-              <th className="py-2.25 px-2 sm:px-4 text-left text-xs sm:text-sm font-normal text-gray-light tracking-tighter min-w-[70px]">
-                Refs
-              </th>
-            </tr>
-          </thead>
-          <tbody>
-            {entries.map((entry) => (
-              <LeaderboardRow
-                key={entry.userId}
-                entry={entry}
-                isCurrentUser={entry.userId === currentUserId}
-              />
-            ))}
-          </tbody>
-        </table>
-      </div>
+        <div className="overflow-x-auto">
+          <table className="w-full">
+            <thead>
+              <tr>
+                <th className="text-gray-light w-16 px-2 py-2.25 text-left text-xs font-normal tracking-tighter sm:w-34 sm:px-4 sm:text-sm">
+                  Rank
+                </th>
+                <th className="text-gray-light min-w-[140px] px-2 py-2.25 text-left text-xs font-normal tracking-tighter sm:w-56 sm:px-4 sm:text-sm">
+                  User
+                </th>
+                <th className="text-gray-light min-w-[100px] px-2 py-2.25 text-left text-xs font-normal tracking-tighter sm:w-56 sm:px-4 sm:text-sm">
+                  Lifetime
+                </th>
+                <th className="text-gray-light min-w-[80px] px-2 py-2.25 text-left text-xs font-normal tracking-tighter sm:w-56 sm:px-4 sm:text-sm">
+                  Epoch
+                </th>
+                <th className="text-gray-light min-w-[70px] px-2 py-2.25 text-left text-xs font-normal tracking-tighter sm:px-4 sm:text-sm">
+                  Refs
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              {entries.map((entry) => (
+                <LeaderboardRow
+                  key={entry.userId}
+                  entry={entry}
+                  isCurrentUser={entry.userId === currentUserId}
+                />
+              ))}
+            </tbody>
+          </table>
+        </div>
       )}
     </section>
   );

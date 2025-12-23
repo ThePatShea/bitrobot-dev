@@ -3,8 +3,8 @@
  * @module components/ui/EarnPointsBadge
  */
 
-import React from "react";
-import { Icon } from "@/components/ui/Icon";
+import React from 'react';
+import { Icon } from '@/components/ui/Icon';
 
 /**
  * Props for the EarnPointsBadge component
@@ -35,15 +35,12 @@ interface EarnPointsBadgeProps {
  * <EarnPointsBadge points={20} />
  * ```
  */
-export const EarnPointsBadge: React.FC<EarnPointsBadgeProps> = ({
-  points,
-  className = "",
-}) => {
-  const label = points !== undefined ? `Earn ${points} Pts` : "Earn Pts";
+export const EarnPointsBadge: React.FC<EarnPointsBadgeProps> = ({ points, className = '' }) => {
+  const label = points !== undefined ? `Earn ${points} Pts` : 'Earn Pts';
 
   return (
     <div
-      className={`inline-flex items-center gap-2 px-4 py-2 bg-warning-bg-soft text-warning-text-bright rounded-lg text-[10px] uppercase shadow-[0_1px_8px_0_rgba(0,0,0,0.08)] ${className}`}
+      className={`bg-warning-bg-soft text-warning-text-bright inline-flex items-center gap-2 rounded-lg px-4 py-2 text-[10px] uppercase shadow-[0_1px_8px_0_rgba(0,0,0,0.08)] ${className}`}
     >
       <Icon name="points" size={16} />
       <span>{label}</span>

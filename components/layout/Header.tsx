@@ -3,13 +3,13 @@
  * @module components/layout/Header
  */
 
-"use client";
+'use client';
 
-import React, { useState, useRef, useEffect } from "react";
-import Image from "next/image";
-import Link from "next/link";
-import { Icon } from "@/components/ui/Icon";
-import type { UserProfile } from "@/types";
+import React, { useState, useRef, useEffect } from 'react';
+import Image from 'next/image';
+import Link from 'next/link';
+import { Icon } from '@/components/ui/Icon';
+import type { UserProfile } from '@/types';
 
 /**
  * Props for the Header component
@@ -55,32 +55,35 @@ export const Header: React.FC<HeaderProps> = ({ user, onMenuOpen }) => {
     };
 
     if (isMenuOpen) {
-      document.addEventListener("mousedown", handleClickOutside);
+      document.addEventListener('mousedown', handleClickOutside);
     }
 
     return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
+      document.removeEventListener('mousedown', handleClickOutside);
     };
   }, [isMenuOpen]);
 
   return (
     <header className="h-2">
       {/* Fixed inner container that stays at top of viewport */}
-      <div className="fixed top-2.5 h-16 px-4 lg:px-0 flex items-center justify-between lg:justify-end z-30 left-0 right-0 lg:left-auto lg:right-auto fixed-header-centered lg:pr-2.75">
+      <div className="fixed-header-centered fixed top-2.5 right-0 left-0 z-30 flex h-16 items-center justify-between px-4 lg:right-auto lg:left-auto lg:justify-end lg:px-0 lg:pr-2.75">
         {/* Mobile: Logo and Hamburger */}
         <div className="flex items-center gap-3 lg:hidden">
           {/* Hamburger Button */}
           <button
             onClick={onMenuOpen}
-            className="w-8 h-8 bg-white border border-border rounded-lg flex items-center justify-center shadow-[0_2px_8px_0_rgba(0,0,0,0.07)] hover:shadow-[0_2px_12px_0_rgba(0,0,0,0.1)] active:shadow-[0_1px_4px_0_rgba(0,0,0,0.1)] transition-shadow duration-200 cursor-pointer outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
+            className="border-border focus-visible:ring-primary flex h-8 w-8 cursor-pointer items-center justify-center rounded-lg border bg-white shadow-[0_2px_8px_0_rgba(0,0,0,0.07)] transition-shadow duration-200 outline-none hover:shadow-[0_2px_12px_0_rgba(0,0,0,0.1)] focus-visible:ring-2 focus-visible:ring-offset-2 active:shadow-[0_1px_4px_0_rgba(0,0,0,0.1)]"
             aria-label="Open menu"
           >
             <Icon name="menu" size={18} className="text-primary" />
           </button>
 
           {/* Logo (mobile only) */}
-          <Link href="#" className="flex items-center gap-1 rounded-lg outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2">
-            <div className="w-8 h-8 bg-white border border-border rounded-lg flex items-center justify-center shadow-[0_2px_8px_0_rgba(0,0,0,0.07)]">
+          <Link
+            href="#"
+            className="focus-visible:ring-primary flex items-center gap-1 rounded-lg outline-none focus-visible:ring-2 focus-visible:ring-offset-2"
+          >
+            <div className="border-border flex h-8 w-8 items-center justify-center rounded-lg border bg-white shadow-[0_2px_8px_0_rgba(0,0,0,0.07)]">
               <Icon name="logo" size={18} />
             </div>
           </Link>
@@ -90,7 +93,7 @@ export const Header: React.FC<HeaderProps> = ({ user, onMenuOpen }) => {
         <div className="relative" ref={menuRef}>
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="flex items-center px-3 py-[7px] bg-white border border-border rounded-lg shadow-[0_2px_8px_0_rgba(0,0,0,0.07)] hover:shadow-[0_2px_12px_0_rgba(0,0,0,0.1)] active:shadow-[0_1px_4px_0_rgba(0,0,0,0.1)] transition-shadow duration-200 cursor-pointer outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
+            className="border-border focus-visible:ring-primary flex cursor-pointer items-center rounded-lg border bg-white px-3 py-[7px] shadow-[0_2px_8px_0_rgba(0,0,0,0.07)] transition-shadow duration-200 outline-none hover:shadow-[0_2px_12px_0_rgba(0,0,0,0.1)] focus-visible:ring-2 focus-visible:ring-offset-2 active:shadow-[0_1px_4px_0_rgba(0,0,0,0.1)]"
           >
             <Image
               src={user.avatar}
@@ -99,22 +102,20 @@ export const Header: React.FC<HeaderProps> = ({ user, onMenuOpen }) => {
               height={20}
               className="rounded-full"
             />
-            <span className="ml-2 text-xs text-gray-2 hidden sm:inline">
-              {user.username}
-            </span>
+            <span className="text-gray-2 ml-2 hidden text-xs sm:inline">{user.username}</span>
             <Icon
               name="chevron-down"
               size={12}
-              className={`ml-2 sm:ml-3 text-primary transition-transform duration-200 ${
-                isMenuOpen ? "rotate-180" : ""
+              className={`text-primary ml-2 transition-transform duration-200 sm:ml-3 ${
+                isMenuOpen ? 'rotate-180' : ''
               }`}
             />
           </button>
 
           {/* Dropdown Menu */}
           {isMenuOpen && (
-            <div className="absolute right-0 top-full mt-2 w-48 bg-white rounded-lg shadow-lg border border-border">
-              <button className="w-full px-4 py-2 text-left text-sm text-red-600 hover:bg-red-50 active:bg-red-100 hover:cursor-pointer transition-colors duration-200 outline-none focus-visible:bg-red-50 focus-visible:ring-2 focus-visible:ring-red-500 focus-visible:ring-inset rounded-lg">
+            <div className="border-border absolute top-full right-0 mt-2 w-48 rounded-lg border bg-white shadow-lg">
+              <button className="w-full rounded-lg px-4 py-2 text-left text-sm text-red-600 transition-colors duration-200 outline-none hover:cursor-pointer hover:bg-red-50 focus-visible:bg-red-50 focus-visible:ring-2 focus-visible:ring-red-500 focus-visible:ring-inset active:bg-red-100">
                 Sign out
               </button>
             </div>

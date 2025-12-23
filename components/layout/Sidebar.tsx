@@ -3,15 +3,15 @@
  * @module components/layout/Sidebar
  */
 
-"use client";
+'use client';
 
-import React from "react";
-import Link from "next/link";
-import { Icon } from "@/components/ui/Icon";
-import { Button } from "@/components/ui/Button";
-import { SectionHeader } from "@/components/ui/SectionHeader";
-import { EarnPointsBadge } from "@/components/ui/EarnPointsBadge";
-import type { NavItem, ResourceLink } from "@/types";
+import React from 'react';
+import Link from 'next/link';
+import { Icon } from '@/components/ui/Icon';
+import { Button } from '@/components/ui/Button';
+import { SectionHeader } from '@/components/ui/SectionHeader';
+import { EarnPointsBadge } from '@/components/ui/EarnPointsBadge';
+import type { NavItem, ResourceLink } from '@/types';
 
 /**
  * Props for the Sidebar component
@@ -42,32 +42,24 @@ const NavLink: React.FC<{ item: NavItem }> = ({ item }) => {
   return (
     <Link
       href={item.href}
-      className={`
-        flex items-center gap-3 px-1.5 py-2.5 transition-all duration-200 border-b border-border rounded-lg
-        ${
-          isActive
-            ? "text-primary"
-            : "text-muted hover:text-primary/70 active:text-primary/50"
-        }
-        group relative outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2
-      `}
+      className={`border-border flex items-center gap-3 rounded-lg border-b px-1.5 py-2.5 transition-all duration-200 ${
+        isActive ? 'text-primary' : 'text-muted hover:text-primary/70 active:text-primary/50'
+      } group focus-visible:ring-primary relative outline-none focus-visible:ring-2 focus-visible:ring-offset-2`}
     >
-      <div className="w-5 h-5 flex items-center justify-center">
+      <div className="flex h-5 w-5 items-center justify-center">
         <Icon
           name={item.icon}
           size={item.iconSize ?? 20}
           className={
             isActive
-              ? ""
-              : "grayscale brightness-[1.14] group-hover:grayscale-0 group-hover:brightness-100 group-hover:opacity-70 transition-all duration-200"
+              ? ''
+              : 'brightness-[1.14] grayscale transition-all duration-200 group-hover:opacity-70 group-hover:brightness-100 group-hover:grayscale-0'
           }
         />
       </div>
-      <span className="font-medium text-sm uppercase tracking-wide">
-        {item.label}
-      </span>
-      {item.badge === "online" && (
-        <span className="absolute right-4 w-2.5 h-2.5 bg-success rounded-full shadow-[0_0_5px_4px_rgba(0,195,58,0.2)]" />
+      <span className="text-sm font-medium tracking-wide uppercase">{item.label}</span>
+      {item.badge === 'online' && (
+        <span className="bg-success absolute right-4 h-2.5 w-2.5 rounded-full shadow-[0_0_5px_4px_rgba(0,195,58,0.2)]" />
       )}
     </Link>
   );
@@ -85,28 +77,22 @@ const ResourceItem: React.FC<{ item: ResourceLink }> = ({ item }) => {
   return (
     <Link
       href={item.href}
-      className="
-        flex items-center gap-3 px-1.5 py-3 transition-all duration-200 rounded-lg
-        text-muted hover:text-primary/70 active:text-primary/50 border-b border-border
-        group outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2
-      "
+      className="text-muted hover:text-primary/70 active:text-primary/50 border-border group focus-visible:ring-primary flex items-center gap-3 rounded-lg border-b px-1.5 py-3 transition-all duration-200 outline-none focus-visible:ring-2 focus-visible:ring-offset-2"
     >
-      <div className="w-5 h-5 flex items-center justify-center">
+      <div className="flex h-5 w-5 items-center justify-center">
         <Icon
           name={item.icon}
           size={item.iconSize ?? 20}
-          className="grayscale brightness-[1.14] group-hover:grayscale-0 group-hover:brightness-100 group-hover:opacity-70 transition-all duration-200"
+          className="brightness-[1.14] grayscale transition-all duration-200 group-hover:opacity-70 group-hover:brightness-100 group-hover:grayscale-0"
         />
       </div>
-      <span className="font-medium text-sm uppercase tracking-wide">
-        {item.label}
-      </span>
+      <span className="text-sm font-medium tracking-wide uppercase">{item.label}</span>
       {item.external && (
-        <div className="ml-auto w-4 h-4 relative">
+        <div className="relative ml-auto h-4 w-4">
           <Icon
             name="external-link"
             size={9}
-            className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 group-hover:left-full group-hover:top-0 group-hover:-translate-x-full group-hover:translate-y-0 grayscale brightness-[1.14] group-hover:grayscale-0 group-hover:brightness-100 transition-all duration-200"
+            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 brightness-[1.14] grayscale transition-all duration-200 group-hover:top-0 group-hover:left-full group-hover:-translate-x-full group-hover:translate-y-0 group-hover:brightness-100 group-hover:grayscale-0"
           />
         </div>
       )}
@@ -144,24 +130,27 @@ export const Sidebar: React.FC<SidebarProps> = ({
   onShareLink,
 }) => {
   return (
-    <aside className="hidden lg:block w-66 shrink-0">
+    <aside className="hidden w-66 shrink-0 lg:block">
       {/* Fixed inner container that stays in viewport */}
-      <div className="fixed top-0 h-screen w-66 bg-white flex flex-col overflow-y-auto">
+      <div className="fixed top-0 flex h-screen w-66 flex-col overflow-y-auto bg-white">
         {/* Logo Section */}
         <div className="px-6 pt-6 pb-3">
-          <Link href="#" className="flex items-center gap-1 group rounded-lg outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2">
-            <div className="w-8.75 h-8.75 bg-white border border-border rounded-lg flex items-center justify-center transition-all duration-200 shadow-[0_2px_8px_0_rgba(0,0,0,0.07)]">
+          <Link
+            href="#"
+            className="group focus-visible:ring-primary flex items-center gap-1 rounded-lg outline-none focus-visible:ring-2 focus-visible:ring-offset-2"
+          >
+            <div className="border-border flex h-8.75 w-8.75 items-center justify-center rounded-lg border bg-white shadow-[0_2px_8px_0_rgba(0,0,0,0.07)] transition-all duration-200">
               <Icon name="logo" size={20} />
             </div>
-            <div className="px-3 py-2 bg-white border border-border rounded-lg transition-all duration-200 shadow-[0_2px_8px_0_rgba(0,0,0,0.07)]">
+            <div className="border-border rounded-lg border bg-white px-3 py-2 shadow-[0_2px_8px_0_rgba(0,0,0,0.07)] transition-all duration-200">
               <Icon name="bitrobot" size={85} className="h-[18px]" />
             </div>
           </Link>
         </div>
 
-        <div className="border-r border-border flex-1 flex flex-col">
+        <div className="border-border flex flex-1 flex-col border-r">
           {/* Navigation Menu */}
-          <nav className="px-6 py-3 space-y-1">
+          <nav className="space-y-1 px-6 py-3">
             {navItems.map((item) => (
               <NavLink key={item.id} item={item} />
             ))}
@@ -183,36 +172,29 @@ export const Sidebar: React.FC<SidebarProps> = ({
           </div>
 
           {/* Earn Points & Referrals Section */}
-          <div className="p-4 space-y-9.25 bg-light-bg rounded-2xl p-3 mx-6 mb-[40px] shadow-[0_1px_8px_0_rgba(0,0,0,0.1)]">
+          <div className="bg-light-bg mx-6 mb-[40px] space-y-9.25 rounded-2xl p-3 p-4 shadow-[0_1px_8px_0_rgba(0,0,0,0.1)]">
             {/* Earn Pts Button and Info Icon Row */}
             <div className="flex items-center justify-between">
               <EarnPointsBadge />
-              <div className="relative group/tooltip">
+              <div className="group/tooltip relative">
                 <Icon
                   name="info-circle"
                   size={20}
-                  className="opacity-50 group-hover/tooltip:opacity-100 transition-opacity duration-200"
+                  className="opacity-50 transition-opacity duration-200 group-hover/tooltip:opacity-100"
                 />
-                <div className="absolute right-0 top-full mt-2 w-48 p-3 bg-card-bg text-muted text-xs rounded-xl border border-border opacity-0 invisible group-hover/tooltip:opacity-100 group-hover/tooltip:visible transition-all duration-200 z-50 shadow-[0_1px_8px_0_rgba(0,0,0,0.1)]">
-                  Share your unique link with your friends to earn points when
-                  they sign up.
+                <div className="bg-card-bg text-muted border-border invisible absolute top-full right-0 z-50 mt-2 w-48 rounded-xl border p-3 text-xs opacity-0 shadow-[0_1px_8px_0_rgba(0,0,0,0.1)] transition-all duration-200 group-hover/tooltip:visible group-hover/tooltip:opacity-100">
+                  Share your unique link with your friends to earn points when they sign up.
                 </div>
               </div>
             </div>
 
             {/* Referrals Section */}
             <div>
-              <div className="flex items-baseline gap-2 mb-1.5">
-                <span className="text-2xl font-medium text-primary">
-                  {referralCount}
-                </span>
-                <span className="text-xs text-primary font-medium">
-                  referrals
-                </span>
+              <div className="mb-1.5 flex items-baseline gap-2">
+                <span className="text-primary text-2xl font-medium">{referralCount}</span>
+                <span className="text-primary text-xs font-medium">referrals</span>
               </div>
-              <p className="text-[10px] text-muted mb-2.5">
-                Refer friends to earn more
-              </p>
+              <p className="text-muted mb-2.5 text-[10px]">Refer friends to earn more</p>
               <Button
                 variant="outline"
                 size="md"

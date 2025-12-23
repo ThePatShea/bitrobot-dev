@@ -3,7 +3,7 @@
  * @module components/ui/Badge
  */
 
-import React from "react";
+import React from 'react';
 
 /**
  * Props for the Badge component
@@ -13,7 +13,7 @@ interface BadgeProps {
   /** Content to display in the badge */
   children: React.ReactNode;
   /** Visual variant of the badge */
-  variant?: "default" | "success" | "warning" | "info";
+  variant?: 'default' | 'success' | 'warning' | 'info';
   /** Optional additional CSS classes */
   className?: string;
 }
@@ -34,24 +34,15 @@ interface BadgeProps {
  * <Badge variant="warning">Pending</Badge>
  * ```
  */
-export const Badge: React.FC<BadgeProps> = ({
-  children,
-  variant = "default",
-  className = "",
-}) => {
-  const baseStyles =
-    "inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium";
+export const Badge: React.FC<BadgeProps> = ({ children, variant = 'default', className = '' }) => {
+  const baseStyles = 'inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium';
 
   const variants = {
-    default: "bg-light-bg text-muted",
-    success: "bg-success-bg text-success-text",
-    warning: "bg-warning-bg-light text-warning-text",
-    info: "bg-info-bg text-info-text",
+    default: 'bg-light-bg text-muted',
+    success: 'bg-success-bg text-success-text',
+    warning: 'bg-warning-bg-light text-warning-text',
+    info: 'bg-info-bg text-info-text',
   };
 
-  return (
-    <span className={`${baseStyles} ${variants[variant]} ${className}`}>
-      {children}
-    </span>
-  );
+  return <span className={`${baseStyles} ${variants[variant]} ${className}`}>{children}</span>;
 };

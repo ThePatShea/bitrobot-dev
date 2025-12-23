@@ -3,8 +3,8 @@
  * @module components/ui/EmptyState
  */
 
-import React from "react";
-import { Button } from "./Button";
+import React from 'react';
+import { Button } from './Button';
 
 /**
  * Props for the EmptyState component
@@ -15,7 +15,7 @@ interface EmptyStateProps {
   /** Optional description text */
   description?: string;
   /** Icon type to display */
-  icon?: "data" | "search" | "error" | "inbox";
+  icon?: 'data' | 'search' | 'error' | 'inbox';
   /** Optional action button configuration */
   action?: {
     label: string;
@@ -109,7 +109,15 @@ const illustrations = {
       className="text-red-100"
     >
       <circle cx="60" cy="60" r="50" fill="currentColor" />
-      <circle cx="60" cy="60" r="30" fill="none" stroke="#ef4444" strokeWidth="4" className="opacity-30" />
+      <circle
+        cx="60"
+        cy="60"
+        r="30"
+        fill="none"
+        stroke="#ef4444"
+        strokeWidth="4"
+        className="opacity-30"
+      />
       <line
         x1="48"
         y1="48"
@@ -178,24 +186,22 @@ const illustrations = {
 export const EmptyState: React.FC<EmptyStateProps> = ({
   title,
   description,
-  icon = "data",
+  icon = 'data',
   action,
-  className = "",
+  className = '',
 }) => {
   return (
     <div
-      className={`flex flex-col items-center justify-center py-12 px-4 text-center ${className}`}
+      className={`flex flex-col items-center justify-center px-4 py-12 text-center ${className}`}
     >
       {/* Illustration */}
       <div className="mb-6">{illustrations[icon]}</div>
 
       {/* Title */}
-      <h3 className="text-lg font-medium text-primary mb-2">{title}</h3>
+      <h3 className="text-primary mb-2 text-lg font-medium">{title}</h3>
 
       {/* Description */}
-      {description && (
-        <p className="text-sm text-muted max-w-sm mb-6">{description}</p>
-      )}
+      {description && <p className="text-muted mb-6 max-w-sm text-sm">{description}</p>}
 
       {/* Action Button */}
       {action && (
@@ -216,7 +222,7 @@ export const LeaderboardEmptyState: React.FC = () => (
     title="No rankings yet"
     description="Be the first to climb the leaderboard by earning points through contributions."
     action={{
-      label: "START CONTRIBUTING",
+      label: 'START CONTRIBUTING',
       onClick: () => {
         // Navigate to contribute page
       },
@@ -249,4 +255,3 @@ export const SearchEmptyState: React.FC<{ query?: string }> = ({ query }) => (
     }
   />
 );
-

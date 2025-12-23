@@ -3,7 +3,7 @@
  * @module components/ui/SectionHeader
  */
 
-import React from "react";
+import React from 'react';
 
 /**
  * Props for the SectionHeader component
@@ -31,13 +31,10 @@ interface SectionHeaderProps {
  * <SectionHeader title="Discover" />
  * ```
  */
-export const SectionHeader: React.FC<SectionHeaderProps> = ({
-  title,
-  className = "",
-}) => {
+export const SectionHeader: React.FC<SectionHeaderProps> = ({ title, className = '' }) => {
   return (
     <span
-      className={`inline-block px-3 py-1.5 text-[11px] text-primary uppercase tracking-wider bg-primary-light rounded-lg shadow-[0_1px_8px_0_rgba(0,0,0,0.1)] ${className}`}
+      className={`text-primary bg-primary-light inline-block rounded-lg px-3 py-1.5 text-[11px] tracking-wider uppercase shadow-[0_1px_8px_0_rgba(0,0,0,0.1)] ${className}`}
     >
       {title}
     </span>

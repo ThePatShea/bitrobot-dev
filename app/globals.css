@@ -1,4 +1,4 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 
 :root {
   /* Background colors */
@@ -151,5 +151,5 @@ body {
 
 /* Focus visible styles for accessibility */
 .focus-ring {
-  @apply outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2;
+  @apply focus-visible:ring-primary outline-none focus-visible:ring-2 focus-visible:ring-offset-2;
 }

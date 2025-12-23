@@ -3,10 +3,10 @@
  * @module components/dashboard/BonusBanner
  */
 
-"use client";
+'use client';
 
-import React from "react";
-import { Button } from "@/components/ui/Button";
+import React from 'react';
+import { Button } from '@/components/ui/Button';
 
 /**
  * Props for the BonusBanner component
@@ -53,16 +53,12 @@ export const BonusBanner: React.FC<BonusBannerProps> = ({
   onCtaClick,
 }) => {
   return (
-    <div className="bg-primary-light min-h-[90px] lg:h-22.5 rounded-2xl p-4 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 sm:gap-2">
+    <div className="bg-primary-light flex min-h-[90px] flex-col items-start justify-between gap-3 rounded-2xl p-4 sm:flex-row sm:items-center sm:gap-2 lg:h-22.5">
       <div className="flex flex-col">
-        <h3 className="font-medium text-primary">{title}</h3>
-        <p className="text-sm text-primary">{description}</p>
+        <h3 className="text-primary font-medium">{title}</h3>
+        <p className="text-primary text-sm">{description}</p>
       </div>
-      <Button
-        variant="primary"
-        onClick={onCtaClick}
-        className="flex-shrink-0 w-full sm:w-auto"
-      >
+      <Button variant="primary" onClick={onCtaClick} className="w-full flex-shrink-0 sm:w-auto">
         {ctaText}
       </Button>
     </div>

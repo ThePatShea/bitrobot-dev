@@ -3,11 +3,11 @@
  * @module components/dashboard/EarningsCard
  */
 
-"use client";
+'use client';
 
-import React from "react";
-import { Card } from "@/components/ui/Card";
-import { Icon } from "@/components/ui/Icon";
+import React from 'react';
+import { Card } from '@/components/ui/Card';
+import { Icon } from '@/components/ui/Icon';
 
 /**
  * Props for the EarningsCard component
@@ -72,14 +72,14 @@ export const EarningsCard: React.FC<EarningsCardProps> = ({
 
   return (
     <Card
-      className={`p-3 sm:p-4 flex flex-col justify-between h-40 sm:h-48.5 shadow-[0_1px_8px_0_rgba(0,0,0,0.1)] border-0 group ${
-        onBreakdownClick ? "cursor-pointer" : ""
+      className={`group flex h-40 flex-col justify-between border-0 p-3 shadow-[0_1px_8px_0_rgba(0,0,0,0.1)] sm:h-48.5 sm:p-4 ${
+        onBreakdownClick ? 'cursor-pointer' : ''
       }`}
       onClick={onBreakdownClick}
     >
       {/* Header with Icon */}
       <div className="flex items-center justify-between">
-        <span className="text-[10px] text-primary uppercase">{title}</span>
+        <span className="text-primary text-[10px] uppercase">{title}</span>
         <Icon name="points" size={24} className="text-warning" />
       </div>
 
@@ -88,18 +88,16 @@ export const EarningsCard: React.FC<EarningsCardProps> = ({
         {/* Points Display */}
         <div className="mb-0.25">
           <div className="flex items-baseline gap-1.5">
-            <span className="text-[24px] sm:text-[32px] font-medium text-primary">
+            <span className="text-primary text-[24px] font-medium sm:text-[32px]">
               {displayPoints}
             </span>
-            <span className="text-sm sm:text-base text-primary tracking-tight">
-              points
-            </span>
+            <span className="text-primary text-sm tracking-tight sm:text-base">points</span>
           </div>
         </div>
 
         {/* Breakdown Link with Hover Animation */}
         {onBreakdownClick && (
-          <div className="flex items-center gap-1.5 text-sm text-primary font-medium tracking-tight">
+          <div className="text-primary flex items-center gap-1.5 text-sm font-medium tracking-tight">
             <span className="transition-opacity duration-200 group-hover:opacity-70 group-active:opacity-50">
               Breakdown
             </span>

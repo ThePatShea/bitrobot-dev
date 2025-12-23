@@ -3,7 +3,7 @@
  * @module components/ui/Button
  */
 
-import React from "react";
+import React from 'react';
 
 /**
  * Props for the Button component
@@ -12,9 +12,9 @@ import React from "react";
  */
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   /** Visual variant of the button */
-  variant?: "primary" | "secondary" | "outline" | "ghost";
+  variant?: 'primary' | 'secondary' | 'outline' | 'ghost';
   /** Size of the button */
-  size?: "sm" | "md" | "lg";
+  size?: 'sm' | 'md' | 'lg';
   /** Optional icon to display before the text */
   icon?: React.ReactNode;
   /** Optional icon to display after the text */
@@ -44,35 +44,34 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
  * ```
  */
 export const Button: React.FC<ButtonProps> = ({
-  variant = "primary",
-  size = "md",
+  variant = 'primary',
+  size = 'md',
   icon,
   iconAfter,
   fullWidth = false,
-  className = "",
+  className = '',
   children,
   ...props
 }) => {
   const baseStyles =
-    "inline-flex items-center justify-center font-medium uppercase rounded-lg transition-all duration-200 cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2";
+    'inline-flex items-center justify-center font-medium uppercase rounded-lg transition-all duration-200 cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2';
 
   const variants = {
-    primary:
-      "bg-primary text-white hover:bg-primary-hover active:bg-primary-active",
+    primary: 'bg-primary text-white hover:bg-primary-hover active:bg-primary-active',
     secondary:
-      "bg-primary-light text-primary hover:bg-primary-light-hover active:bg-primary-light-active",
+      'bg-primary-light text-primary hover:bg-primary-light-hover active:bg-primary-light-active',
     outline:
-      "border border-primary text-primary hover:bg-primary-light active:bg-primary-light-hover",
-    ghost: "text-muted hover:bg-light-bg active:bg-border",
+      'border border-primary text-primary hover:bg-primary-light active:bg-primary-light-hover',
+    ghost: 'text-muted hover:bg-light-bg active:bg-border',
   };
 
   const sizes = {
-    sm: "px-1 py-1.5 text-[8px] gap-1.5",
-    md: "px-2 py-2.25 text-[9px] gap-1.25",
-    lg: "px-6 py-3 text-base gap-2",
+    sm: 'px-1 py-1.5 text-[8px] gap-1.5',
+    md: 'px-2 py-2.25 text-[9px] gap-1.25',
+    lg: 'px-6 py-3 text-base gap-2',
   };
 
-  const widthClass = fullWidth ? "w-full" : "";
+  const widthClass = fullWidth ? 'w-full' : '';
 
   return (
     <button

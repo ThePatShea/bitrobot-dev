@@ -38,12 +38,7 @@ interface IconProps {
  * <Icon name="profile" size={24} className="opacity-50" />
  * ```
  */
-export const Icon: React.FC<IconProps> = ({ 
-  name, 
-  size = 20, 
-  className = '',
-  alt = ''
-}) => {
+export const Icon: React.FC<IconProps> = ({ name, size = 20, className = '', alt = '' }) => {
   return (
     <Image
       src={`/icons/${name}.svg`}

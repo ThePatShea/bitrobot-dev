@@ -22,7 +22,7 @@ export interface NavItem {
   /** Whether this item is currently active */
   active?: boolean;
   /** Optional badge indicator (like online status) */
-  badge?: "online" | "offline";
+  badge?: 'online' | 'offline';
 }
 
 /**
