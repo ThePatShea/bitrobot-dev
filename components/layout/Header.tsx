@@ -72,10 +72,10 @@ export const Header: React.FC<HeaderProps> = ({ user, onMenuOpen }) => {
           {/* Hamburger Button */}
           <button
             onClick={onMenuOpen}
-            className="p-2 hover:bg-primary-light rounded-lg transition-colors cursor-pointer"
+            className="w-8 h-8 bg-white border border-border rounded-lg flex items-center justify-center shadow-[0_2px_8px_0_rgba(0,0,0,0.07)] hover:shadow-[0_2px_12px_0_rgba(0,0,0,0.1)] transition-shadow duration-200 cursor-pointer"
             aria-label="Open menu"
           >
-            <Icon name="menu" size={24} className="text-primary" />
+            <Icon name="menu" size={18} className="text-primary" />
           </button>
 
           {/* Logo (mobile only) */}
