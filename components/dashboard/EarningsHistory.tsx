@@ -83,7 +83,9 @@ export const EarningsHistory: React.FC<EarningsHistoryProps> = ({ data }) => {
             <span
               key={label}
               className={`leading-none text-primary text-[10px] tracking-tighter ${
-                index === yAxisLabels.length - 1 ? "opacity-0" : ""
+                index === 0 || index === yAxisLabels.length - 1
+                  ? "opacity-0"
+                  : ""
               }`}
             >
               {label}
@@ -101,7 +103,7 @@ export const EarningsHistory: React.FC<EarningsHistoryProps> = ({ data }) => {
             {yAxisValues.map((value, index) => (
               <div
                 key={value}
-                className={`w-full border-t border-primary-light/60 relative top-1 ${
+                className={`w-full border-t border-primary-light/50 relative top-1 ${
                   index === 0 ? "opacity-0" : ""
                 }`}
               />
