@@ -73,7 +73,7 @@ const LeaderboardRow: React.FC<LeaderboardRowProps> = ({
             alt={entry.userId}
             width={20}
             height={20}
-            className="rounded-full"
+            className="rounded-full flex-shrink-0"
           />
           <span className={`text-sm font-medium tracking-tighter ${textColor}`}>
             {formatAddress(entry.userId, 7, 5)}
