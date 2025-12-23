@@ -79,21 +79,21 @@ const LeaderboardRow: React.FC<LeaderboardRowProps> = ({
       </td>
 
       {/* Lifetime Earning */}
-      <td className={`py-2.5 px-4 text-right ${cellBg} ${hoverBg}`}>
+      <td className={`py-2.5 px-4 ${cellBg} ${hoverBg}`}>
         <span className={`text-sm font-medium ${textColor}`}>
           {entry.lifetimeEarning.toLocaleString()}
         </span>
       </td>
 
       {/* This Epoch */}
-      <td className={`py-2.5 px-4 text-right ${cellBg} ${hoverBg}`}>
+      <td className={`py-2.5 px-4 ${cellBg} ${hoverBg}`}>
         <span className={`text-sm font-medium ${textColor}`}>
           {entry.thisEpoch.toLocaleString()}
         </span>
       </td>
 
       {/* Referrals */}
-      <td className={`py-2.5 px-4 text-right ${cellBg} ${hoverBg}`}>
+      <td className={`py-2.5 px-4 ${cellBg} ${hoverBg}`}>
         <span className={`text-sm font-medium ${textColor}`}>
           {entry.referrals}
         </span>
@@ -141,13 +141,13 @@ export const Leaderboard: React.FC<LeaderboardProps> = ({
               <th className="py-2.5 px-4 text-left text-sm font-normal text-gray-light">
                 User
               </th>
-              <th className="py-2.5 px-4 text-right text-sm font-normal text-gray-light">
+              <th className="py-2.5 px-4 text-left text-sm font-normal text-gray-light">
                 Lifetime Earning
               </th>
-              <th className="py-2.5 px-4 text-right text-sm font-normal text-gray-light">
+              <th className="py-2.5 px-4 text-left text-sm font-normal text-gray-light">
                 This Epoch
               </th>
-              <th className="py-2.5 px-4 text-right text-sm font-normal text-gray-light">
+              <th className="py-2.5 px-4 text-left text-sm font-normal text-gray-light">
                 Referrals
               </th>
             </tr>
