@@ -127,7 +127,7 @@ export const Leaderboard: React.FC<LeaderboardProps> = ({
   return (
     <section className="mt-8">
       {/* Section Header */}
-      <div className="mb-4">
+      <div className="mb-1.25">
         <SectionHeader title="Leaderboard" />
       </div>
 
