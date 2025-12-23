@@ -70,7 +70,7 @@ export const Header: React.FC<HeaderProps> = ({ user, onMenuOpen }) => {
         {/* Hamburger Button */}
         <button
           onClick={onMenuOpen}
-          className="p-2 hover:bg-primary-light rounded-lg transition-colors"
+          className="p-2 hover:bg-primary-light rounded-lg transition-colors cursor-pointer"
           aria-label="Open menu"
         >
           <Icon name="menu" size={24} className="text-primary" />

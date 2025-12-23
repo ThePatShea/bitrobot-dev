@@ -154,7 +154,11 @@ export const MobileMenu: React.FC<MobileMenuProps> = ({
       >
         {/* Header with Logo and Close Button */}
         <div className="px-4 pt-4 pb-3 flex items-center justify-between">
-          <Link href="#" className="flex items-center gap-1 group" onClick={onClose}>
+          <Link
+            href="#"
+            className="flex items-center gap-1 group"
+            onClick={onClose}
+          >
             <div className="w-8.75 h-8.75 bg-white border border-border rounded-lg flex items-center justify-center transition-all duration-200 shadow-[0_2px_8px_0_rgba(0,0,0,0.07)]">
               <Icon name="logo" size={20} />
             </div>
@@ -164,7 +168,7 @@ export const MobileMenu: React.FC<MobileMenuProps> = ({
           </Link>
           <button
             onClick={onClose}
-            className="p-2 text-primary hover:bg-primary-light rounded-lg transition-colors"
+            className="p-2 text-primary hover:bg-primary-light rounded-lg transition-colors cursor-pointer"
             aria-label="Close menu"
           >
             <Icon name="close" size={20} />
@@ -238,4 +242,3 @@ export const MobileMenu: React.FC<MobileMenuProps> = ({
     </>
   );
 };
-
