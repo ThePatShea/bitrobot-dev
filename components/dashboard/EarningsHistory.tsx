@@ -118,7 +118,7 @@ export const EarningsHistory: React.FC<EarningsHistoryProps> = ({ data }) => {
             style={{ height: `${chartHeight}px` }}
           >
             {data.map((point) => {
-              // Adjust visual height for specific values while keeping labels accurate
+              // Adjust visual height for specific values while keeping labels accurate, to match the mockup
               const visualValue =
                 point.value === 800
                   ? 950
