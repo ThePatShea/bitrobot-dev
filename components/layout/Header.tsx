@@ -34,8 +34,8 @@ interface HeaderProps {
  *
  * @example
  * ```tsx
- * <Header 
- *   user={{ username: 'username123', avatar: '/images/avatar.png', id: '1' }} 
+ * <Header
+ *   user={{ username: 'username123', avatar: '/images/avatar.png', id: '1' }}
  *   onMenuOpen={() => setMobileMenuOpen(true)}
  * />
  * ```
@@ -70,10 +70,10 @@ export const Header: React.FC<HeaderProps> = ({ user, onMenuOpen }) => {
         {/* Hamburger Button */}
         <button
           onClick={onMenuOpen}
-          className="p-2 text-primary hover:bg-primary-light rounded-lg transition-colors"
+          className="p-2 hover:bg-primary-light rounded-lg transition-colors"
           aria-label="Open menu"
         >
-          <Icon name="menu" size={24} />
+          <Icon name="menu" size={24} className="text-primary" />
         </button>
 
         {/* Logo (mobile only) */}
@@ -97,7 +97,9 @@ export const Header: React.FC<HeaderProps> = ({ user, onMenuOpen }) => {
             height={20}
             className="rounded-full"
           />
-          <span className="ml-2 text-xs text-gray-2 hidden sm:inline">{user.username}</span>
+          <span className="ml-2 text-xs text-gray-2 hidden sm:inline">
+            {user.username}
+          </span>
           <Icon
             name="chevron-down"
             size={12}
