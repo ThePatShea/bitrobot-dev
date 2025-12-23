@@ -1,6 +1,6 @@
 /**
  * @fileoverview Formatting utility functions for numbers, text, and addresses
- * @module helpers/format
+ * @module lib/format
  */
 
 /**
@@ -86,3 +86,4 @@ export function formatAddress(
   if (address.length <= startChars + endChars) return address;
   return `${address.slice(0, startChars)}...${address.slice(-endChars)}`;
 }
+

@@ -8,7 +8,7 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import { SectionHeader } from "@/components/ui/SectionHeader";
-import { formatAddress } from "@/helpers/format";
+import { formatAddress } from "@/lib/format";
 import type { LeaderboardEntry } from "@/types";
 
 /**
