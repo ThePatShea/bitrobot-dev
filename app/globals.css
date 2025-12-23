@@ -114,9 +114,11 @@ body {
 }
 
 /* Fixed header positioning for centered layout */
-@media (min-width: 1024px) {
-  .fixed-header-centered {
-    left: max(264px, calc((100vw - 1258px) / 2 + 264px)) !important;
-    right: max(0px, calc((100vw - 1258px) / 2)) !important;
+@layer utilities {
+  @media (min-width: 1024px) {
+    .fixed-header-centered {
+      left: max(264px, calc((100vw - 1258px) / 2 + 264px));
+      right: max(0px, calc((100vw - 1258px) / 2));
+    }
   }
 }
