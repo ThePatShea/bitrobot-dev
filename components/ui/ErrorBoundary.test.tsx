@@ -195,4 +195,3 @@ describe('SectionErrorBoundary', () => {
     expect(screen.getByText('Failed to load section')).toBeInTheDocument();
   });
 });
-

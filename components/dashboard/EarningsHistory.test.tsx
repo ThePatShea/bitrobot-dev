@@ -20,7 +20,7 @@ describe('EarningsHistory', () => {
   });
 
   it('renders a bar for each month', () => {
-    const { container } = render(<EarningsHistory data={mockData} />);
+    render(<EarningsHistory data={mockData} />);
 
     // Each month has a label
     expect(screen.getByText('OCT')).toBeInTheDocument();
@@ -86,4 +86,3 @@ describe('EarningsHistory', () => {
     expect(screen.getByText('1,150')).toBeInTheDocument();
   });
 });
-

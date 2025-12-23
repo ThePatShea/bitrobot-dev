@@ -39,4 +39,3 @@ describe('DashboardPage', () => {
     expect(screen.getByText('username123')).toBeInTheDocument();
   });
 });
-

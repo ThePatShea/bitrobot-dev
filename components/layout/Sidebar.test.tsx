@@ -3,7 +3,14 @@ import { Sidebar } from './Sidebar';
 import type { NavItem, ResourceLink } from '@/types';
 
 const mockNavItems: NavItem[] = [
-  { id: 'dashboard', label: 'Dashboard', icon: 'dashboard', href: '/dashboard', active: true, badge: 'online' },
+  {
+    id: 'dashboard',
+    label: 'Dashboard',
+    icon: 'dashboard',
+    href: '/dashboard',
+    active: true,
+    badge: 'online',
+  },
   { id: 'contribute', label: 'Contribute', icon: 'contribute', href: '/contribute', active: false },
   { id: 'profile', label: 'Profile', icon: 'profile', href: '/profile', active: false },
 ];
@@ -96,4 +103,3 @@ describe('Sidebar', () => {
     expect(aside).toHaveClass('hidden', 'lg:block');
   });
 });
-

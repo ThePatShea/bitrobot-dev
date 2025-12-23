@@ -68,7 +68,9 @@ describe('Leaderboard', () => {
     render(<Leaderboard entries={mockEntries} />);
 
     // The full address shouldn't be visible
-    expect(screen.queryByText('0x1234567890abcdef1234567890abcdef12345678')).not.toBeInTheDocument();
+    expect(
+      screen.queryByText('0x1234567890abcdef1234567890abcdef12345678')
+    ).not.toBeInTheDocument();
     // But the truncated version should be
     expect(screen.getByText('0x123...5678')).toBeInTheDocument();
   });
@@ -116,4 +118,3 @@ describe('Leaderboard', () => {
     expect(avatars[0]).toHaveAttribute('src', '/images/avatar-2.png');
   });
 });
-

@@ -121,4 +121,3 @@ describe('MobileMenu', () => {
     expect(document.body.style.overflow).toBe('');
   });
 });
-
