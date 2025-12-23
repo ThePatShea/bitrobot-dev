@@ -100,13 +100,13 @@ export const EarningsCard: React.FC<EarningsCardProps> = ({
         {/* Breakdown Link with Hover Animation */}
         {onBreakdownClick && (
           <div className="flex items-center gap-1.5 text-sm text-primary font-medium tracking-tight">
-            <span className="transition-opacity duration-200 group-hover:opacity-70">
+            <span className="transition-opacity duration-200 group-hover:opacity-70 group-active:opacity-50">
               Breakdown
             </span>
             <Icon
               name="chevron-right"
               size={5}
-              className="transition-transform duration-200 group-hover:translate-x-1.5"
+              className="transition-transform duration-200 group-hover:translate-x-1.5 group-active:translate-x-2.5"
             />
           </div>
         )}
