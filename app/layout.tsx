@@ -3,15 +3,15 @@
  * Provides global layout structure and metadata
  */
 
-import type { Metadata } from 'next';
-import './globals.css';
+import type { Metadata } from "next";
+import "./globals.css";
 
 /**
  * Metadata for the application
  */
 export const metadata: Metadata = {
-  title: 'BitRobot Dashboard',
-  description: 'Explore the BitRobot Network and track your earnings',
+  title: "BitRobot Dashboard",
+  description: "Explore the BitRobot Network and track your earnings",
 };
 
 /**
@@ -25,9 +25,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body>
-        {children}
-      </body>
+      <body className="antialiased">{children}</body>
     </html>
   );
 }
