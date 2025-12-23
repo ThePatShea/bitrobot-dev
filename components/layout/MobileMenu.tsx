@@ -47,7 +47,7 @@ const NavLink: React.FC<{ item: NavItem; onClick: () => void }> = ({
       onClick={onClick}
       className={`
         flex items-center gap-3 px-1.5 py-2.5 transition-all duration-200 border-b border-border
-        ${isActive ? "text-primary" : "text-muted hover:text-primary/70"}
+        ${isActive ? "text-primary" : "text-muted hover:text-primary/70 active:text-primary/50"}
         group relative
       `}
     >
@@ -85,7 +85,7 @@ const ResourceItem: React.FC<{ item: ResourceLink; onClick: () => void }> = ({
       onClick={onClick}
       className="
         flex items-center gap-3 px-1.5 py-3 transition-all duration-200
-        text-muted hover:text-primary/70 border-b border-border
+        text-muted hover:text-primary/70 active:text-primary/50 border-b border-border
         group
       "
     >
@@ -168,7 +168,7 @@ export const MobileMenu: React.FC<MobileMenuProps> = ({
           </Link>
           <button
             onClick={onClose}
-            className="p-2 text-primary hover:bg-primary-light rounded-lg transition-colors cursor-pointer"
+            className="p-2 text-primary hover:bg-primary-light active:bg-primary-light-active rounded-lg transition-colors cursor-pointer"
             aria-label="Close menu"
           >
             <Icon name="close" size={20} />

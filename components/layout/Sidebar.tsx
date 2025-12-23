@@ -44,7 +44,11 @@ const NavLink: React.FC<{ item: NavItem }> = ({ item }) => {
       href={item.href}
       className={`
         flex items-center gap-3 px-1.5 py-2.5 transition-all duration-200 border-b border-border
-        ${isActive ? "text-primary" : "text-muted hover:text-primary/70"}
+        ${
+          isActive
+            ? "text-primary"
+            : "text-muted hover:text-primary/70 active:text-primary/50"
+        }
         group relative
       `}
     >
@@ -83,7 +87,7 @@ const ResourceItem: React.FC<{ item: ResourceLink }> = ({ item }) => {
       href={item.href}
       className="
         flex items-center gap-3 px-1.5 py-3 transition-all duration-200
-        text-muted hover:text-primary/70 border-b border-border
+        text-muted hover:text-primary/70 active:text-primary/50 border-b border-border
         group
       "
     >
@@ -143,83 +147,83 @@ export const Sidebar: React.FC<SidebarProps> = ({
     <aside className="hidden lg:block w-66 shrink-0">
       {/* Fixed inner container that stays in viewport */}
       <div className="fixed top-0 h-screen w-66 bg-white flex flex-col overflow-y-auto">
-      {/* Logo Section */}
-      <div className="px-6 pt-6 pb-3">
-        <Link href="#" className="flex items-center gap-1 group">
-          <div className="w-8.75 h-8.75 bg-white border border-border rounded-lg flex items-center justify-center transition-all duration-200 shadow-[0_2px_8px_0_rgba(0,0,0,0.07)]">
-            <Icon name="logo" size={20} />
-          </div>
-          <div className="px-3 py-2 bg-white border border-border rounded-lg transition-all duration-200 shadow-[0_2px_8px_0_rgba(0,0,0,0.07)]">
-            <Icon name="bitrobot" size={85} className="h-[18px]" />
-          </div>
-        </Link>
-      </div>
-
-      <div className="border-r border-border flex-1 flex flex-col">
-        {/* Navigation Menu */}
-        <nav className="px-6 py-3 space-y-1">
-          {navItems.map((item) => (
-            <NavLink key={item.id} item={item} />
-          ))}
-        </nav>
-
-        {/* Spacer - pushes bottom sections to the bottom */}
-        <div className="flex-1" />
-
-        {/* Resources Section */}
-        <div className="flex flex-col gap-1 px-6 py-4">
-          <div className="py-3">
-            <SectionHeader title="Resources" />
-          </div>
-          <div>
-            {resourceLinks.map((item) => (
-              <ResourceItem key={item.id} item={item} />
-            ))}
-          </div>
+        {/* Logo Section */}
+        <div className="px-6 pt-6 pb-3">
+          <Link href="#" className="flex items-center gap-1 group">
+            <div className="w-8.75 h-8.75 bg-white border border-border rounded-lg flex items-center justify-center transition-all duration-200 shadow-[0_2px_8px_0_rgba(0,0,0,0.07)]">
+              <Icon name="logo" size={20} />
+            </div>
+            <div className="px-3 py-2 bg-white border border-border rounded-lg transition-all duration-200 shadow-[0_2px_8px_0_rgba(0,0,0,0.07)]">
+              <Icon name="bitrobot" size={85} className="h-[18px]" />
+            </div>
+          </Link>
         </div>
 
-        {/* Earn Points & Referrals Section */}
-        <div className="p-4 space-y-9.25 bg-light-bg rounded-2xl p-3 mx-6 mb-[40px] shadow-[0_1px_8px_0_rgba(0,0,0,0.1)]">
-          {/* Earn Pts Button and Info Icon Row */}
-          <div className="flex items-center justify-between">
-            <EarnPointsBadge />
-            <div className="relative group/tooltip">
-              <Icon
-                name="info-circle"
-                size={20}
-                className="opacity-50 group-hover/tooltip:opacity-100 transition-opacity duration-200"
-              />
-              <div className="absolute right-0 top-full mt-2 w-48 p-3 bg-card-bg text-muted text-xs rounded-xl border border-border opacity-0 invisible group-hover/tooltip:opacity-100 group-hover/tooltip:visible transition-all duration-200 z-50 shadow-[0_1px_8px_0_rgba(0,0,0,0.1)]">
-                Share your unique link with your friends to earn points when
-                they sign up.
+        <div className="border-r border-border flex-1 flex flex-col">
+          {/* Navigation Menu */}
+          <nav className="px-6 py-3 space-y-1">
+            {navItems.map((item) => (
+              <NavLink key={item.id} item={item} />
+            ))}
+          </nav>
+
+          {/* Spacer - pushes bottom sections to the bottom */}
+          <div className="flex-1" />
+
+          {/* Resources Section */}
+          <div className="flex flex-col gap-1 px-6 py-4">
+            <div className="py-3">
+              <SectionHeader title="Resources" />
+            </div>
+            <div>
+              {resourceLinks.map((item) => (
+                <ResourceItem key={item.id} item={item} />
+              ))}
+            </div>
+          </div>
+
+          {/* Earn Points & Referrals Section */}
+          <div className="p-4 space-y-9.25 bg-light-bg rounded-2xl p-3 mx-6 mb-[40px] shadow-[0_1px_8px_0_rgba(0,0,0,0.1)]">
+            {/* Earn Pts Button and Info Icon Row */}
+            <div className="flex items-center justify-between">
+              <EarnPointsBadge />
+              <div className="relative group/tooltip">
+                <Icon
+                  name="info-circle"
+                  size={20}
+                  className="opacity-50 group-hover/tooltip:opacity-100 transition-opacity duration-200"
+                />
+                <div className="absolute right-0 top-full mt-2 w-48 p-3 bg-card-bg text-muted text-xs rounded-xl border border-border opacity-0 invisible group-hover/tooltip:opacity-100 group-hover/tooltip:visible transition-all duration-200 z-50 shadow-[0_1px_8px_0_rgba(0,0,0,0.1)]">
+                  Share your unique link with your friends to earn points when
+                  they sign up.
+                </div>
               </div>
             </div>
-          </div>
 
-          {/* Referrals Section */}
-          <div>
-            <div className="flex items-baseline gap-2 mb-1.5">
-              <span className="text-2xl font-medium text-primary">
-                {referralCount}
-              </span>
-              <span className="text-xs text-primary font-medium">
-                referrals
-              </span>
+            {/* Referrals Section */}
+            <div>
+              <div className="flex items-baseline gap-2 mb-1.5">
+                <span className="text-2xl font-medium text-primary">
+                  {referralCount}
+                </span>
+                <span className="text-xs text-primary font-medium">
+                  referrals
+                </span>
+              </div>
+              <p className="text-[10px] text-muted mb-2.5">
+                Refer friends to earn more
+              </p>
+              <Button
+                variant="outline"
+                size="md"
+                iconAfter={<Icon name="share" size={9} />}
+                onClick={onShareLink}
+              >
+                Share Link
+              </Button>
             </div>
-            <p className="text-[10px] text-muted mb-2.5">
-              Refer friends to earn more
-            </p>
-            <Button
-              variant="outline"
-              size="md"
-              iconAfter={<Icon name="share" size={9} />}
-              onClick={onShareLink}
-            >
-              Share Link
-            </Button>
           </div>
         </div>
-      </div>
       </div>
     </aside>
   );

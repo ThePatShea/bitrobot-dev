@@ -196,7 +196,7 @@ export const DiscoverCarousel: React.FC<DiscoverCarouselProps> = ({
             className={`w-3 h-1 rounded-full transition-all duration-300 cursor-pointer ${
               index === currentIndex
                 ? "bg-primary"
-                : "bg-border hover:bg-primary/40"
+                : "bg-border hover:bg-primary/40 active:bg-primary/60"
             }`}
             aria-label={`Go to slide ${index + 1}`}
           />

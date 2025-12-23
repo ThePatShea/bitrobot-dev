@@ -52,7 +52,7 @@ export const Card: React.FC<CardProps> = ({
   onMouseLeave
 }) => {
   const baseStyles = 'bg-light-bg rounded-2xl border border-border transition-all duration-200';
-  const hoverStyles = hoverable ? 'hover:shadow-lg hover:border-primary/20 cursor-pointer' : '';
+  const hoverStyles = hoverable ? 'hover:shadow-lg hover:border-primary/20 active:shadow-md active:border-primary/30 cursor-pointer' : '';
   
   return (
     <div 
