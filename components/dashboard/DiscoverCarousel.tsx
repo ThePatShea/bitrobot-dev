@@ -91,7 +91,7 @@ export const DiscoverCarousel: React.FC<DiscoverCarouselProps> = ({
         {/* Previous Button */}
         <button
           onClick={handlePrev}
-          className="p-2 text-primary cursor-pointer hover:-translate-x-1 active:-translate-x-2 transition-transform duration-200 flex-shrink-0"
+          className="py-2 pl-2 pr-0 text-primary cursor-pointer hover:-translate-x-1 active:-translate-x-2 transition-transform duration-200 flex-shrink-0"
           aria-label="Previous item"
         >
           <Icon name="chevron-left" size={8} />
@@ -180,7 +180,7 @@ export const DiscoverCarousel: React.FC<DiscoverCarouselProps> = ({
         {/* Next Button */}
         <button
           onClick={handleNext}
-          className="p-2 text-primary cursor-pointer hover:translate-x-1 active:translate-x-2 transition-transform duration-200 flex-shrink-0"
+          className="py-2 pr-2 pl-0 text-primary cursor-pointer hover:translate-x-1 active:translate-x-2 transition-transform duration-200 flex-shrink-0"
           aria-label="Next item"
         >
           <Icon name="chevron-right" size={8} />
