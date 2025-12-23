@@ -6,15 +6,6 @@
 import { render, screen, waitFor } from '@testing-library/react';
 import DashboardPage from './page';
 
-// Mock next/image since it doesn't work in Jest by default
-jest.mock('next/image', () => ({
-  __esModule: true,
-  default: (props: React.ImgHTMLAttributes<HTMLImageElement>) => {
-    // eslint-disable-next-line @next/next/no-img-element
-    return <img {...props} alt={props.alt} />;
-  },
-}));
-
 describe('DashboardPage', () => {
   it('renders loading skeletons initially', () => {
     render(<DashboardPage />);

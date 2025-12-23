@@ -2,15 +2,6 @@ import { render, screen, within } from '@testing-library/react';
 import { Leaderboard } from './Leaderboard';
 import type { LeaderboardEntry } from '@/types';
 
-// Mock next/image since Jest doesn't handle it well
-jest.mock('next/image', () => ({
-  __esModule: true,
-  default: (props: React.ImgHTMLAttributes<HTMLImageElement>) => {
-    // eslint-disable-next-line @next/next/no-img-element
-    return <img {...props} alt={props.alt} />;
-  },
-}));
-
 const mockEntries: LeaderboardEntry[] = [
   {
     rank: 1,
