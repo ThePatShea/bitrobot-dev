@@ -140,7 +140,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
   return (
     <aside className="hidden lg:block w-66 shrink-0">
       {/* Fixed inner container that stays in viewport */}
-      <div className="fixed top-0 h-screen w-66 bg-white flex flex-col">
+      <div className="fixed top-0 h-screen w-66 bg-white flex flex-col overflow-y-auto">
       {/* Logo Section */}
       <div className="px-6 pt-6 pb-3">
         <Link href="#" className="flex items-center gap-1 group">
