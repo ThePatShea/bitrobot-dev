@@ -91,7 +91,7 @@ export const DiscoverCarousel: React.FC<DiscoverCarouselProps> = ({
         {/* Previous Button */}
         <button
           onClick={handlePrev}
-          className="py-2 pl-1 sm:pl-2 pr-0 text-primary cursor-pointer hover:-translate-x-1 active:-translate-x-2 transition-transform duration-200 flex-shrink-0"
+          className="py-2 pl-1 sm:pl-2 pr-0 text-primary cursor-pointer hover:-translate-x-1 active:-translate-x-2 transition-transform duration-200 flex-shrink-0 rounded-lg outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
           aria-label="Previous item"
         >
           <Icon name="chevron-left" size={8} />
@@ -180,7 +180,7 @@ export const DiscoverCarousel: React.FC<DiscoverCarouselProps> = ({
         {/* Next Button */}
         <button
           onClick={handleNext}
-          className="py-2 pr-1 sm:pr-2 pl-0 text-primary cursor-pointer hover:translate-x-1 active:translate-x-2 transition-transform duration-200 flex-shrink-0"
+          className="py-2 pr-1 sm:pr-2 pl-0 text-primary cursor-pointer hover:translate-x-1 active:translate-x-2 transition-transform duration-200 flex-shrink-0 rounded-lg outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
           aria-label="Next item"
         >
           <Icon name="chevron-right" size={8} />
@@ -193,7 +193,7 @@ export const DiscoverCarousel: React.FC<DiscoverCarouselProps> = ({
           <button
             key={index}
             onClick={() => setCurrentIndex(index)}
-            className={`w-3 h-1 rounded-full transition-all duration-300 cursor-pointer ${
+            className={`w-3 h-1 rounded-full transition-all duration-300 cursor-pointer outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 ${
               index === currentIndex
                 ? "bg-primary"
                 : "bg-border hover:bg-primary/40 active:bg-primary/60"

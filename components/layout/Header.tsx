@@ -72,14 +72,14 @@ export const Header: React.FC<HeaderProps> = ({ user, onMenuOpen }) => {
           {/* Hamburger Button */}
           <button
             onClick={onMenuOpen}
-            className="w-8 h-8 bg-white border border-border rounded-lg flex items-center justify-center shadow-[0_2px_8px_0_rgba(0,0,0,0.07)] hover:shadow-[0_2px_12px_0_rgba(0,0,0,0.1)] active:shadow-[0_1px_4px_0_rgba(0,0,0,0.1)] transition-shadow duration-200 cursor-pointer"
+            className="w-8 h-8 bg-white border border-border rounded-lg flex items-center justify-center shadow-[0_2px_8px_0_rgba(0,0,0,0.07)] hover:shadow-[0_2px_12px_0_rgba(0,0,0,0.1)] active:shadow-[0_1px_4px_0_rgba(0,0,0,0.1)] transition-shadow duration-200 cursor-pointer outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
             aria-label="Open menu"
           >
             <Icon name="menu" size={18} className="text-primary" />
           </button>
 
           {/* Logo (mobile only) */}
-          <Link href="#" className="flex items-center gap-1">
+          <Link href="#" className="flex items-center gap-1 rounded-lg outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2">
             <div className="w-8 h-8 bg-white border border-border rounded-lg flex items-center justify-center shadow-[0_2px_8px_0_rgba(0,0,0,0.07)]">
               <Icon name="logo" size={18} />
             </div>
@@ -90,7 +90,7 @@ export const Header: React.FC<HeaderProps> = ({ user, onMenuOpen }) => {
         <div className="relative" ref={menuRef}>
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="flex items-center px-3 py-[7px] bg-white border border-border rounded-lg shadow-[0_2px_8px_0_rgba(0,0,0,0.07)] hover:shadow-[0_2px_12px_0_rgba(0,0,0,0.1)] active:shadow-[0_1px_4px_0_rgba(0,0,0,0.1)] transition-shadow duration-200 cursor-pointer"
+            className="flex items-center px-3 py-[7px] bg-white border border-border rounded-lg shadow-[0_2px_8px_0_rgba(0,0,0,0.07)] hover:shadow-[0_2px_12px_0_rgba(0,0,0,0.1)] active:shadow-[0_1px_4px_0_rgba(0,0,0,0.1)] transition-shadow duration-200 cursor-pointer outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
           >
             <Image
               src={user.avatar}
@@ -114,7 +114,7 @@ export const Header: React.FC<HeaderProps> = ({ user, onMenuOpen }) => {
           {/* Dropdown Menu */}
           {isMenuOpen && (
             <div className="absolute right-0 top-full mt-2 w-48 bg-white rounded-lg shadow-lg border border-border">
-              <button className="w-full px-4 py-2 text-left text-sm text-red-600 hover:bg-red-50 active:bg-red-100 hover:cursor-pointer transition-colors duration-200">
+              <button className="w-full px-4 py-2 text-left text-sm text-red-600 hover:bg-red-50 active:bg-red-100 hover:cursor-pointer transition-colors duration-200 outline-none focus-visible:bg-red-50 focus-visible:ring-2 focus-visible:ring-red-500 focus-visible:ring-inset rounded-lg">
                 Sign out
               </button>
             </div>

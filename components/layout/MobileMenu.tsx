@@ -46,9 +46,9 @@ const NavLink: React.FC<{ item: NavItem; onClick: () => void }> = ({
       href={item.href}
       onClick={onClick}
       className={`
-        flex items-center gap-3 px-1.5 py-2.5 transition-all duration-200 border-b border-border
+        flex items-center gap-3 px-1.5 py-2.5 transition-all duration-200 border-b border-border rounded-lg
         ${isActive ? "text-primary" : "text-muted hover:text-primary/70 active:text-primary/50"}
-        group relative
+        group relative outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2
       `}
     >
       <div className="w-5 h-5 flex items-center justify-center">
@@ -84,9 +84,9 @@ const ResourceItem: React.FC<{ item: ResourceLink; onClick: () => void }> = ({
       href={item.href}
       onClick={onClick}
       className="
-        flex items-center gap-3 px-1.5 py-3 transition-all duration-200
+        flex items-center gap-3 px-1.5 py-3 transition-all duration-200 rounded-lg
         text-muted hover:text-primary/70 active:text-primary/50 border-b border-border
-        group
+        group outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2
       "
     >
       <div className="w-5 h-5 flex items-center justify-center">
@@ -156,7 +156,7 @@ export const MobileMenu: React.FC<MobileMenuProps> = ({
         <div className="px-4 pt-4 pb-3 flex items-center justify-between">
           <Link
             href="#"
-            className="flex items-center gap-1 group"
+            className="flex items-center gap-1 group rounded-lg outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
             onClick={onClose}
           >
             <div className="w-8.75 h-8.75 bg-white border border-border rounded-lg flex items-center justify-center transition-all duration-200 shadow-[0_2px_8px_0_rgba(0,0,0,0.07)]">
@@ -168,7 +168,7 @@ export const MobileMenu: React.FC<MobileMenuProps> = ({
           </Link>
           <button
             onClick={onClose}
-            className="p-2 text-primary hover:bg-primary-light active:bg-primary-light-active rounded-lg transition-colors cursor-pointer"
+            className="p-2 text-primary hover:bg-primary-light active:bg-primary-light-active rounded-lg transition-colors cursor-pointer outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
             aria-label="Close menu"
           >
             <Icon name="close" size={20} />

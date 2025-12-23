@@ -148,3 +148,8 @@ body {
 .animate-section-3 {
   animation-delay: 200ms;
 }
+
+/* Focus visible styles for accessibility */
+.focus-ring {
+  @apply outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2;
+}

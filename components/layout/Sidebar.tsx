@@ -43,13 +43,13 @@ const NavLink: React.FC<{ item: NavItem }> = ({ item }) => {
     <Link
       href={item.href}
       className={`
-        flex items-center gap-3 px-1.5 py-2.5 transition-all duration-200 border-b border-border
+        flex items-center gap-3 px-1.5 py-2.5 transition-all duration-200 border-b border-border rounded-lg
         ${
           isActive
             ? "text-primary"
             : "text-muted hover:text-primary/70 active:text-primary/50"
         }
-        group relative
+        group relative outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2
       `}
     >
       <div className="w-5 h-5 flex items-center justify-center">
@@ -86,9 +86,9 @@ const ResourceItem: React.FC<{ item: ResourceLink }> = ({ item }) => {
     <Link
       href={item.href}
       className="
-        flex items-center gap-3 px-1.5 py-3 transition-all duration-200
+        flex items-center gap-3 px-1.5 py-3 transition-all duration-200 rounded-lg
         text-muted hover:text-primary/70 active:text-primary/50 border-b border-border
-        group
+        group outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2
       "
     >
       <div className="w-5 h-5 flex items-center justify-center">
@@ -149,7 +149,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
       <div className="fixed top-0 h-screen w-66 bg-white flex flex-col overflow-y-auto">
         {/* Logo Section */}
         <div className="px-6 pt-6 pb-3">
-          <Link href="#" className="flex items-center gap-1 group">
+          <Link href="#" className="flex items-center gap-1 group rounded-lg outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2">
             <div className="w-8.75 h-8.75 bg-white border border-border rounded-lg flex items-center justify-center transition-all duration-200 shadow-[0_2px_8px_0_rgba(0,0,0,0.07)]">
               <Icon name="logo" size={20} />
             </div>
