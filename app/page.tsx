@@ -5,9 +5,10 @@
 
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import { Sidebar } from "@/components/layout/Sidebar";
 import { Header } from "@/components/layout/Header";
+import { MobileMenu } from "@/components/layout/MobileMenu";
 import { DiscoverCarousel } from "@/components/dashboard/DiscoverCarousel";
 import { EarningsCard } from "@/components/dashboard/EarningsCard";
 import { EarningsHistory } from "@/components/dashboard/EarningsHistory";
@@ -263,7 +264,7 @@ const userProfile: UserProfile = {
  * Main Dashboard Page Component
  *
  * Renders the complete BitRobot dashboard with:
- * - Sidebar navigation
+ * - Sidebar navigation (desktop) / Mobile menu (mobile)
  * - Header with user menu
  * - Discover carousel
  * - Earnings cards
@@ -271,11 +272,23 @@ const userProfile: UserProfile = {
  * - Leaderboard
  */
 export default function DashboardPage() {
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
   return (
     <div className="min-h-screen bg-background">
+      {/* Mobile Menu */}
+      <MobileMenu
+        isOpen={isMobileMenuOpen}
+        onClose={() => setIsMobileMenuOpen(false)}
+        navItems={navItems}
+        resourceLinks={resourceLinks}
+        referralCount={12}
+        onShareLink={() => console.log("Share link clicked")}
+      />
+
       {/* Centered Layout Wrapper */}
       <div className="max-w-[1258px] mx-auto flex">
-        {/* Sidebar */}
+        {/* Sidebar (hidden on mobile) */}
         <Sidebar
           navItems={navItems}
           resourceLinks={resourceLinks}
@@ -284,12 +297,15 @@ export default function DashboardPage() {
         />
 
         {/* Main Content Area */}
-        <div className="flex-1 max-w-[994px]">
+        <div className="flex-1 min-w-0 lg:max-w-[994px]">
           {/* Header */}
-          <Header user={userProfile} />
+          <Header
+            user={userProfile}
+            onMenuOpen={() => setIsMobileMenuOpen(true)}
+          />
 
           {/* Main Content */}
-          <main className="pt-13 pl-5.75 pr-2.75 py-8">
+          <main className="pt-4 lg:pt-13 px-4 lg:pl-5.75 lg:pr-2.75 pb-8">
             {/* Discover Section */}
             <DiscoverCarousel items={carouselItems} />
 
@@ -303,7 +319,7 @@ export default function DashboardPage() {
               <div className="flex flex-col lg:flex-row gap-4">
                 {/* Left side: Earnings Cards + Bonus Banner */}
                 <div className="lg:basis-[48%] flex flex-col gap-4">
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <EarningsCard
                       title="Last Epoch"
                       points={234}

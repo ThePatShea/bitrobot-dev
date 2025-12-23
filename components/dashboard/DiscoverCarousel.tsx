@@ -87,11 +87,11 @@ export const DiscoverCarousel: React.FC<DiscoverCarouselProps> = ({
       </div>
 
       {/* Carousel Container with Arrows */}
-      <div className="flex items-center gap-[25px]">
+      <div className="flex items-center gap-2 sm:gap-[25px]">
         {/* Previous Button */}
         <button
           onClick={handlePrev}
-          className="py-2 pl-2 pr-0 text-primary cursor-pointer hover:-translate-x-1 active:-translate-x-2 transition-transform duration-200 flex-shrink-0"
+          className="py-2 pl-1 sm:pl-2 pr-0 text-primary cursor-pointer hover:-translate-x-1 active:-translate-x-2 transition-transform duration-200 flex-shrink-0"
           aria-label="Previous item"
         >
           <Icon name="chevron-left" size={8} />
@@ -99,7 +99,7 @@ export const DiscoverCarousel: React.FC<DiscoverCarouselProps> = ({
 
         {/* Carousel Card */}
         <div
-          className="flex-1 h-[246px] rounded-2xl border border-border overflow-hidden relative"
+          className="flex-1 h-[220px] sm:h-[246px] rounded-2xl border border-border overflow-hidden relative"
           onMouseEnter={() => setIsPaused(true)}
           onMouseLeave={() => setIsPaused(false)}
         >
@@ -180,7 +180,7 @@ export const DiscoverCarousel: React.FC<DiscoverCarouselProps> = ({
         {/* Next Button */}
         <button
           onClick={handleNext}
-          className="py-2 pr-2 pl-0 text-primary cursor-pointer hover:translate-x-1 active:translate-x-2 transition-transform duration-200 flex-shrink-0"
+          className="py-2 pr-1 sm:pr-2 pl-0 text-primary cursor-pointer hover:translate-x-1 active:translate-x-2 transition-transform duration-200 flex-shrink-0"
           aria-label="Next item"
         >
           <Icon name="chevron-right" size={8} />

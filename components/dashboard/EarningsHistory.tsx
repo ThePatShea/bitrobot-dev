@@ -64,7 +64,7 @@ export const EarningsHistory: React.FC<EarningsHistoryProps> = ({ data }) => {
   };
 
   return (
-    <div className="bg-white rounded-2xl border border-border p-4 h-75">
+    <div className="bg-white rounded-2xl border border-border p-3 sm:p-4 h-auto sm:h-75 overflow-x-auto">
       {/* Header */}
       <div className="mb-3">
         <span className="text-[11px] font-medium text-primary uppercase">
@@ -131,15 +131,15 @@ export const EarningsHistory: React.FC<EarningsHistoryProps> = ({ data }) => {
                   className="flex-1 flex flex-col items-center"
                 >
                   {/* Value Label */}
-                  <div className="mb-2 w-full max-w-[48px]">
-                    <span className="block w-full text-center text-[11px] text-primary bg-primary-light py-1.5 rounded-lg">
+                  <div className="mb-1 sm:mb-2 w-full max-w-[36px] sm:max-w-[48px]">
+                    <span className="block w-full text-center text-[9px] sm:text-[11px] text-primary bg-primary-light py-1 sm:py-1.5 rounded-lg">
                       {formatValue(point.value)}
                     </span>
                   </div>
 
                   {/* Bar */}
                   <div
-                    className="w-full max-w-[48px] bg-primary-light rounded-t-sm mb-0.25"
+                    className="w-full max-w-[36px] sm:max-w-[48px] bg-primary-light rounded-t-sm mb-0.25"
                     style={{ height: `${barHeight}px` }}
                   />
                 </div>
@@ -151,7 +151,7 @@ export const EarningsHistory: React.FC<EarningsHistoryProps> = ({ data }) => {
           <div className="flex justify-between mt-0.25">
             {data.map((point) => (
               <div key={point.month} className="flex-1 text-center">
-                <span className="text-xs text-primary font-medium">
+                <span className="text-[10px] sm:text-xs text-primary font-medium">
                   {point.month}
                 </span>
               </div>

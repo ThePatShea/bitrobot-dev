@@ -12,6 +12,7 @@ export { Icon } from './ui/Icon';
 // Layout Components
 export { Sidebar } from './layout/Sidebar';
 export { Header } from './layout/Header';
+export { MobileMenu } from './layout/MobileMenu';
 
 // Dashboard Components
 export { DiscoverCarousel } from './dashboard/DiscoverCarousel';

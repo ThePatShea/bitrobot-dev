@@ -59,15 +59,15 @@ const LeaderboardRow: React.FC<LeaderboardRowProps> = ({
       onMouseLeave={() => setIsHovered(false)}
     >
       {/* Rank */}
-      <td className={`py-2.5 px-4 ${cellBg} ${hoverBg}`}>
-        <span className={`text-sm font-medium tracking-tighter ${textColor}`}>
+      <td className={`py-2.5 px-2 sm:px-4 ${cellBg} ${hoverBg}`}>
+        <span className={`text-xs sm:text-sm font-medium tracking-tighter ${textColor}`}>
           {entry.rank}
         </span>
       </td>
 
       {/* User */}
-      <td className={`py-2.5 px-4 ${cellBg} ${hoverBg}`}>
-        <div className="flex items-center gap-3">
+      <td className={`py-2.5 px-2 sm:px-4 ${cellBg} ${hoverBg}`}>
+        <div className="flex items-center gap-2 sm:gap-3">
           <Image
             src={entry.avatar}
             alt={entry.userId}
@@ -75,29 +75,29 @@ const LeaderboardRow: React.FC<LeaderboardRowProps> = ({
             height={20}
             className="rounded-full flex-shrink-0"
           />
-          <span className={`text-sm font-medium tracking-tighter ${textColor}`}>
-            {formatAddress(entry.userId, 7, 5)}
+          <span className={`text-xs sm:text-sm font-medium tracking-tighter ${textColor}`}>
+            {formatAddress(entry.userId, 5, 4)}
           </span>
         </div>
       </td>
 
       {/* Lifetime Earning */}
-      <td className={`py-2.5 px-4 ${cellBg} ${hoverBg}`}>
-        <span className={`text-sm font-medium tracking-tighter ${textColor}`}>
+      <td className={`py-2.5 px-2 sm:px-4 ${cellBg} ${hoverBg}`}>
+        <span className={`text-xs sm:text-sm font-medium tracking-tighter ${textColor}`}>
           {entry.lifetimeEarning.toLocaleString()}
         </span>
       </td>
 
       {/* This Epoch */}
-      <td className={`py-2.5 px-4 ${cellBg} ${hoverBg}`}>
-        <span className={`text-sm font-medium tracking-tighter ${textColor}`}>
+      <td className={`py-2.5 px-2 sm:px-4 ${cellBg} ${hoverBg}`}>
+        <span className={`text-xs sm:text-sm font-medium tracking-tighter ${textColor}`}>
           {entry.thisEpoch.toLocaleString()}
         </span>
       </td>
 
       {/* Referrals */}
-      <td className={`py-2.5 px-4 ${cellBg} ${hoverBg}`}>
-        <span className={`text-sm font-medium tracking-tighter ${textColor}`}>
+      <td className={`py-2.5 px-2 sm:px-4 ${cellBg} ${hoverBg}`}>
+        <span className={`text-xs sm:text-sm font-medium tracking-tighter ${textColor}`}>
           {entry.referrals}
         </span>
       </td>
@@ -138,20 +138,20 @@ export const Leaderboard: React.FC<LeaderboardProps> = ({
         <table className="w-full">
           <thead>
             <tr>
-              <th className="py-2.25 px-4 text-left text-sm font-normal text-gray-light tracking-tighter w-34">
+              <th className="py-2.25 px-2 sm:px-4 text-left text-xs sm:text-sm font-normal text-gray-light tracking-tighter w-16 sm:w-34">
                 Rank
               </th>
-              <th className="py-2.25 px-4 text-left text-sm font-normal text-gray-light tracking-tighter w-56">
+              <th className="py-2.25 px-2 sm:px-4 text-left text-xs sm:text-sm font-normal text-gray-light tracking-tighter min-w-[140px] sm:w-56">
                 User
               </th>
-              <th className="py-2.25 px-4 text-left text-sm font-normal text-gray-light tracking-tighter w-56">
-                Lifetime Earning
+              <th className="py-2.25 px-2 sm:px-4 text-left text-xs sm:text-sm font-normal text-gray-light tracking-tighter min-w-[100px] sm:w-56">
+                Lifetime
               </th>
-              <th className="py-2.25 px-4 text-left text-sm font-normal text-gray-light tracking-tighter w-56">
-                This Epoch
+              <th className="py-2.25 px-2 sm:px-4 text-left text-xs sm:text-sm font-normal text-gray-light tracking-tighter min-w-[80px] sm:w-56">
+                Epoch
               </th>
-              <th className="py-2.25 px-4 text-left text-sm font-normal text-gray-light tracking-tighter">
-                Referrals
+              <th className="py-2.25 px-2 sm:px-4 text-left text-xs sm:text-sm font-normal text-gray-light tracking-tighter min-w-[70px]">
+                Refs
               </th>
             </tr>
           </thead>

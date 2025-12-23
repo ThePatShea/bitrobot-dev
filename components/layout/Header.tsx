@@ -1,5 +1,5 @@
 /**
- * @fileoverview Header component with user account menu
+ * @fileoverview Header component with user account menu and mobile hamburger
  * @module components/layout/Header
  */
 
@@ -7,6 +7,7 @@
 
 import React, { useState, useRef, useEffect } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { Icon } from "@/components/ui/Icon";
 import type { UserProfile } from "@/app/types";
 
@@ -17,22 +18,29 @@ import type { UserProfile } from "@/app/types";
 interface HeaderProps {
   /** Current user profile data */
   user: UserProfile;
+  /** Callback to open the mobile menu */
+  onMenuOpen?: () => void;
 }
 
 /**
  * Header component with user account dropdown menu
  * Displays user avatar, username, and provides access to account settings
+ * On mobile, shows a hamburger menu button
  *
  * @param {HeaderProps} props - Component props
  * @param {UserProfile} props.user - Current user profile data
+ * @param {Function} [props.onMenuOpen] - Callback to open mobile menu
  * @returns {JSX.Element} A header with user account dropdown
  *
  * @example
  * ```tsx
- * <Header user={{ username: 'username123', avatar: '/images/avatar.png', id: '1' }} />
+ * <Header 
+ *   user={{ username: 'username123', avatar: '/images/avatar.png', id: '1' }} 
+ *   onMenuOpen={() => setMobileMenuOpen(true)}
+ * />
  * ```
  */
-export const Header: React.FC<HeaderProps> = ({ user }) => {
+export const Header: React.FC<HeaderProps> = ({ user, onMenuOpen }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null);
 
@@ -56,7 +64,27 @@ export const Header: React.FC<HeaderProps> = ({ user }) => {
   }, [isMenuOpen]);
 
   return (
-    <header className="h-16 pr-2.75 flex items-center justify-end sticky top-0 z-50">
+    <header className="h-16 px-4 lg:px-0 lg:pr-2.75 flex items-center justify-between lg:justify-end sticky top-0 z-30 bg-background">
+      {/* Mobile: Logo and Hamburger */}
+      <div className="flex items-center gap-3 lg:hidden">
+        {/* Hamburger Button */}
+        <button
+          onClick={onMenuOpen}
+          className="p-2 text-primary hover:bg-primary-light rounded-lg transition-colors"
+          aria-label="Open menu"
+        >
+          <Icon name="menu" size={24} />
+        </button>
+
+        {/* Logo (mobile only) */}
+        <Link href="#" className="flex items-center gap-1">
+          <div className="w-8 h-8 bg-white border border-border rounded-lg flex items-center justify-center shadow-[0_2px_8px_0_rgba(0,0,0,0.07)]">
+            <Icon name="logo" size={18} />
+          </div>
+        </Link>
+      </div>
+
+      {/* User Menu (always visible) */}
       <div className="relative" ref={menuRef}>
         <button
           onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -69,11 +97,11 @@ export const Header: React.FC<HeaderProps> = ({ user }) => {
             height={20}
             className="rounded-full"
           />
-          <span className="ml-2 text-xs text-gray-2">{user.username}</span>
+          <span className="ml-2 text-xs text-gray-2 hidden sm:inline">{user.username}</span>
           <Icon
             name="chevron-down"
             size={12}
-            className={`ml-3 text-primary transition-transform duration-200 ${
+            className={`ml-2 sm:ml-3 text-primary transition-transform duration-200 ${
               isMenuOpen ? "rotate-180" : ""
             }`}
           />

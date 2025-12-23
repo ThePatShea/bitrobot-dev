@@ -51,7 +51,7 @@ export const BonusBanner: React.FC<BonusBannerProps> = ({
   onCtaClick,
 }) => {
   return (
-    <div className="bg-primary-light h-22.5 rounded-2xl p-4 flex items-center justify-between">
+    <div className="bg-primary-light min-h-[90px] lg:h-22.5 rounded-2xl p-4 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 sm:gap-2">
       <div className="flex flex-col">
         <h3 className="font-medium text-primary">{title}</h3>
         <p className="text-sm text-primary">{description}</p>
@@ -59,7 +59,7 @@ export const BonusBanner: React.FC<BonusBannerProps> = ({
       <Button
         variant="primary"
         onClick={onCtaClick}
-        className="flex-shrink-0 ml-2"
+        className="flex-shrink-0 w-full sm:w-auto"
       >
         {ctaText}
       </Button>

@@ -71,7 +71,7 @@ export const EarningsCard: React.FC<EarningsCardProps> = ({
 
   return (
     <Card
-      className={`p-4 flex flex-col justify-between h-48.5 shadow-[0_1px_8px_0_rgba(0,0,0,0.1)] border-0 ${
+      className={`p-3 sm:p-4 flex flex-col justify-between h-40 sm:h-48.5 shadow-[0_1px_8px_0_rgba(0,0,0,0.1)] border-0 ${
         onBreakdownClick ? "cursor-pointer" : ""
       }`}
       onClick={onBreakdownClick}
@@ -89,10 +89,10 @@ export const EarningsCard: React.FC<EarningsCardProps> = ({
         {/* Points Display */}
         <div className="mb-0.25">
           <div className="flex items-baseline gap-1.5">
-            <span className="text-[32px] font-medium text-primary">
+            <span className="text-[24px] sm:text-[32px] font-medium text-primary">
               {displayPoints}
             </span>
-            <span className="text-primary tracking-tight">points</span>
+            <span className="text-sm sm:text-base text-primary tracking-tight">points</span>
           </div>
         </div>
 
