@@ -5,7 +5,7 @@
 
 "use client";
 
-import React, { useState } from "react";
+import React from "react";
 import { Card } from "@/components/ui/Card";
 import { Icon } from "@/components/ui/Icon";
 
@@ -68,17 +68,14 @@ export const EarningsCard: React.FC<EarningsCardProps> = ({
   formatPoints = false,
   onBreakdownClick,
 }) => {
-  const [isHovered, setIsHovered] = useState(false);
   const displayPoints = formatPoints ? formatNumber(points) : points;
 
   return (
     <Card
-      className={`p-3 sm:p-4 flex flex-col justify-between h-40 sm:h-48.5 shadow-[0_1px_8px_0_rgba(0,0,0,0.1)] border-0 ${
+      className={`p-3 sm:p-4 flex flex-col justify-between h-40 sm:h-48.5 shadow-[0_1px_8px_0_rgba(0,0,0,0.1)] border-0 group ${
         onBreakdownClick ? "cursor-pointer" : ""
       }`}
       onClick={onBreakdownClick}
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
     >
       {/* Header with Icon */}
       <div className="flex items-center justify-between">
@@ -94,26 +91,22 @@ export const EarningsCard: React.FC<EarningsCardProps> = ({
             <span className="text-[24px] sm:text-[32px] font-medium text-primary">
               {displayPoints}
             </span>
-            <span className="text-sm sm:text-base text-primary tracking-tight">points</span>
+            <span className="text-sm sm:text-base text-primary tracking-tight">
+              points
+            </span>
           </div>
         </div>
 
         {/* Breakdown Link with Hover Animation */}
         {onBreakdownClick && (
           <div className="flex items-center gap-1.5 text-sm text-primary font-medium tracking-tight">
-            <span
-              className={`transition-opacity duration-200 ${
-                isHovered ? "opacity-70" : ""
-              }`}
-            >
+            <span className="transition-opacity duration-200 group-hover:opacity-70">
               Breakdown
             </span>
             <Icon
               name="chevron-right"
               size={5}
-              className={`transition-transform duration-200 ${
-                isHovered ? "translate-x-1.5" : ""
-              }`}
+              className="transition-transform duration-200 group-hover:translate-x-1.5"
             />
           </div>
         )}

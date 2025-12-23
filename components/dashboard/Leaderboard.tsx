@@ -5,7 +5,7 @@
 
 "use client";
 
-import React, { useState } from "react";
+import React from "react";
 import Image from "next/image";
 import { SectionHeader } from "@/components/ui/SectionHeader";
 import { LeaderboardEmptyState } from "@/components/ui/EmptyState";
@@ -47,18 +47,12 @@ const LeaderboardRow: React.FC<LeaderboardRowProps> = ({
   entry,
   isCurrentUser,
 }) => {
-  const [isHovered, setIsHovered] = useState(false);
-
   const textColor = isCurrentUser ? "text-primary" : "text-muted";
   const cellBg = isCurrentUser ? "bg-primary-light" : "";
-  const hoverBg = isHovered && !isCurrentUser ? "bg-primary-light/40" : "";
+  const hoverBg = !isCurrentUser ? "group-hover:bg-primary-light/40" : "";
 
   return (
-    <tr
-      className="transition-colors duration-200 border-b border-border"
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
-    >
+    <tr className="transition-colors duration-200 border-b border-border group">
       {/* Rank */}
       <td className={`py-2.5 px-2 sm:px-4 ${cellBg} ${hoverBg}`}>
         <span className={`text-xs sm:text-sm font-medium tracking-tighter ${textColor}`}>
