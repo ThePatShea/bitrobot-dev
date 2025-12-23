@@ -139,7 +139,7 @@ export const EarningsHistory: React.FC<EarningsHistoryProps> = ({ data }) => {
 
                   {/* Bar */}
                   <div
-                    className="w-full max-w-[48px] bg-primary-light rounded-sm mb-0.25"
+                    className="w-full max-w-[48px] bg-primary-light rounded-t-sm mb-0.25"
                     style={{ height: `${barHeight}px` }}
                   />
                 </div>
