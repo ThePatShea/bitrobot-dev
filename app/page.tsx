@@ -273,78 +273,83 @@ const userProfile: UserProfile = {
 export default function DashboardPage() {
   return (
     <div className="min-h-screen bg-background">
-      {/* Sidebar */}
-      <Sidebar
-        navItems={navItems}
-        resourceLinks={resourceLinks}
-        referralCount={12}
-        onShareLink={() => console.log("Share link clicked")}
-      />
+      {/* Centered Layout Wrapper */}
+      <div className="max-w-[1258px] mx-auto flex">
+        {/* Sidebar */}
+        <Sidebar
+          navItems={navItems}
+          resourceLinks={resourceLinks}
+          referralCount={12}
+          onShareLink={() => console.log("Share link clicked")}
+        />
 
-      {/* Main Content Area */}
-      <div className="ml-63.5">
-        {/* Header */}
-        <Header user={userProfile} />
+        {/* Main Content Area */}
+        <div className="flex-1 max-w-[994px]">
+          {/* Header */}
+          <Header user={userProfile} />
 
-        {/* Main Content */}
-        <main className="pt-13 pl-8.5 py-8 max-w-[994px]">
-          {/* Discover Section */}
-          <DiscoverCarousel items={carouselItems} />
+          {/* Main Content */}
+          <main className="pt-13 pl-5.75 pr-2.75 py-8">
+            {/* Discover Section */}
+            <DiscoverCarousel items={carouselItems} />
 
-          {/* Earnings Section */}
-          <section className="mb-8">
-            <div className="mb-6">
-              <SectionHeader title="Earnings" />
-            </div>
+            {/* Earnings Section */}
+            <section className="mb-8">
+              <div className="mb-6">
+                <SectionHeader title="Earnings" />
+              </div>
 
-            {/* Earnings Cards Grid */}
-            <div className="flex flex-col lg:flex-row gap-4">
-              {/* Left side: Earnings Cards + Bonus Banner */}
-              <div className="lg:basis-[48%] flex flex-col gap-4">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <EarningsCard
-                    title="Last Epoch"
-                    points={234}
-                    onBreakdownClick={() => console.log("Last epoch breakdown")}
-                  />
-                  <EarningsCard
-                    title="Lifetime"
-                    points={1300}
-                    formatPoints={true}
-                    onBreakdownClick={() => console.log("Lifetime breakdown")}
+              {/* Earnings Cards Grid */}
+              <div className="flex flex-col lg:flex-row gap-4">
+                {/* Left side: Earnings Cards + Bonus Banner */}
+                <div className="lg:basis-[48%] flex flex-col gap-4">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <EarningsCard
+                      title="Last Epoch"
+                      points={234}
+                      onBreakdownClick={() =>
+                        console.log("Last epoch breakdown")
+                      }
+                    />
+                    <EarningsCard
+                      title="Lifetime"
+                      points={1300}
+                      formatPoints={true}
+                      onBreakdownClick={() => console.log("Lifetime breakdown")}
+                    />
+                  </div>
+                  {/* Bonus Banner */}
+                  <BonusBanner
+                    title="Bonuses available!"
+                    description="The more you participate, the more you earn."
+                    ctaText="SEE OPPORTUNITIES"
+                    onCtaClick={() => console.log("See opportunities clicked")}
                   />
                 </div>
-                {/* Bonus Banner */}
-                <BonusBanner
-                  title="Bonuses available!"
-                  description="The more you participate, the more you earn."
-                  ctaText="SEE OPPORTUNITIES"
-                  onCtaClick={() => console.log("See opportunities clicked")}
-                />
+                {/* Right side: Earnings History */}
+                <div className="lg:basis-[52%]">
+                  <EarningsHistory data={earningsData} />
+                </div>
               </div>
-              {/* Right side: Earnings History */}
-              <div className="lg:basis-[52%]">
-                <EarningsHistory data={earningsData} />
-              </div>
-            </div>
-          </section>
+            </section>
 
-          {/* Leaderboard Section */}
-          <Leaderboard
-            entries={[
-              {
-                rank: userProfile.rank,
-                userId: userProfile.id,
-                avatar: userProfile.avatar,
-                lifetimeEarning: userProfile.lifetimeEarning,
-                thisEpoch: userProfile.thisEpoch,
-                referrals: userProfile.referrals,
-              },
-              ...leaderboardData,
-            ]}
-            currentUserId={userProfile.id}
-          />
-        </main>
+            {/* Leaderboard Section */}
+            <Leaderboard
+              entries={[
+                {
+                  rank: userProfile.rank,
+                  userId: userProfile.id,
+                  avatar: userProfile.avatar,
+                  lifetimeEarning: userProfile.lifetimeEarning,
+                  thisEpoch: userProfile.thisEpoch,
+                  referrals: userProfile.referrals,
+                },
+                ...leaderboardData,
+              ]}
+              currentUserId={userProfile.id}
+            />
+          </main>
+        </div>
       </div>
     </div>
   );

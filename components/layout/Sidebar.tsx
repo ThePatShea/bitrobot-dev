@@ -138,7 +138,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
   onShareLink,
 }) => {
   return (
-    <aside className="w-66 h-screen bg-white flex flex-col fixed left-0 top-0">
+    <aside className="w-66 h-screen bg-white flex flex-col sticky top-0 shrink-0">
       {/* Logo Section */}
       <div className="px-6 pt-6 pb-3">
         <Link href="#" className="flex items-center gap-1 group">
