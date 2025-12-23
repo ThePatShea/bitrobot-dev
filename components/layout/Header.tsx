@@ -9,7 +9,7 @@ import React, { useState, useRef, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { Icon } from "@/components/ui/Icon";
-import type { UserProfile } from "@/app/types";
+import type { UserProfile } from "@/types";
 
 /**
  * Props for the Header component

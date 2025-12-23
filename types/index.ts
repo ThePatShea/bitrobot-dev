@@ -1,6 +1,6 @@
 /**
  * @fileoverview Type definitions for the BitRobot Dashboard application
- * @module app/types
+ * @module types
  */
 
 /**
@@ -128,3 +128,4 @@ export interface UserProfile {
   /** Number of successful referrals */
   referrals: number;
 }
+

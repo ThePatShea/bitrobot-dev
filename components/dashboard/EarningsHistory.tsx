@@ -6,7 +6,7 @@
 "use client";
 
 import React from "react";
-import type { EarningsDataPoint } from "@/app/types";
+import type { EarningsDataPoint } from "@/types";
 
 /**
  * Props for the EarningsHistory component

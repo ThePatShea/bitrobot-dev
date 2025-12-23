@@ -9,7 +9,7 @@ import React, { useState } from "react";
 import Image from "next/image";
 import { SectionHeader } from "@/components/ui/SectionHeader";
 import { formatAddress } from "@/helpers/format";
-import type { LeaderboardEntry } from "@/app/types";
+import type { LeaderboardEntry } from "@/types";
 
 /**
  * Props for the Leaderboard component

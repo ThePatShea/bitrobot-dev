@@ -11,7 +11,7 @@ import { Icon } from "@/components/ui/Icon";
 import { Button } from "@/components/ui/Button";
 import { SectionHeader } from "@/components/ui/SectionHeader";
 import { EarnPointsBadge } from "@/components/ui/EarnPointsBadge";
-import type { NavItem, ResourceLink } from "@/app/types";
+import type { NavItem, ResourceLink } from "@/types";
 
 /**
  * Props for the MobileMenu component

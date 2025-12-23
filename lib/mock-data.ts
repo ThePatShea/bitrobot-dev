@@ -11,7 +11,7 @@ import type {
   EarningsDataPoint,
   LeaderboardEntry,
   UserProfile,
-} from "@/app/types";
+} from "@/types";
 
 /**
  * Navigation menu items for the sidebar

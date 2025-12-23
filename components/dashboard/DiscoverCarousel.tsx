@@ -10,7 +10,7 @@ import { Button } from "@/components/ui/Button";
 import { Icon } from "@/components/ui/Icon";
 import { SectionHeader } from "@/components/ui/SectionHeader";
 import { EarnPointsBadge } from "@/components/ui/EarnPointsBadge";
-import type { CarouselItem } from "@/app/types";
+import type { CarouselItem } from "@/types";
 
 /**
  * Props for the DiscoverCarousel component
