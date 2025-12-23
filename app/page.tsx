@@ -103,11 +103,15 @@ const carouselItems: CarouselItem[] = [
     icon: "discord",
     primaryAction: {
       label: "GET INVOLVED",
-      onClick: () => console.log("Get involved clicked"),
+      onClick: () => {
+        // Open Discord invite link in new tab
+      },
     },
     secondaryAction: {
       label: "LEARN MORE",
-      onClick: () => console.log("Learn more clicked"),
+      onClick: () => {
+        // Navigate to Discord info page
+      },
     },
   },
   {
@@ -117,11 +121,15 @@ const carouselItems: CarouselItem[] = [
     icon: "discord",
     primaryAction: {
       label: "GET INVOLVED",
-      onClick: () => console.log("Get involved clicked"),
+      onClick: () => {
+        // Open Discord invite link in new tab
+      },
     },
     secondaryAction: {
       label: "LEARN MORE",
-      onClick: () => console.log("Learn more clicked"),
+      onClick: () => {
+        // Navigate to Discord info page
+      },
     },
   },
   {
@@ -131,11 +139,15 @@ const carouselItems: CarouselItem[] = [
     icon: "discord",
     primaryAction: {
       label: "GET INVOLVED",
-      onClick: () => console.log("Get involved clicked"),
+      onClick: () => {
+        // Open Discord invite link in new tab
+      },
     },
     secondaryAction: {
       label: "LEARN MORE",
-      onClick: () => console.log("Learn more clicked"),
+      onClick: () => {
+        // Navigate to Discord info page
+      },
     },
   },
   {
@@ -145,11 +157,15 @@ const carouselItems: CarouselItem[] = [
     icon: "discord",
     primaryAction: {
       label: "GET INVOLVED",
-      onClick: () => console.log("Get involved clicked"),
+      onClick: () => {
+        // Open Discord invite link in new tab
+      },
     },
     secondaryAction: {
       label: "LEARN MORE",
-      onClick: () => console.log("Learn more clicked"),
+      onClick: () => {
+        // Navigate to Discord info page
+      },
     },
   },
 ];
@@ -283,7 +299,9 @@ export default function DashboardPage() {
         navItems={navItems}
         resourceLinks={resourceLinks}
         referralCount={12}
-        onShareLink={() => console.log("Share link clicked")}
+        onShareLink={() => {
+          // Copy referral link to clipboard and show toast
+        }}
       />
 
       {/* Centered Layout Wrapper */}
@@ -293,7 +311,9 @@ export default function DashboardPage() {
           navItems={navItems}
           resourceLinks={resourceLinks}
           referralCount={12}
-          onShareLink={() => console.log("Share link clicked")}
+          onShareLink={() => {
+          // Copy referral link to clipboard and show toast
+        }}
         />
 
         {/* Main Content Area */}
@@ -323,15 +343,17 @@ export default function DashboardPage() {
                     <EarningsCard
                       title="Last Epoch"
                       points={234}
-                      onBreakdownClick={() =>
-                        console.log("Last epoch breakdown")
-                      }
+                      onBreakdownClick={() => {
+                        // Open modal with detailed epoch breakdown
+                      }}
                     />
                     <EarningsCard
                       title="Lifetime"
                       points={1300}
                       formatPoints={true}
-                      onBreakdownClick={() => console.log("Lifetime breakdown")}
+                      onBreakdownClick={() => {
+                        // Open modal with lifetime earnings breakdown
+                      }}
                     />
                   </div>
                   {/* Bonus Banner */}
@@ -339,7 +361,9 @@ export default function DashboardPage() {
                     title="Bonuses available!"
                     description="The more you participate, the more you earn."
                     ctaText="SEE OPPORTUNITIES"
-                    onCtaClick={() => console.log("See opportunities clicked")}
+                    onCtaClick={() => {
+                      // Navigate to bonus opportunities page
+                    }}
                   />
                 </div>
                 {/* Right side: Earnings History */}
