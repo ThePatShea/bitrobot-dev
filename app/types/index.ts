@@ -117,6 +117,14 @@ export interface UserProfile {
   username: string;
   /** Avatar image URL */
   avatar: string;
-  /** Unique user identifier */
+  /** Unique user identifier (wallet address) */
   id: string;
+  /** Rank position in the leaderboard */
+  rank: number;
+  /** Total lifetime earnings */
+  lifetimeEarning: number;
+  /** Earnings for the current epoch */
+  thisEpoch: number;
+  /** Number of successful referrals */
+  referrals: number;
 }

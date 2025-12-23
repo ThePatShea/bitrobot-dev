@@ -164,16 +164,8 @@ const earningsData: EarningsDataPoint[] = [
   { month: "APR", value: 800 },
 ];
 
-// Leaderboard data
+// Leaderboard data (top 10 users)
 const leaderboardData: LeaderboardEntry[] = [
-  {
-    rank: 230,
-    userId: "0x9ec42a1b2c3d4e5f6a7b8c9d0e1f2a3b4c579da5",
-    avatar: "/images/avatar.png",
-    lifetimeEarning: 20023,
-    thisEpoch: 3150,
-    referrals: 5,
-  },
   {
     rank: 1,
     userId: "0x479bd1234567890abcdef1234567890abc2a1b3",
@@ -256,11 +248,15 @@ const leaderboardData: LeaderboardEntry[] = [
   },
 ];
 
-// User profile
+// User profile (includes leaderboard stats)
 const userProfile: UserProfile = {
   username: "username123",
   avatar: "/images/avatar.png",
   id: "0x9ec42a1b2c3d4e5f6a7b8c9d0e1f2a3b4c579da5",
+  rank: 230,
+  lifetimeEarning: 20023,
+  thisEpoch: 3150,
+  referrals: 5,
 };
 
 /**
@@ -335,7 +331,17 @@ export default function DashboardPage() {
 
           {/* Leaderboard Section */}
           <Leaderboard
-            entries={leaderboardData}
+            entries={[
+              {
+                rank: userProfile.rank,
+                userId: userProfile.id,
+                avatar: userProfile.avatar,
+                lifetimeEarning: userProfile.lifetimeEarning,
+                thisEpoch: userProfile.thisEpoch,
+                referrals: userProfile.referrals,
+              },
+              ...leaderboardData,
+            ]}
             currentUserId={userProfile.id}
           />
         </main>
