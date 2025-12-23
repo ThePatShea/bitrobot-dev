@@ -13,6 +13,8 @@
     "test": "jest",
     "test:watch": "jest --watch",
     "test:coverage": "jest --coverage",
+    "typecheck": "tsc --noEmit",
+    "validate": "npm run lint && npm run typecheck && npm run test",
     "docs": "typedoc",
     "docs:watch": "typedoc --watch"
   },

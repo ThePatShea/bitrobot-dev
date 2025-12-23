@@ -20,3 +20,6 @@ public/
 # Test coverage
 coverage/
 
+# Generated documentation
+docs/
+
