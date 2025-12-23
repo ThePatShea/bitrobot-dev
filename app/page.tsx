@@ -275,7 +275,7 @@ export default function DashboardPage() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background min-w-[350px] overflow-x-auto">
       {/* Mobile Menu */}
       <MobileMenu
         isOpen={isMobileMenuOpen}
