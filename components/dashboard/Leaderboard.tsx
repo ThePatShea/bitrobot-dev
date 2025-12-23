@@ -59,7 +59,9 @@ const LeaderboardRow: React.FC<LeaderboardRowProps> = ({
     >
       {/* Rank */}
       <td className={`py-2.5 px-4 ${cellBg} ${hoverBg}`}>
-        <span className={`text-sm font-medium ${textColor}`}>{entry.rank}</span>
+        <span className={`text-sm font-medium tracking-tighter ${textColor}`}>
+          {entry.rank}
+        </span>
       </td>
 
       {/* User */}
@@ -72,7 +74,7 @@ const LeaderboardRow: React.FC<LeaderboardRowProps> = ({
             height={20}
             className="rounded-full"
           />
-          <span className={`text-sm font-medium ${textColor}`}>
+          <span className={`text-sm font-medium tracking-tighter ${textColor}`}>
             {entry.userId}
           </span>
         </div>
@@ -80,21 +82,21 @@ const LeaderboardRow: React.FC<LeaderboardRowProps> = ({
 
       {/* Lifetime Earning */}
       <td className={`py-2.5 px-4 ${cellBg} ${hoverBg}`}>
-        <span className={`text-sm font-medium ${textColor}`}>
+        <span className={`text-sm font-medium tracking-tighter ${textColor}`}>
           {entry.lifetimeEarning.toLocaleString()}
         </span>
       </td>
 
       {/* This Epoch */}
       <td className={`py-2.5 px-4 ${cellBg} ${hoverBg}`}>
-        <span className={`text-sm font-medium ${textColor}`}>
+        <span className={`text-sm font-medium tracking-tighter ${textColor}`}>
           {entry.thisEpoch.toLocaleString()}
         </span>
       </td>
 
       {/* Referrals */}
       <td className={`py-2.5 px-4 ${cellBg} ${hoverBg}`}>
-        <span className={`text-sm font-medium ${textColor}`}>
+        <span className={`text-sm font-medium tracking-tighter ${textColor}`}>
           {entry.referrals}
         </span>
       </td>
@@ -135,19 +137,19 @@ export const Leaderboard: React.FC<LeaderboardProps> = ({
         <table className="w-full">
           <thead>
             <tr>
-              <th className="py-2.5 px-4 text-left text-sm font-normal text-gray-light">
+              <th className="py-2.5 px-4 text-left text-sm font-normal text-gray-light tracking-tighter w-34">
                 Rank
               </th>
-              <th className="py-2.5 px-4 text-left text-sm font-normal text-gray-light">
+              <th className="py-2.5 px-4 text-left text-sm font-normal text-gray-light tracking-tighter w-56">
                 User
               </th>
-              <th className="py-2.5 px-4 text-left text-sm font-normal text-gray-light">
+              <th className="py-2.5 px-4 text-left text-sm font-normal text-gray-light tracking-tighter w-56">
                 Lifetime Earning
               </th>
-              <th className="py-2.5 px-4 text-left text-sm font-normal text-gray-light">
+              <th className="py-2.5 px-4 text-left text-sm font-normal text-gray-light tracking-tighter w-56">
                 This Epoch
               </th>
-              <th className="py-2.5 px-4 text-left text-sm font-normal text-gray-light">
+              <th className="py-2.5 px-4 text-left text-sm font-normal text-gray-light tracking-tighter">
                 Referrals
               </th>
             </tr>
