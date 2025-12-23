@@ -40,7 +40,9 @@ interface BonusBannerProps {
  *   title="Bonuses available!"
  *   description="The more you participate, the more you earn."
  *   ctaText="SEE OPPORTUNITIES"
- *   onCtaClick={() => console.log('CTA clicked')}
+ *   onCtaClick={() => {
+ *     // Navigate to bonus opportunities
+ *   }}
  * />
  * ```
  */

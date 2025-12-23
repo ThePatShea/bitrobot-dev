@@ -56,7 +56,9 @@ const formatNumber = (num: number): string => {
  * <EarningsCard
  *   title="Last Epoch"
  *   points={234}
- *   onBreakdownClick={() => console.log('Breakdown clicked')}
+ *   onBreakdownClick={() => {
+ *     // Open earnings breakdown modal
+ *   }}
  * />
  * ```
  */

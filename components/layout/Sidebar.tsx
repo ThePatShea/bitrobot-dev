@@ -127,7 +127,9 @@ const ResourceItem: React.FC<{ item: ResourceLink }> = ({ item }) => {
  *   navItems={navItems}
  *   resourceLinks={resourceLinks}
  *   referralCount={12}
- *   onShareLink={() => console.log('Share clicked')}
+ *   onShareLink={() => {
+ *     // Copy referral link to clipboard
+ *   }}
  * />
  * ```
  */
