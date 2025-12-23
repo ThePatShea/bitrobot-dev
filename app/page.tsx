@@ -48,7 +48,8 @@ export default function DashboardPage() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
 
-  // Simulate initial data loading
+  // Simulate 100ms loading delay to demonstrate skeleton loading states
+  // In production, this would be replaced with actual data fetching
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsLoading(false);
