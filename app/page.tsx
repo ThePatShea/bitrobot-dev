@@ -287,7 +287,7 @@ export default function DashboardPage() {
         <Header user={userProfile} />
 
         {/* Main Content */}
-        <main className="pt-13 px-8 py-8">
+        <main className="pt-13 px-8 py-8 max-w-[965px]">
           {/* Discover Section */}
           <DiscoverCarousel items={carouselItems} />
 
