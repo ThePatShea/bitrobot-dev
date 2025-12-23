@@ -17,13 +17,88 @@ const inter = Inter({
 });
 
 /**
+ * Site configuration for meta tags
+ */
+const siteConfig = {
+  name: "BitRobot",
+  title: "BitRobot Dashboard",
+  description:
+    "Explore the BitRobot Network, track your earnings, and climb the leaderboard. Join the community and start earning today.",
+  url: "https://bitrobot.ai",
+  ogImage: "/images/robots.png",
+  twitterHandle: "@BitRobotNetwork",
+};
+
+/**
  * Metadata for the application
+ * Includes Open Graph and Twitter Card meta tags for social sharing
  */
 export const metadata: Metadata = {
-  title: "BitRobot Dashboard",
-  description: "Explore the BitRobot Network and track your earnings",
+  // Basic metadata
+  title: {
+    default: siteConfig.title,
+    template: `%s | ${siteConfig.name}`,
+  },
+  description: siteConfig.description,
+  keywords: [
+    "BitRobot",
+    "crypto",
+    "earnings",
+    "blockchain",
+    "rewards",
+    "leaderboard",
+    "network",
+  ],
+  authors: [{ name: siteConfig.name }],
+  creator: siteConfig.name,
+
+  // Favicon and icons
   icons: {
     icon: "/icons/logo.svg",
+    shortcut: "/icons/logo.svg",
+    apple: "/icons/logo.svg",
+  },
+
+  // Open Graph metadata for Facebook, LinkedIn, etc.
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    url: siteConfig.url,
+    siteName: siteConfig.name,
+    title: siteConfig.title,
+    description: siteConfig.description,
+    images: [
+      {
+        url: siteConfig.ogImage,
+        width: 1200,
+        height: 630,
+        alt: `${siteConfig.name} - Track your earnings and climb the leaderboard`,
+      },
+    ],
+  },
+
+  // Twitter Card metadata
+  twitter: {
+    card: "summary_large_image",
+    title: siteConfig.title,
+    description: siteConfig.description,
+    images: [siteConfig.ogImage],
+    creator: siteConfig.twitterHandle,
+    site: siteConfig.twitterHandle,
+  },
+
+  // Additional metadata
+  metadataBase: new URL(siteConfig.url),
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
   },
 };
 

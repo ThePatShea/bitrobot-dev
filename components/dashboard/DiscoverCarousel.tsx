@@ -117,7 +117,7 @@ export const DiscoverCarousel: React.FC<DiscoverCarouselProps> = ({
                 <div
                   className="absolute inset-0 opacity-40"
                   style={{
-                    backgroundImage: "url('/images/carousel.png')",
+                    backgroundImage: "url('/images/robots.png')",
                     backgroundSize: "160%",
                     backgroundPosition: "45% 36%",
                   }}
