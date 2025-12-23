@@ -56,7 +56,11 @@ export const BonusBanner: React.FC<BonusBannerProps> = ({
         <h3 className="font-medium text-primary">{title}</h3>
         <p className="text-sm text-primary">{description}</p>
       </div>
-      <Button variant="primary" onClick={onCtaClick}>
+      <Button
+        variant="primary"
+        onClick={onCtaClick}
+        className="flex-shrink-0 ml-2"
+      >
         {ctaText}
       </Button>
     </div>
