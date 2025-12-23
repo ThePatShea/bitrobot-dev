@@ -182,7 +182,7 @@ export const leaderboardData: LeaderboardEntry[] = [
     userId: "0x479bd1234567890abcdef1234567890abc2a1b3",
     avatar: "/images/avatar-2.png",
     lifetimeEarning: 20023,
-    thisEpoch: 3150,
+    lastEpoch: 3150,
     referrals: 56,
   },
   {
@@ -190,7 +190,7 @@ export const leaderboardData: LeaderboardEntry[] = [
     userId: "0x39a02fedcba0987654321fedcba09876541e791",
     avatar: "/images/avatar-3.png",
     lifetimeEarning: 20023,
-    thisEpoch: 3150,
+    lastEpoch: 3150,
     referrals: 43,
   },
   {
@@ -198,7 +198,7 @@ export const leaderboardData: LeaderboardEntry[] = [
     userId: "0xb36a4abcdef123456789abcdef12345671d3a3",
     avatar: "/images/avatar-4.png",
     lifetimeEarning: 20023,
-    thisEpoch: 3150,
+    lastEpoch: 3150,
     referrals: 41,
   },
   {
@@ -206,7 +206,7 @@ export const leaderboardData: LeaderboardEntry[] = [
     userId: "0x321c7fedcba9876543210fedcba987654c3d8d",
     avatar: "/images/avatar-5.png",
     lifetimeEarning: 20023,
-    thisEpoch: 3150,
+    lastEpoch: 3150,
     referrals: 32,
   },
   {
@@ -214,7 +214,7 @@ export const leaderboardData: LeaderboardEntry[] = [
     userId: "0x932d1a1b2c3d4e5f6a7b8c9d0e1f2a3b4134015",
     avatar: "/images/avatar-6.png",
     lifetimeEarning: 20023,
-    thisEpoch: 3150,
+    lastEpoch: 3150,
     referrals: 30,
   },
   {
@@ -222,7 +222,7 @@ export const leaderboardData: LeaderboardEntry[] = [
     userId: "0x6542e9876543210fedcba9876543210fe2a407",
     avatar: "/images/avatar-7.png",
     lifetimeEarning: 20023,
-    thisEpoch: 3150,
+    lastEpoch: 3150,
     referrals: 30,
   },
   {
@@ -230,7 +230,7 @@ export const leaderboardData: LeaderboardEntry[] = [
     userId: "0x345c9abcdef0123456789abcdef0123457a06a",
     avatar: "/images/avatar-8.png",
     lifetimeEarning: 20023,
-    thisEpoch: 3150,
+    lastEpoch: 3150,
     referrals: 30,
   },
   {
@@ -238,7 +238,7 @@ export const leaderboardData: LeaderboardEntry[] = [
     userId: "0x9a49a1234567890abcdef1234567890abbece6",
     avatar: "/images/avatar-9.png",
     lifetimeEarning: 20023,
-    thisEpoch: 3150,
+    lastEpoch: 3150,
     referrals: 28,
   },
   {
@@ -246,7 +246,7 @@ export const leaderboardData: LeaderboardEntry[] = [
     userId: "0x03641fedcba0987654321fedcba098765452b87",
     avatar: "/images/avatar-10.png",
     lifetimeEarning: 20023,
-    thisEpoch: 3150,
+    lastEpoch: 3150,
     referrals: 12,
   },
   {
@@ -254,7 +254,7 @@ export const leaderboardData: LeaderboardEntry[] = [
     userId: "0x4a6a0abcdef123456789abcdef123456789516f2",
     avatar: "/images/avatar-11.png",
     lifetimeEarning: 20023,
-    thisEpoch: 3150,
+    lastEpoch: 3150,
     referrals: 12,
   },
 ];
@@ -267,7 +267,7 @@ export const userProfile: UserProfile = {
   avatar: "/images/avatar.png",
   id: "0x9ec42a1b2c3d4e5f6a7b8c9d0e1f2a3b4c579da5",
   rank: 230,
-  lifetimeEarning: 20023,
-  thisEpoch: 3150,
-  referrals: 5,
+  lifetimeEarning: 1300,
+  lastEpoch: 234,
+  referrals: 12,
 };

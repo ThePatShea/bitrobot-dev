@@ -65,7 +65,7 @@ export default function DashboardPage() {
         onClose={() => setIsMobileMenuOpen(false)}
         navItems={navItems}
         resourceLinks={resourceLinks}
-        referralCount={12}
+        referralCount={userProfile.referrals}
         onShareLink={() => {
           // Copy referral link to clipboard and show toast
         }}
@@ -77,7 +77,7 @@ export default function DashboardPage() {
         <Sidebar
           navItems={navItems}
           resourceLinks={resourceLinks}
-          referralCount={12}
+          referralCount={userProfile.referrals}
           onShareLink={() => {
             // Copy referral link to clipboard and show toast
           }}
@@ -127,14 +127,14 @@ export default function DashboardPage() {
                         <>
                           <EarningsCard
                             title="Last Epoch"
-                            points={234}
+                            points={userProfile.lastEpoch}
                             onBreakdownClick={() => {
                               // Open modal with detailed epoch breakdown
                             }}
                           />
                           <EarningsCard
                             title="Lifetime"
-                            points={1300}
+                            points={userProfile.lifetimeEarning}
                             formatPoints={true}
                             onBreakdownClick={() => {
                               // Open modal with lifetime earnings breakdown
@@ -185,7 +185,7 @@ export default function DashboardPage() {
                       userId: userProfile.id,
                       avatar: userProfile.avatar,
                       lifetimeEarning: userProfile.lifetimeEarning,
-                      thisEpoch: userProfile.thisEpoch,
+                      lastEpoch: userProfile.lastEpoch,
                       referrals: userProfile.referrals,
                     },
                     ...leaderboardData,

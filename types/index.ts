@@ -60,7 +60,7 @@ export interface LeaderboardEntry {
   /** Total lifetime earnings */
   lifetimeEarning: number;
   /** Earnings for the current epoch */
-  thisEpoch: number;
+  lastEpoch: number;
   /** Number of successful referrals */
   referrals: number;
 }
@@ -124,8 +124,7 @@ export interface UserProfile {
   /** Total lifetime earnings */
   lifetimeEarning: number;
   /** Earnings for the current epoch */
-  thisEpoch: number;
+  lastEpoch: number;
   /** Number of successful referrals */
   referrals: number;
 }
-

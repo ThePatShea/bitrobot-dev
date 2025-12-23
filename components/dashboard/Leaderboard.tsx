@@ -92,7 +92,7 @@ const LeaderboardRow: React.FC<LeaderboardRowProps> = ({
       {/* This Epoch */}
       <td className={`py-2.5 px-2 sm:px-4 ${cellBg} ${hoverBg}`}>
         <span className={`text-xs sm:text-sm font-medium tracking-tighter ${textColor}`}>
-          {entry.thisEpoch.toLocaleString()}
+          {entry.lastEpoch.toLocaleString()}
         </span>
       </td>
 
