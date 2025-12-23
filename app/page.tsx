@@ -94,16 +94,24 @@ export default function DashboardPage() {
           {/* Main Content */}
           <main className="pt-15 lg:pt-13 px-4 lg:pl-5.75 lg:pr-2.75 pb-8">
             {/* Discover Section */}
-            <SectionErrorBoundary sectionName="carousel">
-              {isLoading ? (
-                <CarouselSkeleton />
-              ) : (
-                <DiscoverCarousel items={carouselItems} />
-              )}
-            </SectionErrorBoundary>
+            <div
+              className={isLoading ? "" : "animate-section animate-section-1"}
+            >
+              <SectionErrorBoundary sectionName="carousel">
+                {isLoading ? (
+                  <CarouselSkeleton />
+                ) : (
+                  <DiscoverCarousel items={carouselItems} />
+                )}
+              </SectionErrorBoundary>
+            </div>
 
             {/* Earnings Section */}
-            <section className="mb-8">
+            <section
+              className={`mb-8 ${
+                isLoading ? "" : "animate-section animate-section-2"
+              }`}
+            >
               <div className="mb-6">
                 {isLoading ? (
                   <SectionHeaderSkeleton width="80px" />
@@ -174,26 +182,30 @@ export default function DashboardPage() {
             </section>
 
             {/* Leaderboard Section */}
-            <SectionErrorBoundary sectionName="leaderboard">
-              {isLoading ? (
-                <LeaderboardSkeleton />
-              ) : (
-                <Leaderboard
-                  entries={[
-                    {
-                      rank: userProfile.rank,
-                      userId: userProfile.id,
-                      avatar: userProfile.avatar,
-                      lifetimeEarning: userProfile.lifetimeEarning,
-                      lastEpoch: userProfile.lastEpoch,
-                      referrals: userProfile.referrals,
-                    },
-                    ...leaderboardData,
-                  ]}
-                  currentUserId={userProfile.id}
-                />
-              )}
-            </SectionErrorBoundary>
+            <div
+              className={isLoading ? "" : "animate-section animate-section-3"}
+            >
+              <SectionErrorBoundary sectionName="leaderboard">
+                {isLoading ? (
+                  <LeaderboardSkeleton />
+                ) : (
+                  <Leaderboard
+                    entries={[
+                      {
+                        rank: userProfile.rank,
+                        userId: userProfile.id,
+                        avatar: userProfile.avatar,
+                        lifetimeEarning: userProfile.lifetimeEarning,
+                        lastEpoch: userProfile.lastEpoch,
+                        referrals: userProfile.referrals,
+                      },
+                      ...leaderboardData,
+                    ]}
+                    currentUserId={userProfile.id}
+                  />
+                )}
+              </SectionErrorBoundary>
+            </div>
           </main>
         </div>
       </div>
