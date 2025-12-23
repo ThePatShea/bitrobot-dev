@@ -64,7 +64,9 @@ export const Header: React.FC<HeaderProps> = ({ user, onMenuOpen }) => {
   }, [isMenuOpen]);
 
   return (
-    <header className="h-16 px-4 lg:px-0 lg:pr-2.75 flex items-center justify-between lg:justify-end sticky top-0 z-30 bg-background">
+    <header className="h-16">
+      {/* Fixed inner container that stays at top of viewport */}
+      <div className="fixed top-0 h-16 px-4 lg:px-0 flex items-center justify-between lg:justify-end z-30 bg-background left-0 right-0 fixed-header-centered lg:pr-2.75">
       {/* Mobile: Logo and Hamburger */}
       <div className="flex items-center gap-3 lg:hidden">
         {/* Hamburger Button */}
@@ -117,6 +119,7 @@ export const Header: React.FC<HeaderProps> = ({ user, onMenuOpen }) => {
             </button>
           </div>
         )}
+      </div>
       </div>
     </header>
   );
