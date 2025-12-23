@@ -5,7 +5,7 @@
 
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Sidebar } from "@/components/layout/Sidebar";
 import { Header } from "@/components/layout/Header";
 import { MobileMenu } from "@/components/layout/MobileMenu";
@@ -15,6 +15,15 @@ import { EarningsHistory } from "@/components/dashboard/EarningsHistory";
 import { Leaderboard } from "@/components/dashboard/Leaderboard";
 import { BonusBanner } from "@/components/dashboard/BonusBanner";
 import { SectionHeader } from "@/components/ui/SectionHeader";
+import { SectionErrorBoundary } from "@/components/ui/ErrorBoundary";
+import {
+  CarouselSkeleton,
+  SectionHeaderSkeleton,
+  EarningsCardSkeleton,
+  BonusBannerSkeleton,
+  EarningsHistorySkeleton,
+  LeaderboardSkeleton,
+} from "@/components/ui/Skeleton";
 import {
   navItems,
   resourceLinks,
@@ -37,6 +46,16 @@ import {
  */
 export default function DashboardPage() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
+
+  // Simulate initial data loading
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 100);
+
+    return () => clearTimeout(timer);
+  }, []);
 
   return (
     <div className="min-h-screen bg-background min-w-[350px] overflow-x-auto">
@@ -75,67 +94,106 @@ export default function DashboardPage() {
           {/* Main Content */}
           <main className="pt-15 lg:pt-13 px-4 lg:pl-5.75 lg:pr-2.75 pb-8">
             {/* Discover Section */}
-            <DiscoverCarousel items={carouselItems} />
+            <SectionErrorBoundary sectionName="carousel">
+              {isLoading ? (
+                <CarouselSkeleton />
+              ) : (
+                <DiscoverCarousel items={carouselItems} />
+              )}
+            </SectionErrorBoundary>
 
             {/* Earnings Section */}
             <section className="mb-8">
               <div className="mb-6">
-                <SectionHeader title="Earnings" />
+                {isLoading ? (
+                  <SectionHeaderSkeleton width="80px" />
+                ) : (
+                  <SectionHeader title="Earnings" />
+                )}
               </div>
 
               {/* Earnings Cards Grid */}
               <div className="flex flex-col lg:flex-row gap-4">
                 {/* Left side: Earnings Cards + Bonus Banner */}
                 <div className="lg:basis-[48%] flex flex-col gap-4">
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <EarningsCard
-                      title="Last Epoch"
-                      points={234}
-                      onBreakdownClick={() => {
-                        // Open modal with detailed epoch breakdown
-                      }}
-                    />
-                    <EarningsCard
-                      title="Lifetime"
-                      points={1300}
-                      formatPoints={true}
-                      onBreakdownClick={() => {
-                        // Open modal with lifetime earnings breakdown
-                      }}
-                    />
-                  </div>
+                  <SectionErrorBoundary sectionName="earnings cards">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                      {isLoading ? (
+                        <>
+                          <EarningsCardSkeleton />
+                          <EarningsCardSkeleton />
+                        </>
+                      ) : (
+                        <>
+                          <EarningsCard
+                            title="Last Epoch"
+                            points={234}
+                            onBreakdownClick={() => {
+                              // Open modal with detailed epoch breakdown
+                            }}
+                          />
+                          <EarningsCard
+                            title="Lifetime"
+                            points={1300}
+                            formatPoints={true}
+                            onBreakdownClick={() => {
+                              // Open modal with lifetime earnings breakdown
+                            }}
+                          />
+                        </>
+                      )}
+                    </div>
+                  </SectionErrorBoundary>
                   {/* Bonus Banner */}
-                  <BonusBanner
-                    title="Bonuses available!"
-                    description="The more you participate, the more you earn."
-                    ctaText="SEE OPPORTUNITIES"
-                    onCtaClick={() => {
-                      // Navigate to bonus opportunities page
-                    }}
-                  />
+                  <SectionErrorBoundary sectionName="bonus banner">
+                    {isLoading ? (
+                      <BonusBannerSkeleton />
+                    ) : (
+                      <BonusBanner
+                        title="Bonuses available!"
+                        description="The more you participate, the more you earn."
+                        ctaText="SEE OPPORTUNITIES"
+                        onCtaClick={() => {
+                          // Navigate to bonus opportunities page
+                        }}
+                      />
+                    )}
+                  </SectionErrorBoundary>
                 </div>
                 {/* Right side: Earnings History */}
                 <div className="lg:basis-[52%]">
-                  <EarningsHistory data={earningsData} />
+                  <SectionErrorBoundary sectionName="earnings history">
+                    {isLoading ? (
+                      <EarningsHistorySkeleton />
+                    ) : (
+                      <EarningsHistory data={earningsData} />
+                    )}
+                  </SectionErrorBoundary>
                 </div>
               </div>
             </section>
 
             {/* Leaderboard Section */}
-            <Leaderboard
-              entries={[
-                {
-                  rank: userProfile.rank,
-                  userId: userProfile.id,
-                  avatar: userProfile.avatar,
-                  lifetimeEarning: userProfile.lifetimeEarning,
-                  thisEpoch: userProfile.thisEpoch,
-                  referrals: userProfile.referrals,
-                },
-                ...leaderboardData,
-              ]}
-              currentUserId={userProfile.id}
-            />
+            <SectionErrorBoundary sectionName="leaderboard">
+              {isLoading ? (
+                <LeaderboardSkeleton />
+              ) : (
+                <Leaderboard
+                  entries={[
+                    {
+                      rank: userProfile.rank,
+                      userId: userProfile.id,
+                      avatar: userProfile.avatar,
+                      lifetimeEarning: userProfile.lifetimeEarning,
+                      thisEpoch: userProfile.thisEpoch,
+                      referrals: userProfile.referrals,
+                    },
+                    ...leaderboardData,
+                  ]}
+                  currentUserId={userProfile.id}
+                />
+              )}
+            </SectionErrorBoundary>
           </main>
         </div>
       </div>

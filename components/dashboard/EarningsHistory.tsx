@@ -6,6 +6,7 @@
 "use client";
 
 import React from "react";
+import { EarningsEmptyState } from "@/components/ui/EmptyState";
 import type { EarningsDataPoint } from "@/types";
 
 /**
@@ -45,6 +46,8 @@ export const EarningsHistory: React.FC<EarningsHistoryProps> = ({ data }) => {
   const maxValue = 1200;
   const chartHeight = 210;
 
+  const isEmpty = data.length === 0;
+
   /**
    * Calculate the height of a bar based on its value
    */
@@ -54,14 +57,13 @@ export const EarningsHistory: React.FC<EarningsHistoryProps> = ({ data }) => {
     return (normalizedValue / range) * chartHeight;
   };
 
-  /**
-   * Calculate the Y position for grid lines
-   */
-  const getGridLinePosition = (value: number): number => {
-    const range = maxValue - minValue;
-    const normalizedValue = maxValue - value;
-    return (normalizedValue / range) * chartHeight;
-  };
+  if (isEmpty) {
+    return (
+      <div className="bg-white rounded-2xl border border-border p-3 sm:p-4 h-75 overflow-hidden flex items-center justify-center">
+        <EarningsEmptyState />
+      </div>
+    );
+  }
 
   return (
     <div className="bg-white rounded-2xl border border-border p-3 sm:p-4 h-75 overflow-hidden">

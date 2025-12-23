@@ -8,6 +8,7 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import { SectionHeader } from "@/components/ui/SectionHeader";
+import { LeaderboardEmptyState } from "@/components/ui/EmptyState";
 import { formatAddress } from "@/lib/format";
 import type { LeaderboardEntry } from "@/types";
 
@@ -127,6 +128,8 @@ export const Leaderboard: React.FC<LeaderboardProps> = ({
   entries,
   currentUserId,
 }) => {
+  const isEmpty = entries.length === 0;
+
   return (
     <section className="mt-8">
       {/* Section Header */}
@@ -134,6 +137,9 @@ export const Leaderboard: React.FC<LeaderboardProps> = ({
         <SectionHeader title="Leaderboard" />
       </div>
 
+      {isEmpty ? (
+        <LeaderboardEmptyState />
+      ) : (
       <div className="overflow-x-auto">
         <table className="w-full">
           <thead>
@@ -166,6 +172,7 @@ export const Leaderboard: React.FC<LeaderboardProps> = ({
           </tbody>
         </table>
       </div>
+      )}
     </section>
   );
 };
