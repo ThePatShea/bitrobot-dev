@@ -22,6 +22,9 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: "BitRobot Dashboard",
   description: "Explore the BitRobot Network and track your earnings",
+  icons: {
+    icon: "/icons/logo.svg",
+  },
 };
 
 /**
