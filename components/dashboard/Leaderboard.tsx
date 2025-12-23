@@ -8,6 +8,7 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import { SectionHeader } from "@/components/ui/SectionHeader";
+import { formatAddress } from "@/helpers/format";
 import type { LeaderboardEntry } from "@/app/types";
 
 /**
@@ -75,7 +76,7 @@ const LeaderboardRow: React.FC<LeaderboardRowProps> = ({
             className="rounded-full"
           />
           <span className={`text-sm font-medium tracking-tighter ${textColor}`}>
-            {entry.userId}
+            {formatAddress(entry.userId, 7, 5)}
           </span>
         </div>
       </td>
