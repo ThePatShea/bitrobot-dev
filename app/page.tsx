@@ -93,7 +93,11 @@ export default function DashboardPage() {
           />
 
           {/* Main Content */}
-          <main className="pt-15 lg:pt-13 px-4 lg:pl-5.75 lg:pr-2.75 pb-8">
+          <main
+            className="pt-15 lg:pt-13 px-4 lg:pl-5.75 lg:pr-2.75 pb-8"
+            aria-live="polite"
+            aria-busy={isLoading}
+          >
             {/* Discover Section */}
             <div
               className={isLoading ? "" : "animate-section animate-section-1"}
