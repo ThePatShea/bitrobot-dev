@@ -193,7 +193,7 @@ export const DiscoverCarousel: React.FC<DiscoverCarouselProps> = ({
           <button
             key={index}
             onClick={() => setCurrentIndex(index)}
-            className={`w-3 h-1 rounded-full transition-colors duration-300 ${
+            className={`w-3 h-1 rounded-full transition-all duration-300 cursor-pointer ${
               index === currentIndex
                 ? "bg-primary"
                 : "bg-border hover:bg-primary/40"

@@ -78,10 +78,7 @@ export class ErrorBoundary extends Component<
 
       // Default fallback UI
       return (
-        <ErrorFallback
-          error={this.state.error}
-          onRetry={this.handleRetry}
-        />
+        <ErrorFallback error={this.state.error} onRetry={this.handleRetry} />
       );
     }
 
@@ -154,7 +151,7 @@ export const ErrorFallback: React.FC<ErrorFallbackProps> = ({
       {/* Error Details (development only) */}
       {error && process.env.NODE_ENV === "development" && (
         <details className="mb-6 max-w-md">
-          <summary className="text-xs text-muted cursor-pointer hover:text-primary">
+          <summary className="text-xs text-muted cursor-pointer hover:text-primary transition-colors duration-200">
             View error details
           </summary>
           <pre className="mt-2 p-3 bg-gray-100 rounded-lg text-xs text-left overflow-auto max-h-32">
@@ -203,4 +200,3 @@ export const SectionErrorBoundary: React.FC<{
     </ErrorBoundary>
   );
 };
-
