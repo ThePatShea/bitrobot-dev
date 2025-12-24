@@ -106,6 +106,40 @@ npm run test:coverage
 - **Utilities** — format.ts
 - **Integration** — Main dashboard page
 
+## Documentation
+
+### Viewing Generated Docs
+
+```bash
+# Generate documentation
+npm run docs
+
+# Open in browser
+open docs/index.html
+```
+
+The generated documentation is in the `docs/` folder and includes:
+
+- All component APIs and props
+- Utility function signatures
+- TypeScript interfaces
+
+### JSDoc in Code
+
+Every component and function includes JSDoc comments:
+
+```tsx
+/**
+ * Format large numbers with k/M suffix
+ * @param num - The number to format
+ * @returns Formatted string (e.g., "1.3k", "2.5M")
+ * @example
+ * formatNumber(1300) // "1.3k"
+ */
+```
+
+Your IDE will show these comments on hover for autocomplete and documentation.
+
 ## Tech Stack
 
 | Category      | Technology                      |
