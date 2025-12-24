@@ -2,6 +2,8 @@
 
 A fast, responsive, and lightweight dashboard for the BitRobot Network built with Next.js 16, React 19, TypeScript, and Tailwind CSS v4.
 
+**Time to completion:** 15 hours 49 minutes
+
 ## Features
 
 - ⚡ **Fast** — Only 3 production dependencies, optimized images with `next/image`, font optimization with `next/font`
@@ -192,3 +194,32 @@ Your IDE will show these comments on hover for autocomplete and documentation.
 - JSDoc comments on all components and functions
 - Full TypeScript coverage with strict mode
 - Barrel exports for clean imports
+
+## Assumptions
+
+Where the mockup was ambiguous or incomplete, I made the following decisions:
+
+### Design & Layout
+
+- **Maximum width**: I interpreted the mockup width as a `max-width`. Content centers horizontally when the viewport exceeds this width.
+- **Responsive behavior**: I inferred element sizing, stacking, and spacing for smaller screens, as the mockup only provided a single viewport size.
+- **Hover and active states**: Where the mockup provided hover states, I used them. Where they were not provided, I designed appropriate hover and active states, as these are expected for a polished user experience.
+
+### Typography
+
+- **Font substitution**: The mockup uses PP NeueBit and Aeonik, which require commercial licenses. I used Inter as a visually similar alternative.
+- **Visual matching over exact values**: When mockup font sizes, weights, or letter-spacing produced different visual results with the substitute font, I adjusted values to match the mockup's visual appearance rather than its exact specifications. This also affected the padding of containing elements (buttons, divs, etc.).
+
+### Data & Content
+
+- **Active navigation state**: The mockup showed the sidebar in three different places: two with "Dashboard" selected, and one with "Contribute" selected, despite showing the same dashboard content. I selected "Dashboard" since the page content is clearly the dashboard view.
+- **Data consistency**: Where the mockup showed different values for the same data (e.g., the user's earnings appearing differently in the leaderboard vs. earnings cards), I used the earnings card values as the source of truth.
+- **Logo behavior**: I made the BitRobot logo function as a home link, consistent with bitrobot.ai.
+
+### Clarifications
+
+I confirmed the following via email correspondence with Jon prior to implementation:
+
+- The carousel should repeat the same card content across all slides
+- The user account dropdown should contain only a "Sign out" option, styled in red with consistent typography
+- Mobile optimization is not required, but the layout should adapt gracefully to different monitor sizes and browser resizing
