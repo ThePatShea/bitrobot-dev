@@ -213,7 +213,7 @@ Where the mockup was ambiguous or incomplete, I made the following decisions:
 ### Data & Content
 
 - **Active navigation state**: The mockup showed the sidebar in three different places: two with "Dashboard" selected, and one with "Contribute" selected, despite showing the same dashboard content. I selected "Dashboard" since the page content is clearly the dashboard view.
-- **Data consistency**: Where the mockup showed different values for the same data (e.g., the user's earnings appearing differently in the leaderboard vs. earnings cards), I used the earnings card values as the source of truth.
+- **Data consistency**: Where the mockup showed different values for the same data (e.g., the user's data appearing differently in the leaderboard vs. earnings/referral cards), I used the card values as the source of truth.
 - **Logo behavior**: I made the BitRobot logo function as a home link, consistent with bitrobot.ai.
 
 ### Clarifications
