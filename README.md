@@ -1,174 +1,160 @@
 # BitRobot Dashboard
 
-A modern, production-quality dashboard for the BitRobot Network built with Next.js 16, TypeScript, and Tailwind CSS.
+A fast, responsive, and lightweight dashboard for the BitRobot Network built with Next.js 16, React 19, TypeScript, and Tailwind CSS v4.
 
 ## Features
 
-- 🎨 **Modern UI** - Clean, professional interface with smooth animations
-- 📊 **Dashboard Analytics** - Track earnings, view history, and monitor leaderboards
-- 🎯 **Interactive Components** - Carousel, charts, and hover states
-- 🔐 **User Management** - Profile dropdown and authentication-ready
-- 📱 **Responsive Design** - Works seamlessly across all devices
-- ⚡ **Performance Optimized** - Built with Next.js App Router and React Server Components
-- 📝 **TypeScript** - Fully typed for better developer experience
-- 🎨 **Tailwind CSS** - Utility-first CSS for rapid development
+- ⚡ **Fast** — Only 3 production dependencies, optimized images with `next/image`, font optimization with `next/font`
+- 📱 **Responsive** — Works on all screen sizes
+- 🪶 **Lightweight** — No heavy libraries, CSS-only animations
+- 🧪 **Tested** — 111 tests with Jest and React Testing Library
+- 📝 **Documented** — JSDoc comments throughout, TypeDoc-generated API documentation
+- ♿ **Accessible** — Focus states, ARIA attributes, semantic HTML
+- 🎨 **Polished** — Loading skeletons, empty states, error boundaries, smooth transitions
+
+## Quick Start
+
+```bash
+# Install dependencies
+npm install
+
+# Start development server
+npm run dev
+
+# Open http://localhost:3000
+```
+
+## Scripts
+
+| Script                  | Description                                  |
+| ----------------------- | -------------------------------------------- |
+| `npm run dev`           | Start development server                     |
+| `npm run build`         | Build for production                         |
+| `npm run start`         | Run production server                        |
+| `npm run lint`          | Check for linting issues                     |
+| `npm run lint:fix`      | Auto-fix linting issues                      |
+| `npm run format`        | Format code with Prettier                    |
+| `npm run format:check`  | Check code formatting                        |
+| `npm run test`          | Run tests                                    |
+| `npm run test:watch`    | Run tests in watch mode                      |
+| `npm run test:coverage` | Run tests with coverage report               |
+| `npm run typecheck`     | Type-check without emitting                  |
+| `npm run validate`      | Run lint, typecheck, format check, and tests |
+| `npm run docs`          | Generate TypeDoc documentation               |
+| `npm run docs:watch`    | Generate docs in watch mode                  |
 
 ## Project Structure
 
 ```
 bitrobot-dev/
 ├── app/                      # Next.js App Router
-│   ├── types/               # TypeScript type definitions
-│   ├── globals.css          # Global styles
-│   ├── layout.tsx           # Root layout
-│   └── page.tsx             # Dashboard page
-├── components/              # React components
-│   ├── ui/                  # Reusable UI components
-│   │   ├── Button.tsx
-│   │   ├── Card.tsx
-│   │   ├── Badge.tsx
-│   │   └── Icon.tsx
-│   ├── layout/              # Layout components
-│   │   ├── Sidebar.tsx
-│   │   └── Header.tsx
-│   └── dashboard/           # Dashboard-specific components
-│       ├── DiscoverCarousel.tsx
-│       ├── EarningsCard.tsx
-│       ├── EarningsHistory.tsx
-│       ├── Leaderboard.tsx
-│       ├── BonusBanner.tsx
-│       └── EarnPointsBadge.tsx
-├── helpers/                 # Utility functions
-│   ├── format.ts           # Formatting helpers
-│   └── index.ts            # Helper exports
-└── public/                  # Static assets
-    ├── icons/              # SVG icons
-    └── images/             # Images and avatars
+│   ├── globals.css           # Global styles and Tailwind theme
+│   ├── layout.tsx            # Root layout with font setup
+│   ├── page.tsx              # Dashboard page
+│   └── page.test.tsx         # Integration tests
+├── components/
+│   ├── ui/                   # Reusable UI components
+│   │   ├── Button.tsx        # Button with variants
+│   │   ├── Card.tsx          # Card container
+│   │   ├── Icon.tsx          # SVG icon wrapper
+│   │   ├── Badge.tsx         # Status badges
+│   │   ├── Skeleton.tsx      # Loading skeletons
+│   │   ├── EmptyState.tsx    # Empty state illustrations
+│   │   └── ErrorBoundary.tsx # Error handling
+│   ├── layout/               # Layout components
+│   │   ├── Header.tsx        # Top header with user menu
+│   │   ├── Sidebar.tsx       # Desktop navigation
+│   │   └── MobileMenu.tsx    # Mobile slide-out menu
+│   └── dashboard/            # Dashboard-specific components
+│       ├── DiscoverCarousel.tsx  # Feature carousel
+│       ├── EarningsCard.tsx      # Earnings display
+│       ├── EarningsHistory.tsx   # Bar chart
+│       ├── Leaderboard.tsx       # Rankings table
+│       └── BonusBanner.tsx       # Promotional banner
+├── lib/                      # Utilities and data
+│   ├── format.ts             # Formatting helpers
+│   └── mock-data.ts          # Mock data for development
+├── types/                    # TypeScript type definitions
+│   └── index.ts
+├── public/
+│   ├── icons/                # SVG icons
+│   └── images/               # Images and avatars
+├── docs/                     # Generated TypeDoc documentation
+└── coverage/                 # Test coverage reports
 ```
 
-## Getting Started
+## Testing
 
-### Prerequisites
-
-- Node.js 18+
-- npm, yarn, pnpm, or bun
-
-### Installation
-
-1. Clone the repository:
+Tests are colocated with their components and use Jest with React Testing Library.
 
 ```bash
-git clone <repository-url>
-cd bitrobot-dev
+# Run all tests
+npm test
+
+# Run tests in watch mode
+npm run test:watch
+
+# Generate coverage report
+npm run test:coverage
 ```
 
-2. Install dependencies:
+### Test Coverage
 
-```bash
-npm install
-```
+- **Dashboard components** — EarningsCard, Leaderboard, DiscoverCarousel, EarningsHistory
+- **Layout components** — Sidebar, MobileMenu
+- **UI components** — Button, Card, ErrorBoundary
+- **Utilities** — format.ts
+- **Integration** — Main dashboard page
 
-3. Run the development server:
+## Tech Stack
 
-```bash
-npm run dev
-```
+| Category      | Technology                      |
+| ------------- | ------------------------------- |
+| Framework     | Next.js 16 (App Router)         |
+| Language      | TypeScript 5 (strict mode)      |
+| Styling       | Tailwind CSS v4                 |
+| Testing       | Jest 29 + React Testing Library |
+| Linting       | ESLint 9                        |
+| Formatting    | Prettier                        |
+| Documentation | TypeDoc                         |
+| Font          | Inter (via next/font)           |
 
-4. Open [http://localhost:3000](http://localhost:3000) in your browser
+## Production Dependencies
 
-### Available Scripts
-
-- `npm run dev` - Start development server
-- `npm run build` - Build for production
-- `npm run start` - Start production server
-- `npm run lint` - Run ESLint
-
-## Component Documentation
-
-All components are fully documented with JSDoc comments. Key components include:
-
-### UI Components (`components/ui/`)
-
-- **Button** - Reusable button with multiple variants (primary, secondary, outline, ghost)
-- **Card** - Container component with optional hover effects
-- **Badge** - Status indicators and labels
-- **Icon** - SVG icon wrapper with consistent sizing
-
-### Layout Components (`components/layout/`)
-
-- **Sidebar** - Navigation sidebar with menu items and resources
-- **Header** - Top header with user account menu
-
-### Dashboard Components (`components/dashboard/`)
-
-- **DiscoverCarousel** - Feature showcase carousel
-- **EarningsCard** - Display earnings data with hover effects
-- **EarningsHistory** - Bar chart for historical earnings
-- **Leaderboard** - Table showing top users
-- **BonusBanner** - Promotional banner component
-- **EarnPointsBadge** - Floating points badge
-
-## Customization
-
-### Colors
-
-Edit color variables in `app/globals.css`:
-
-```css
-:root {
-  --primary: #6366f1;
-  --secondary: #f5f3ff;
-  /* ... more colors */
+```json
+{
+  "next": "^16.1.1",
+  "react": "19.2.0",
+  "react-dom": "19.2.0"
 }
 ```
 
-### Icons
+## Key Design Decisions
 
-Add SVG icons to `public/icons/` and use them with the Icon component:
+### Performance
 
-```tsx
-<Icon name="your-icon" size={20} />
-```
+- No runtime CSS-in-JS — Tailwind compiles at build time
+- CSS-only animations using `transform` and `opacity`
+- Optimized images with `next/image`
 
-## Type Safety
+### User Experience
 
-The project uses TypeScript with strict mode enabled. Type definitions are located in `app/types/index.ts` and include:
+- Hover, active, and focus states on all interactive elements
+- Empty states with illustrations when no data
+- Staggered fade-in animations on page load
+- Error boundaries with retry functionality
+- Skeleton loaders during data fetching
 
-- `NavItem` - Navigation menu items
-- `ResourceLink` - External resource links
-- `LeaderboardEntry` - Leaderboard data structure
-- `EarningsDataPoint` - Chart data points
-- `CarouselItem` - Carousel slide content
-- `UserProfile` - User profile data
+### Accessibility
 
-## Best Practices
+- `focus-visible` ring on all interactive elements
+- `aria-live` regions for loading states
+- Keyboard navigation support
+- Semantic HTML throughout
 
-This codebase follows these best practices:
+### Code Quality
 
-- ✅ **Component Composition** - Small, reusable components
-- ✅ **TypeScript** - Full type safety throughout
-- ✅ **JSDoc Comments** - Comprehensive documentation
-- ✅ **Separation of Concerns** - Clear directory structure
-- ✅ **Accessibility** - Semantic HTML and ARIA labels
-- ✅ **Performance** - Optimized images and code splitting
-- ✅ **Consistent Styling** - Tailwind CSS utilities
-
-## Future Enhancements
-
-- [ ] API integration for real data
-- [ ] User authentication
-- [ ] Real-time updates with WebSockets
-- [ ] Additional dashboard pages (Contribute, Profile)
-- [ ] Dark mode support
-- [ ] Internationalization (i18n)
-- [ ] Unit and integration tests
-
-## Learn More
-
-- [Next.js Documentation](https://nextjs.org/docs)
-- [TypeScript Handbook](https://www.typescriptlang.org/docs/)
-- [Tailwind CSS](https://tailwindcss.com/docs)
-
-## License
-
-[Your License Here]
+- Colocated tests following Testing Library best practices
+- JSDoc comments on all components and functions
+- Full TypeScript coverage with strict mode
+- Barrel exports for clean imports

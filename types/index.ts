@@ -59,7 +59,7 @@ export interface LeaderboardEntry {
   avatar: string;
   /** Total lifetime earnings */
   lifetimeEarning: number;
-  /** Earnings for the current epoch */
+  /** Earnings for the last epoch */
   lastEpoch: number;
   /** Number of successful referrals */
   referrals: number;
@@ -123,7 +123,7 @@ export interface UserProfile {
   rank: number;
   /** Total lifetime earnings */
   lifetimeEarning: number;
-  /** Earnings for the current epoch */
+  /** Earnings for the last epoch */
   lastEpoch: number;
   /** Number of successful referrals */
   referrals: number;
